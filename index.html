@@ -89,16 +89,16 @@ header{min-height:100svh;display:flex;flex-direction:column;justify-content:flex
 
 .magnet{
   position:absolute;top:19vh;right:min(6vw,90px);
-  width:min(30vw,330px);aspect-ratio:3/3.7;
+  width:min(27vw,310px);aspect-ratio:1/1.16;
   border-radius:6px;overflow:hidden;
   filter:grayscale(1) contrast(1.06) brightness(.94);
   will-change:transform;
   transition:filter .8s var(--e);
-  -webkit-mask-image:linear-gradient(180deg,#000 62%,transparent 100%);
-  mask-image:linear-gradient(180deg,#000 62%,transparent 100%);
+  -webkit-mask-image:linear-gradient(180deg,#000 70%,transparent 100%);
+  mask-image:linear-gradient(180deg,#000 70%,transparent 100%);
 }
 .magnet:hover{filter:grayscale(0) contrast(1) brightness(1)}
-.magnet img{width:100%;height:100%;object-fit:cover;object-position:center 18%;display:block;position:relative;z-index:1}
+.magnet img{width:100%;height:100%;object-fit:cover;object-position:center 22%;display:block;position:relative;z-index:1}
 .mag-fb{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:14px;background:linear-gradient(165deg,#1B1B1B 0%,#0D0D0D 100%);border:1px solid var(--line)}
 .mag-fb span{font-family:"Kanit","Archivo","Helvetica Neue",Arial,sans-serif;font-weight:600;font-size:clamp(40px,5vw,72px);letter-spacing:-.03em;background:var(--grad);-webkit-background-clip:text;background-clip:text;color:transparent}
 .mag-fb em{font-style:normal;font-family:"JetBrains Mono",monospace;font-size:10px;letter-spacing:.18em;color:var(--txt-3);text-transform:uppercase}
@@ -293,7 +293,8 @@ footer .soc a:hover{color:var(--txt)}
     </div>
     <div class="magnet rv d2" id="magnet">
       <div class="mag-fb"><span>HK</span><em>Islamabad · PK</em></div>
-      <img src="https://avatars.githubusercontent.com/Hassnainkhan1249" alt="Hassnain Khan" loading="eager" onerror="this.remove()">
+      <img src="profile.jpg" alt="Hassnain Khan" loading="eager"
+           onerror="if(!this.dataset.f){this.dataset.f=1;this.src='https://hassnainkhan1249.github.io/hassnain-portfolio/profile.jpg'}else{this.remove()}">
     </div>
   </div>
 
