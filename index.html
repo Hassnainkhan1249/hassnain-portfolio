@@ -3,148 +3,203 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Hassnain Khan</title>
+<title>Hassnain Khan — Machine Learning & Software Engineering</title>
 <meta name="description" content="Computer Engineering student at Bahria University Islamabad. Machine learning, full-stack engineering and application security.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
-<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='88' font-family='Helvetica' font-weight='600'>H</text></svg>">
+<link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:opsz,wght@8..60,400;8..60,500;8..60,600&family=Inter:wght@400;450;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='22' fill='%23cc785c'/><text x='50' y='72' font-size='60' font-family='Georgia' font-weight='600' fill='%23faf9f5' text-anchor='middle'>H</text></svg>">
 <style>
 :root{
-  --ink:#111113;
-  --ink-2:#6e6e73;
-  --ink-3:#9a9aa0;
-  --paper:#ffffff;
-  --paper-2:#f5f5f7;
-  --rule:#e3e3e6;
-  --gut:clamp(24px,5vw,64px);
+  --paper:#faf9f5;
+  --paper-2:#f0eee6;
+  --paper-3:#e8e6dc;
+  --ink:#141413;
+  --ink-2:#3d3d3a;
+  --ink-3:#6b6b66;
+  --ink-4:#9a9a93;
+  --rule:#dedbd0;
+  --clay:#cc785c;
+  --clay-d:#b3624a;
+  --gut:clamp(24px,5vw,72px);
+  --ease:cubic-bezier(.22,.68,.32,1);
 }
 *{margin:0;padding:0;box-sizing:border-box}
 html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
 body{
   background:var(--paper);color:var(--ink);
-  font-family:Inter,-apple-system,BlinkMacSystemFont,"Segoe UI",Helvetica,Arial,sans-serif;
-  font-size:17px;line-height:1.55;letter-spacing:-.011em;
-  -webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale;
+  font-family:Inter,-apple-system,BlinkMacSystemFont,"Segoe UI",Helvetica,sans-serif;
+  font-size:17px;line-height:1.6;letter-spacing:-.008em;
+  -webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale;overflow-x:hidden;
 }
 a{color:inherit;text-decoration:none}
-.wrap{max-width:1120px;margin:0 auto;padding:0 var(--gut)}
-.narrow{max-width:760px}
+.wrap{max-width:1140px;margin:0 auto;padding:0 var(--gut)}
+.narrow{max-width:780px}
+.serif{font-family:"Source Serif 4",Georgia,serif}
+.mono{font-family:"JetBrains Mono",ui-monospace,monospace}
 
-/* ---------- nav ---------- */
-nav{position:sticky;top:0;z-index:60;background:rgba(255,255,255,.72);
-  backdrop-filter:saturate(180%) blur(20px);border-bottom:1px solid transparent;transition:border-color .3s}
-nav.stuck{border-bottom-color:var(--rule)}
-.nav-in{max-width:1120px;margin:0 auto;padding:0 var(--gut);height:52px;display:flex;align-items:center;justify-content:space-between}
-.mark{font-size:15px;font-weight:600;letter-spacing:-.02em}
-.nav-links{display:flex;gap:34px;list-style:none}
-.nav-links a{font-size:13px;color:var(--ink-2);transition:color .25s}
+/* ── nav ── */
+nav{position:fixed;top:0;left:0;right:0;z-index:80;background:rgba(250,249,245,0);
+  backdrop-filter:blur(0px);transition:background .45s var(--ease),backdrop-filter .45s var(--ease),border-color .45s var(--ease);
+  border-bottom:1px solid transparent}
+nav.stuck{background:rgba(250,249,245,.86);backdrop-filter:saturate(180%) blur(16px);border-bottom-color:var(--rule)}
+.nav-in{max-width:1140px;margin:0 auto;padding:0 var(--gut);height:64px;display:flex;align-items:center;justify-content:space-between}
+.mark{font-size:16px;font-weight:600;letter-spacing:-.02em;font-family:"Source Serif 4",Georgia,serif}
+.mark i{color:var(--clay);font-style:normal}
+.nav-links{display:flex;gap:32px;list-style:none}
+.nav-links a{font-size:14px;color:var(--ink-3);position:relative;padding:4px 0;transition:color .3s var(--ease)}
+.nav-links a::after{content:"";position:absolute;left:0;bottom:0;width:100%;height:1px;background:var(--clay);
+  transform:scaleX(0);transform-origin:right;transition:transform .4s var(--ease)}
 .nav-links a:hover{color:var(--ink)}
-@media(max-width:700px){.nav-links{display:none}}
+.nav-links a:hover::after{transform:scaleX(1);transform-origin:left}
+@media(max-width:760px){.nav-links{display:none}}
 
-/* ---------- type ---------- */
-h1{font-size:clamp(2.9rem,8.2vw,6rem);line-height:1.02;letter-spacing:-.045em;font-weight:600}
-h2{font-size:clamp(2rem,4.6vw,3.4rem);line-height:1.07;letter-spacing:-.038em;font-weight:600}
-h3{font-size:clamp(1.35rem,2.6vw,1.9rem);line-height:1.15;letter-spacing:-.028em;font-weight:600}
-.lead{font-size:clamp(1.15rem,2vw,1.4rem);line-height:1.5;letter-spacing:-.018em;color:var(--ink-2)}
+/* ── type ── */
+h1{font-family:"Source Serif 4",Georgia,serif;font-size:clamp(2.9rem,7.4vw,5.6rem);
+  line-height:1.04;letter-spacing:-.032em;font-weight:500}
+h1 em{font-style:italic;color:var(--clay)}
+h2{font-family:"Source Serif 4",Georgia,serif;font-size:clamp(2rem,4.4vw,3.2rem);
+  line-height:1.1;letter-spacing:-.026em;font-weight:500}
+h3{font-family:"Source Serif 4",Georgia,serif;font-size:clamp(1.4rem,2.7vw,2rem);
+  line-height:1.16;letter-spacing:-.02em;font-weight:500}
+.lead{font-size:clamp(1.1rem,1.85vw,1.32rem);line-height:1.55;color:var(--ink-2);letter-spacing:-.012em}
 .body{color:var(--ink-2)}
-.label{font-size:12px;letter-spacing:.08em;text-transform:uppercase;color:var(--ink-3);font-weight:500}
+.label{font-family:"JetBrains Mono",monospace;font-size:11.5px;letter-spacing:.14em;
+  text-transform:uppercase;color:var(--clay);font-weight:500}
 
-/* ---------- hero ---------- */
-.hero{padding:clamp(110px,17vw,210px) 0 clamp(90px,13vw,160px)}
-.hero h1{max-width:16ch;margin-bottom:clamp(28px,4vw,44px)}
-.hero .lead{max-width:46ch;margin-bottom:clamp(36px,5vw,52px)}
-.hero-links{display:flex;gap:28px;flex-wrap:wrap;align-items:center}
-.link-u{font-size:16px;font-weight:500;border-bottom:1px solid var(--ink);padding-bottom:2px;transition:opacity .25s}
-.link-u:hover{opacity:.55}
-.link-q{font-size:16px;color:var(--ink-2);transition:color .25s}
-.link-q:hover{color:var(--ink)}
+/* ── hero ── */
+.hero{padding:clamp(150px,20vw,250px) 0 clamp(80px,11vw,140px);position:relative}
+.hero::after{content:"";position:absolute;inset:auto 0 0 0;height:1px;background:var(--rule)}
+.mask{overflow:hidden;display:block}
+.mask > span{display:block;transform:translateY(105%);transition:transform 1.05s var(--ease)}
+.on .mask > span{transform:none}
+.hero h1{max-width:15ch;margin-bottom:clamp(26px,3.6vw,40px)}
+.hero .lead{max-width:48ch;margin-bottom:clamp(34px,4.6vw,46px);opacity:0;transform:translateY(16px);
+  transition:opacity .9s var(--ease) .45s,transform .9s var(--ease) .45s}
+.on .hero .lead{opacity:1;transform:none}
+.hero-links{display:flex;gap:30px;flex-wrap:wrap;align-items:center;opacity:0;transform:translateY(16px);
+  transition:opacity .9s var(--ease) .62s,transform .9s var(--ease) .62s}
+.on .hero-links{opacity:1;transform:none}
+.ln{font-size:15.5px;font-weight:500;position:relative;padding-bottom:3px;transition:color .3s var(--ease)}
+.ln::after{content:"";position:absolute;left:0;bottom:0;width:100%;height:1px;background:currentColor;
+  transform-origin:right;transition:transform .45s var(--ease)}
+.ln:hover{color:var(--clay)}
+.ln:hover::after{transform:scaleX(0);transform-origin:left}
+.ln.quiet{color:var(--ink-3)}
+.ln.quiet::after{transform:scaleX(0);background:var(--clay)}
+.ln.quiet:hover::after{transform:scaleX(1);transform-origin:left}
 
-/* ---------- section frame ---------- */
-section{padding:clamp(84px,11vw,150px) 0}
+/* ── sections ── */
+section{padding:clamp(80px,10.5vw,140px) 0;position:relative}
 .tint{background:var(--paper-2)}
-.sec-head{margin-bottom:clamp(48px,7vw,88px)}
-.sec-head .label{margin-bottom:18px;display:block}
-.sec-head p{max-width:52ch;margin-top:20px}
+.sec-head{margin-bottom:clamp(44px,6vw,80px)}
+.sec-head .label{display:block;margin-bottom:16px}
+.sec-head p{max-width:50ch;margin-top:18px}
 
-/* ---------- work ---------- */
-.entry{display:grid;grid-template-columns:64px 1fr;gap:clamp(20px,4vw,48px);
-  padding:clamp(40px,5.5vw,64px) 0;border-top:1px solid var(--rule)}
-.entry:last-child{border-bottom:1px solid var(--rule)}
-@media(max-width:640px){.entry{grid-template-columns:1fr;gap:14px}}
-.idx{font-size:13px;color:var(--ink-3);font-variant-numeric:tabular-nums;padding-top:9px}
-.entry > div:last-child{max-width:66ch}
-.entry h3{margin-bottom:16px}
-.entry .body{max-width:60ch;margin-bottom:20px}
-.insight{max-width:60ch;margin-bottom:26px;color:var(--ink-2);font-size:15.5px}
+/* ── work ── */
+.entry{display:grid;grid-template-columns:56px 1fr;gap:clamp(18px,3.5vw,44px);
+  padding:clamp(34px,4.6vw,54px) clamp(14px,2vw,26px) clamp(34px,4.6vw,54px) clamp(6px,1vw,14px);
+  border-top:1px solid var(--rule);margin:0 clamp(-14px,-2vw,-26px);
+  border-radius:10px;transition:background .45s var(--ease)}
+.entry:hover{background:rgba(204,120,92,.045)}
+.entries .entry:last-child{border-bottom:1px solid var(--rule)}
+@media(max-width:660px){.entry{grid-template-columns:1fr;gap:12px}}
+.idx{font-family:"JetBrains Mono",monospace;font-size:12.5px;color:var(--ink-4);padding-top:11px;
+  font-variant-numeric:tabular-nums;transition:color .45s var(--ease)}
+.entry:hover .idx{color:var(--clay)}
+.entry > div:last-child{max-width:64ch}
+.entry h3{margin-bottom:15px}
+.entry .body{margin-bottom:18px}
+.insight{margin-bottom:24px;color:var(--ink-2);font-size:15.5px;padding-left:16px;
+  border-left:2px solid var(--paper-3);transition:border-color .45s var(--ease)}
+.entry:hover .insight{border-left-color:var(--clay)}
 .insight b{color:var(--ink);font-weight:500}
-.meta{display:flex;justify-content:space-between;align-items:flex-end;gap:24px;flex-wrap:wrap}
-.tech{font-size:13px;color:var(--ink-3);letter-spacing:.005em}
-.acts{display:flex;gap:24px;flex-wrap:wrap}
-.acts a{font-size:14.5px;font-weight:500;border-bottom:1px solid var(--rule);padding-bottom:2px;transition:border-color .25s}
-.acts a:hover{border-bottom-color:var(--ink)}
-.acts span{font-size:14.5px;color:var(--ink-3)}
+.meta{display:flex;justify-content:space-between;align-items:flex-end;gap:22px;flex-wrap:wrap}
+.tech{font-family:"JetBrains Mono",monospace;font-size:12px;color:var(--ink-4);letter-spacing:.01em}
+.acts{display:flex;gap:22px;flex-wrap:wrap}
+.acts a{font-size:14.5px;font-weight:500;color:var(--clay);display:inline-flex;align-items:center;gap:6px}
+.acts a i{font-style:normal;display:inline-block;transition:transform .4s var(--ease)}
+.acts a:hover i{transform:translateX(4px)}
+.acts span{font-size:14.5px;color:var(--ink-4)}
 
-/* ---------- experience ---------- */
+/* ── repos ── */
+.repos{display:grid;grid-template-columns:repeat(auto-fit,minmax(270px,1fr));gap:1px;
+  background:var(--rule);border:1px solid var(--rule);border-radius:12px;overflow:hidden}
+.repo{background:var(--paper);padding:26px 24px;transition:background .4s var(--ease);display:block}
+.repo:hover{background:var(--paper-2)}
+.repo b{font-family:"JetBrains Mono",monospace;font-size:13.5px;font-weight:500;display:block;margin-bottom:8px}
+.repo b i{font-style:normal;color:var(--clay);display:inline-block;transition:transform .4s var(--ease)}
+.repo:hover b i{transform:translateX(4px)}
+.repo p{font-size:14px;color:var(--ink-3);line-height:1.55}
+
+/* ── experience ── */
 .roles{border-top:1px solid var(--rule)}
-.role{display:grid;grid-template-columns:200px 1fr;gap:clamp(20px,4vw,48px);
-  padding:clamp(28px,3.6vw,42px) 0;border-bottom:1px solid var(--rule)}
-@media(max-width:700px){.role{grid-template-columns:1fr;gap:8px}}
-.role .when{font-size:14px;color:var(--ink-3);font-variant-numeric:tabular-nums;padding-top:4px}
-.role h4{font-size:19px;font-weight:600;letter-spacing:-.02em;margin-bottom:3px}
-.role .org{font-size:15px;color:var(--ink-2);margin-bottom:12px}
+.role{display:grid;grid-template-columns:190px 1fr;gap:clamp(18px,3.5vw,44px);
+  padding:clamp(26px,3.4vw,40px) 0;border-bottom:1px solid var(--rule)}
+@media(max-width:720px){.role{grid-template-columns:1fr;gap:8px}}
+.role .when{font-family:"JetBrains Mono",monospace;font-size:12.5px;color:var(--ink-4);padding-top:6px}
+.role h4{font-family:"Source Serif 4",Georgia,serif;font-size:21px;font-weight:500;letter-spacing:-.018em;margin-bottom:3px}
+.role .org{font-size:14.5px;color:var(--clay);margin-bottom:11px}
 .role p{font-size:15.5px;color:var(--ink-2);max-width:66ch}
 
-/* ---------- capabilities ---------- */
-.caps{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:clamp(28px,4vw,56px)}
-.cap h5{font-size:13px;letter-spacing:.06em;text-transform:uppercase;color:var(--ink-3);
-  font-weight:500;margin-bottom:14px;padding-bottom:12px;border-bottom:1px solid var(--rule)}
+/* ── capabilities ── */
+.caps{display:grid;grid-template-columns:repeat(auto-fit,minmax(228px,1fr));gap:clamp(26px,3.6vw,52px)}
+.cap h5{font-family:"JetBrains Mono",monospace;font-size:11.5px;letter-spacing:.1em;text-transform:uppercase;
+  color:var(--ink-4);font-weight:500;margin-bottom:14px;padding-bottom:12px;border-bottom:1px solid var(--rule)}
 .cap p{font-size:15.5px;color:var(--ink-2);line-height:1.75}
 
-/* ---------- about ---------- */
-.about{display:grid;grid-template-columns:1fr 340px;gap:clamp(40px,7vw,96px);align-items:start}
-@media(max-width:860px){.about{grid-template-columns:1fr}}
-.about p{margin-bottom:22px;font-size:17px}
-.portrait{width:100%;aspect-ratio:4/5;object-fit:cover;background:var(--paper-2);filter:grayscale(1);border-radius:2px}
-.edu{margin-top:28px}
-.edu-row{display:flex;justify-content:space-between;gap:20px;padding:13px 0;border-top:1px solid var(--rule);font-size:14.5px}
+/* ── about ── */
+.about{display:grid;grid-template-columns:1fr 320px;gap:clamp(36px,6vw,88px);align-items:start}
+@media(max-width:880px){.about{grid-template-columns:1fr}}
+.about p{margin-bottom:20px}
+.pf{position:relative;overflow:hidden;border-radius:4px}
+.portrait{width:100%;aspect-ratio:4/5;object-fit:cover;display:block;
+  filter:grayscale(1) contrast(1.04);transform:scale(1.09);transition:transform 1.3s var(--ease),filter .7s var(--ease)}
+.in .portrait{transform:scale(1)}
+.pf:hover .portrait{filter:grayscale(0)}
+.edu{margin-top:26px}
+.edu-row{display:flex;justify-content:space-between;gap:18px;padding:13px 0;border-top:1px solid var(--rule);font-size:14.5px}
 .edu-row:last-child{border-bottom:1px solid var(--rule)}
-.edu-row span:last-child{color:var(--ink-3);white-space:nowrap;font-variant-numeric:tabular-nums}
+.edu-row span:last-child{font-family:"JetBrains Mono",monospace;font-size:12.5px;color:var(--ink-4);white-space:nowrap}
 
-/* ---------- contact ---------- */
-.contact{padding:clamp(100px,14vw,180px) 0}
-.contact h2{max-width:15ch;margin-bottom:28px}
-.contact .lead{max-width:48ch;margin-bottom:40px}
-.mailto{font-size:clamp(1.2rem,2.6vw,1.75rem);font-weight:500;letter-spacing:-.028em;
-  border-bottom:1px solid var(--ink);padding-bottom:3px;transition:opacity .25s;display:inline-block}
-.mailto:hover{opacity:.55}
-footer{padding:34px 0;border-top:1px solid var(--rule)}
-.foot{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap;font-size:13.5px;color:var(--ink-3)}
-.foot a{transition:color .25s}
-.foot a:hover{color:var(--ink)}
-.foot nav{position:static;background:none;backdrop-filter:none;border:none}
-.foot-links{display:flex;gap:24px}
+/* ── contact ── */
+.contact{padding:clamp(96px,13vw,170px) 0}
+.contact h2{max-width:16ch;margin-bottom:26px}
+.contact .lead{max-width:46ch;margin-bottom:38px}
+.mailto{font-family:"Source Serif 4",Georgia,serif;font-size:clamp(1.3rem,3vw,2.1rem);font-weight:500;
+  letter-spacing:-.024em;color:var(--clay);position:relative;padding-bottom:5px;display:inline-block}
+.mailto::after{content:"";position:absolute;left:0;bottom:0;width:100%;height:1.5px;background:var(--clay);
+  transform-origin:right;transition:transform .5s var(--ease)}
+.mailto:hover::after{transform:scaleX(0);transform-origin:left}
+footer{padding:32px 0;border-top:1px solid var(--rule);background:var(--paper-2)}
+.foot{display:flex;justify-content:space-between;gap:18px;flex-wrap:wrap;font-size:13.5px;color:var(--ink-4)}
+.foot a{transition:color .3s var(--ease)}
+.foot a:hover{color:var(--clay)}
+.foot-links{display:flex;gap:22px}
 
-/* ---------- a11y + motion ---------- */
-a:focus-visible{outline:2px solid var(--ink);outline-offset:4px;border-radius:2px}
-.skip{position:absolute;left:-9999px;background:var(--ink);color:#fff;padding:12px 18px;z-index:100;font-size:14px}
+/* ── a11y + motion ── */
+a:focus-visible{outline:2px solid var(--clay);outline-offset:4px;border-radius:3px}
+.skip{position:absolute;left:-9999px;background:var(--ink);color:var(--paper);padding:12px 18px;z-index:120;font-size:14px}
 .skip:focus{left:0;top:0}
-.up{opacity:0;transform:translateY(12px);transition:opacity .7s cubic-bezier(.2,.7,.3,1),transform .7s cubic-bezier(.2,.7,.3,1)}
+.up{opacity:0;transform:translateY(20px);transition:opacity .85s var(--ease),transform .85s var(--ease)}
 .up.in{opacity:1;transform:none}
-@media(prefers-reduced-motion:reduce){.up{opacity:1;transform:none;transition:none}}
+@media(prefers-reduced-motion:reduce){
+  *,*::after{transition-duration:.01ms!important;animation-duration:.01ms!important}
+  .up,.mask>span,.hero .lead,.hero-links{opacity:1!important;transform:none!important}
+}
 </style>
-<noscript><style>.up{opacity:1;transform:none}</style></noscript>
+<noscript><style>.up,.mask>span,.hero .lead,.hero-links{opacity:1!important;transform:none!important}</style></noscript>
 </head>
 <body>
 <a class="skip" href="#work">Skip to content</a>
 
 <nav aria-label="Primary">
   <div class="nav-in">
-    <a href="#" class="mark">Hassnain Khan</a>
+    <a href="#" class="mark">Hassnain Khan<i>.</i></a>
     <ul class="nav-links">
       <li><a href="#work">Work</a></li>
+      <li><a href="#repos">Repositories</a></li>
       <li><a href="#experience">Experience</a></li>
-      <li><a href="#capabilities">Capabilities</a></li>
       <li><a href="#about">About</a></li>
       <li><a href="#contact">Contact</a></li>
     </ul>
@@ -153,13 +208,16 @@ a:focus-visible{outline:2px solid var(--ink);outline-offset:4px;border-radius:2p
 
 <header class="hero">
   <div class="wrap">
-    <h1 class="up">Machine learning, built to be used.</h1>
-    <p class="lead up">Computer Engineering student at Bahria University Islamabad. I build models, the tooling around them, and the interfaces that make them useful to someone who isn't me.</p>
-    <div class="hero-links up">
-      <a class="link-u" href="#work">Selected work</a>
-      <a class="link-q" href="https://github.com/Hassnainkhan1249" target="_blank" rel="noopener">GitHub</a>
-      <a class="link-q" href="https://linkedin.com/in/hassnainkhandev" target="_blank" rel="noopener">LinkedIn</a>
-      <a class="link-q" href="Hassnain-Khan-CV.pdf" target="_blank" rel="noopener">CV</a>
+    <h1>
+      <span class="mask"><span>Machine learning,</span></span>
+      <span class="mask"><span>built to be <em>used</em>.</span></span>
+    </h1>
+    <p class="lead">Computer Engineering student at Bahria University Islamabad. I build models, the tooling around them, and the interfaces that make them useful to someone who isn't me.</p>
+    <div class="hero-links">
+      <a class="ln" href="#work">Selected work</a>
+      <a class="ln quiet" href="https://github.com/Hassnainkhan1249" target="_blank" rel="noopener">GitHub</a>
+      <a class="ln quiet" href="https://linkedin.com/in/hassnainkhandev" target="_blank" rel="noopener">LinkedIn</a>
+      <a class="ln quiet" href="Hassnain-Khan-CV.pdf" target="_blank" rel="noopener">Curriculum vitae</a>
     </div>
   </div>
 </header>
@@ -173,89 +231,114 @@ a:focus-visible{outline:2px solid var(--ink);outline-offset:4px;border-radius:2p
       <p class="body">Where a repository exists it is linked. Where it doesn't, I say so.</p>
     </div>
 
-    <div class="entry up">
-      <div class="idx">01</div>
-      <div>
-        <h3>Smart AutoML Pro</h3>
-        <p class="body">An automated machine learning dashboard that takes a raw tabular dataset through preprocessing, model selection, training, evaluation and prediction — for classification and clustering both — without rewriting the pipeline for each new dataset.</p>
-        <p class="insight">I built it because I was writing the same two hundred lines every time. It compares models side by side and shows <b>where</b> one is failing, rather than reporting a single accuracy figure that quietly hides an imbalanced dataset.</p>
-        <div class="meta">
-          <div class="tech">Python · scikit-learn · pandas · Streamlit</div>
-          <div class="acts">
-            <a href="https://smart-automl-dashboard.streamlit.app/" target="_blank" rel="noopener">Live</a>
-            <a href="https://github.com/Hassnainkhan1249/smart-automl-pro-dashboard" target="_blank" rel="noopener">Source</a>
+    <div class="entries">
+      <div class="entry up">
+        <div class="idx">01</div>
+        <div>
+          <h3>Smart AutoML Pro</h3>
+          <p class="body">An automated machine learning dashboard that takes a raw tabular dataset through preprocessing, model selection, training, evaluation and prediction — for classification and clustering both — without rewriting the pipeline for each new dataset.</p>
+          <p class="insight">I built it because I was writing the same two hundred lines every time. It compares models side by side and shows <b>where</b> one is failing, rather than reporting a single accuracy figure that quietly hides an imbalanced dataset.</p>
+          <div class="meta">
+            <div class="tech">Python · scikit-learn · pandas · Streamlit</div>
+            <div class="acts">
+              <a href="https://smart-automl-dashboard.streamlit.app/" target="_blank" rel="noopener">Live demo <i>→</i></a>
+              <a href="https://github.com/Hassnainkhan1249/smart-automl-pro-dashboard" target="_blank" rel="noopener">Source <i>→</i></a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="entry up">
+        <div class="idx">02</div>
+        <div>
+          <h3>Smart Campus Delivery Robot</h3>
+          <p class="body">Six classical search algorithms written from first principles — breadth-first, depth-first, uniform cost, A* with configurable heuristics, greedy best-first and hill climbing — alongside reflex, goal-based and utility-based agents.</p>
+          <p class="insight">No search library. Running all six on one scenario makes the trade-offs concrete: <b>A* expands far fewer nodes than uniform cost for the same optimal path</b>, greedy is quick but not cheapest, and hill climbing visibly gets stuck on local maxima.</p>
+          <div class="meta">
+            <div class="tech">Python · Streamlit · matplotlib · pandas</div>
+            <div class="acts"><a href="https://github.com/Hassnainkhan1249/smart-campus-delivery-robot" target="_blank" rel="noopener">Source <i>→</i></a></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="entry up">
+        <div class="idx">03</div>
+        <div>
+          <h3>HRMS</h3>
+          <p class="body">A human resource system covering employees, departments, designations, salaries and attendance, with referential integrity enforced by the database rather than by application code.</p>
+          <p class="insight">The schema is the interesting part. Departments references Employees for its manager while Employees references Departments — <b>a circular foreign key</b>, resolved by creating both tables first and adding the constraint afterwards, so the script runs cleanly from nothing. Validation lives in check constraints, so bad data cannot be written even by a different client.</p>
+          <div class="meta">
+            <div class="tech">Java 11 · Maven · SQL Server · JDBC</div>
+            <div class="acts"><a href="https://github.com/Hassnainkhan1249/hrms-employee-management" target="_blank" rel="noopener">Source <i>→</i></a></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="entry up">
+        <div class="idx">04</div>
+        <div>
+          <h3>MediChain</h3>
+          <p class="body">A decentralised medical records system where access control lives in the smart contract rather than the application layer, with role-based permissions for administrator, doctor and patient.</p>
+          <p class="insight">Putting permissions on-chain means a doctor requesting a record they were never granted doesn't receive a rejection from a server someone could bypass — <b>the transaction reverts at the contract</b>. The patient grants and revokes access. Not the hospital.</p>
+          <div class="meta">
+            <div class="tech">Solidity · Hardhat · Ethers.js · Next.js</div>
+            <div class="acts"><span>Repository in preparation</span></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="entry up">
+        <div class="idx">05</div>
+        <div>
+          <h3>EngageWise</h3>
+          <p class="body">A browser extension that helps people draft better professional writing. It reads the surrounding page context, sends it to a language model, and returns suggestions the user edits before anything is published.</p>
+          <div class="meta">
+            <div class="tech">JavaScript · Manifest V3 · Node.js · Express</div>
+            <div class="acts"><span>Repository in preparation</span></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="entry up">
+        <div class="idx">06</div>
+        <div>
+          <h3>Canvas Proximity Treasure Hunt</h3>
+          <p class="body">An interactive browser game on the Canvas API, where proximity-driven visual feedback tells you how close you are without ever revealing where the target is.</p>
+          <div class="meta">
+            <div class="tech">TypeScript · Canvas API</div>
+            <div class="acts"><a href="https://github.com/Hassnainkhan1249/canvas-proximity-treasure-hunt" target="_blank" rel="noopener">Source <i>→</i></a></div>
           </div>
         </div>
       </div>
     </div>
-
-    <div class="entry up">
-      <div class="idx">02</div>
-      <div>
-        <h3>Smart Campus Delivery Robot</h3>
-        <p class="body">Six classical search algorithms written from first principles — breadth-first, depth-first, uniform cost, A* with configurable heuristics, greedy best-first and hill climbing — alongside reflex, goal-based and utility-based agents.</p>
-        <p class="insight">No search library. Running all six on one scenario makes the trade-offs concrete: <b>A* expands far fewer nodes than uniform cost for the same optimal path</b>, greedy is quick but not cheapest, and hill climbing visibly gets stuck on local maxima.</p>
-        <div class="meta">
-          <div class="tech">Python · Streamlit · matplotlib · pandas</div>
-          <div class="acts"><a href="https://github.com/Hassnainkhan1249/smart-campus-delivery-robot" target="_blank" rel="noopener">Source</a></div>
-        </div>
-      </div>
-    </div>
-
-    <div class="entry up">
-      <div class="idx">03</div>
-      <div>
-        <h3>HRMS</h3>
-        <p class="body">A human resource system covering employees, departments, designations, salaries and attendance, with referential integrity enforced by the database rather than by application code.</p>
-        <p class="insight">The schema is the interesting part. Departments references Employees for its manager while Employees references Departments — <b>a circular foreign key</b>, resolved by creating both tables first and adding the constraint afterwards, so the script runs cleanly from nothing. Validation lives in check constraints, so bad data cannot be written even by a different client.</p>
-        <div class="meta">
-          <div class="tech">Java 11 · Maven · SQL Server · JDBC</div>
-          <div class="acts"><a href="https://github.com/Hassnainkhan1249/hrms-employee-management" target="_blank" rel="noopener">Source</a></div>
-        </div>
-      </div>
-    </div>
-
-    <div class="entry up">
-      <div class="idx">04</div>
-      <div>
-        <h3>MediChain</h3>
-        <p class="body">A decentralised medical records system where access control lives in the smart contract rather than the application layer, with role-based permissions for administrator, doctor and patient.</p>
-        <p class="insight">Putting permissions on-chain means a doctor requesting a record they were never granted doesn't receive a rejection from a server someone could bypass — <b>the transaction reverts at the contract</b>. The patient grants and revokes access. Not the hospital.</p>
-        <div class="meta">
-          <div class="tech">Solidity · Hardhat · Ethers.js · Next.js</div>
-          <div class="acts"><span>Repository in preparation</span></div>
-        </div>
-      </div>
-    </div>
-
-    <div class="entry up">
-      <div class="idx">05</div>
-      <div>
-        <h3>EngageWise</h3>
-        <p class="body">A browser extension that helps people draft better professional writing. It reads the surrounding page context, sends it to a language model, and returns suggestions the user edits before anything is published.</p>
-        <div class="meta">
-          <div class="tech">JavaScript · Manifest V3 · Node.js · Express</div>
-          <div class="acts"><span>Repository in preparation</span></div>
-        </div>
-      </div>
-    </div>
-
-    <div class="entry up">
-      <div class="idx">06</div>
-      <div>
-        <h3>Canvas Proximity Treasure Hunt</h3>
-        <p class="body">An interactive browser game on the Canvas API, where proximity-driven visual feedback tells you how close you are without ever revealing where the target is.</p>
-        <div class="meta">
-          <div class="tech">TypeScript · Canvas API</div>
-          <div class="acts"><a href="https://github.com/Hassnainkhan1249/canvas-proximity-treasure-hunt" target="_blank" rel="noopener">Source</a></div>
-        </div>
-      </div>
-    </div>
-
   </div>
 </section>
 
-<section id="experience" class="tint">
+<section id="repos" class="tint">
+  <div class="wrap">
+    <div class="sec-head up">
+      <span class="label">Open source</span>
+      <h2>Every repository.</h2>
+      <p class="body">Public work on GitHub, in full.</p>
+    </div>
+    <div class="repos">
+      <a class="repo up" href="https://github.com/Hassnainkhan1249/smart-automl-pro-dashboard" target="_blank" rel="noopener">
+        <b>smart-automl-pro-dashboard <i>→</i></b><p>Interpretable visual AutoML for model selection, training, evaluation and prediction on tabular datasets. Python, MIT licensed.</p></a>
+      <a class="repo up" href="https://github.com/Hassnainkhan1249/smart-campus-delivery-robot" target="_blank" rel="noopener">
+        <b>smart-campus-delivery-robot <i>→</i></b><p>Classical AI search algorithms and intelligent agents, implemented from scratch and compared side by side.</p></a>
+      <a class="repo up" href="https://github.com/Hassnainkhan1249/hrms-employee-management" target="_blank" rel="noopener">
+        <b>hrms-employee-management <i>→</i></b><p>SQL Server schema with referential integrity at the database level, plus a Java JDBC data access layer.</p></a>
+      <a class="repo up" href="https://github.com/Hassnainkhan1249/canvas-proximity-treasure-hunt" target="_blank" rel="noopener">
+        <b>canvas-proximity-treasure-hunt <i>→</i></b><p>Interactive Canvas API game driven by proximity feedback. TypeScript.</p></a>
+      <a class="repo up" href="https://github.com/Hassnainkhan1249/hassnain-portfolio" target="_blank" rel="noopener">
+        <b>hassnain-portfolio <i>→</i></b><p>This site. One self-contained HTML file, no framework, no build step.</p></a>
+      <a class="repo up" href="https://github.com/Hassnainkhan1249" target="_blank" rel="noopener">
+        <b>All repositories <i>→</i></b><p>Everything else, including work in progress.</p></a>
+    </div>
+  </div>
+</section>
+
+<section id="experience">
   <div class="wrap">
     <div class="sec-head up">
       <span class="label">Experience</span>
@@ -299,7 +382,7 @@ a:focus-visible{outline:2px solid var(--ink);outline-offset:4px;border-radius:2p
   </div>
 </section>
 
-<section id="capabilities">
+<section id="capabilities" class="tint">
   <div class="wrap">
     <div class="sec-head up">
       <span class="label">Capabilities</span>
@@ -317,11 +400,11 @@ a:focus-visible{outline:2px solid var(--ink);outline-offset:4px;border-radius:2p
   </div>
 </section>
 
-<section id="about" class="tint">
+<section id="about">
   <div class="wrap about">
     <div class="up">
-      <span class="label" style="display:block;margin-bottom:18px">About</span>
-      <h2 style="margin-bottom:32px">A short version.</h2>
+      <span class="label" style="display:block;margin-bottom:16px">About</span>
+      <h2 style="margin-bottom:30px">A short version.</h2>
       <p class="body">I am a Computer Engineering student in Islamabad, heading toward machine learning engineering. My interest is in pipelines built end to end and in tooling that makes the workflow repeatable rather than one-off. I work full-stack around that, because a model nobody can use is not finished.</p>
       <p class="body">In 2024 I placed in the top fifteen nationally in the Huawei ICT Competition, from thousands of entrants across Pakistan. In 2026 I spent an internship in cybersecurity at Safe City Islamabad, which permanently changed how I read my own code. Outside engineering I coordinate finances for humanitarian relief with Dast-e-Khuddam and iHayaat — Ramadan welfare, orphanage support, and flood response in Buner.</p>
       <div class="edu">
@@ -331,13 +414,13 @@ a:focus-visible{outline:2px solid var(--ink);outline-offset:4px;border-radius:2p
         <div class="edu-row"><span>Matriculation — Dr. A.Q. Khan School System</span><span>2018–2021</span></div>
       </div>
     </div>
-    <img class="portrait up" src="https://github.com/Hassnainkhan1249.png" alt="Hassnain Khan" width="340" height="425">
+    <div class="pf up"><img class="portrait" src="https://github.com/Hassnainkhan1249.png" alt="Hassnain Khan" width="320" height="400"></div>
   </div>
 </section>
 
-<section class="contact">
+<section class="contact tint">
   <div class="wrap narrow">
-    <span class="label up" style="display:block;margin-bottom:18px">Contact</span>
+    <span class="label up" style="display:block;margin-bottom:16px">Contact</span>
     <h2 class="up">Looking for an internship in machine learning or software engineering.</h2>
     <p class="lead up">Remote, Islamabad, or international. If you are hiring, or you simply want to talk about model tooling or web security, write to me.</p>
     <a class="mailto up" href="mailto:hassnain32222000@gmail.com">hassnain32222000@gmail.com</a>
@@ -357,10 +440,17 @@ a:focus-visible{outline:2px solid var(--ink);outline-offset:4px;border-radius:2p
 </footer>
 
 <script>
+requestAnimationFrame(()=>document.body.classList.add('on'));
 const nav=document.querySelector('nav');
-addEventListener('scroll',()=>nav.classList.toggle('stuck',scrollY>8),{passive:true});
-const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}}),{threshold:.08,rootMargin:'0px 0px -50px 0px'});
+addEventListener('scroll',()=>nav.classList.toggle('stuck',scrollY>10),{passive:true});
+const io=new IntersectionObserver((es)=>es.forEach(e=>{
+  if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}
+}),{threshold:.06,rootMargin:'0px 0px -60px 0px'});
 document.querySelectorAll('.up').forEach(el=>io.observe(el));
+// stagger siblings within a group
+document.querySelectorAll('.entries,.repos,.caps,.roles').forEach(g=>{
+  [...g.children].forEach((c,i)=>{if(c.classList.contains('up'))c.style.transitionDelay=(i*70)+'ms'});
+});
 </script>
 </body>
 </html>
