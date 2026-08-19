@@ -2,394 +2,365 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Hassnain Khan — AI/ML & Software Engineering</title>
-<meta name="description" content="Computer Engineering student at Bahria University Islamabad building AI/ML systems, full-stack web applications and secure software. Top-15 National Finalist, Huawei ICT Competition.">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Hassnain Khan</title>
+<meta name="description" content="Computer Engineering student at Bahria University Islamabad. Machine learning, full-stack engineering and application security.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
-<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90' font-family='system-ui' font-weight='700' fill='%235eead4'>H</text></svg>">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='88' font-family='Helvetica' font-weight='600'>H</text></svg>">
 <style>
 :root{
-  --bg:#0a0e14; --surface:#111721; --surface-2:#161d29;
-  --line:#1f2836; --line-bright:#2b3648;
-  --text:#e6edf3; --muted:#8b98a9; --dim:#5f6b7d;
-  --accent:#5eead4; --accent-dim:#2dd4bf;
-  --max:1080px;
+  --ink:#111113;
+  --ink-2:#6e6e73;
+  --ink-3:#9a9aa0;
+  --paper:#ffffff;
+  --paper-2:#f5f5f7;
+  --rule:#e3e3e6;
+  --gut:clamp(24px,5vw,64px);
 }
 *{margin:0;padding:0;box-sizing:border-box}
-html{scroll-behavior:smooth}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
 body{
-  background:var(--bg); color:var(--text);
-  font-family:"Inter",ui-sans-serif,-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
-  line-height:1.65; -webkit-font-smoothing:antialiased; overflow-x:hidden;
+  background:var(--paper);color:var(--ink);
+  font-family:Inter,-apple-system,BlinkMacSystemFont,"Segoe UI",Helvetica,Arial,sans-serif;
+  font-size:17px;line-height:1.55;letter-spacing:-.011em;
+  -webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale;
 }
-.mono,.chip,.when,.eyebrow{font-family:"JetBrains Mono",ui-monospace,SFMono-Regular,Menlo,Consolas,monospace}
-.wrap{max-width:var(--max);margin:0 auto;padding:0 24px}
-a{color:inherit}
+a{color:inherit;text-decoration:none}
+.wrap{max-width:1120px;margin:0 auto;padding:0 var(--gut)}
+.narrow{max-width:760px}
 
-/* nav */
-nav{position:sticky;top:0;z-index:50;backdrop-filter:blur(12px);background:rgba(10,14,20,.82);border-bottom:1px solid var(--line)}
-.nav-in{max-width:var(--max);margin:0 auto;padding:14px 24px;display:flex;justify-content:space-between;align-items:center}
-.logo{font-weight:700;letter-spacing:-.02em;font-size:1.05rem;text-decoration:none}
-.logo span{color:var(--accent)}
-.nav-links{display:flex;gap:28px;list-style:none}
-.nav-links a{color:var(--muted);text-decoration:none;font-size:.9rem;transition:color .2s}
-.nav-links a:hover{color:var(--accent)}
-@media(max-width:720px){.nav-links{display:none}}
+/* ---------- nav ---------- */
+nav{position:sticky;top:0;z-index:60;background:rgba(255,255,255,.72);
+  backdrop-filter:saturate(180%) blur(20px);border-bottom:1px solid transparent;transition:border-color .3s}
+nav.stuck{border-bottom-color:var(--rule)}
+.nav-in{max-width:1120px;margin:0 auto;padding:0 var(--gut);height:52px;display:flex;align-items:center;justify-content:space-between}
+.mark{font-size:15px;font-weight:600;letter-spacing:-.02em}
+.nav-links{display:flex;gap:34px;list-style:none}
+.nav-links a{font-size:13px;color:var(--ink-2);transition:color .25s}
+.nav-links a:hover{color:var(--ink)}
+@media(max-width:700px){.nav-links{display:none}}
 
-/* hero */
-header{padding:96px 0 80px;border-bottom:1px solid var(--line);position:relative;overflow:hidden}
-header::before{content:"";position:absolute;top:-30%;right:-10%;width:560px;height:560px;
-  background:radial-gradient(circle,rgba(94,234,212,.07),transparent 68%);pointer-events:none}
-.hero{display:grid;grid-template-columns:1fr auto;gap:56px;align-items:center;position:relative}
-@media(max-width:800px){.hero{grid-template-columns:1fr;gap:36px}}
-.status{display:inline-flex;align-items:center;gap:8px;font-size:.8rem;color:var(--accent);
-  border:1px solid rgba(94,234,212,.28);background:rgba(94,234,212,.06);
-  padding:6px 13px;border-radius:100px;margin-bottom:26px}
-.dot{width:6px;height:6px;border-radius:50%;background:var(--accent);animation:pulse 2.2s infinite}
-@keyframes pulse{0%,100%{opacity:1}50%{opacity:.35}}
-h1{font-size:clamp(2.1rem,5.2vw,3.4rem);line-height:1.12;letter-spacing:-.028em;font-weight:700;margin-bottom:22px}
-h1 em{font-style:normal;color:var(--accent)}
-.lede{font-size:1.08rem;color:var(--muted);max-width:60ch;margin-bottom:32px}
-.cta{display:flex;gap:12px;flex-wrap:wrap}
-.btn{padding:11px 20px;border-radius:8px;text-decoration:none;font-size:.92rem;font-weight:500;
-  border:1px solid var(--line-bright);transition:all .2s;display:inline-block}
-.btn-p{background:var(--accent);color:#06231f;border-color:var(--accent);font-weight:600}
-.btn-p:hover{background:var(--accent-dim);transform:translateY(-1px)}
-.btn-s:hover{border-color:var(--accent);color:var(--accent)}
-.avatar{width:190px;height:190px;border-radius:16px;object-fit:cover;
-  border:1px solid var(--line-bright);filter:grayscale(.15)}
-@media(max-width:800px){.avatar{width:132px;height:132px}}
+/* ---------- type ---------- */
+h1{font-size:clamp(2.9rem,8.2vw,6rem);line-height:1.02;letter-spacing:-.045em;font-weight:600}
+h2{font-size:clamp(2rem,4.6vw,3.4rem);line-height:1.07;letter-spacing:-.038em;font-weight:600}
+h3{font-size:clamp(1.35rem,2.6vw,1.9rem);line-height:1.15;letter-spacing:-.028em;font-weight:600}
+.lead{font-size:clamp(1.15rem,2vw,1.4rem);line-height:1.5;letter-spacing:-.018em;color:var(--ink-2)}
+.body{color:var(--ink-2)}
+.label{font-size:12px;letter-spacing:.08em;text-transform:uppercase;color:var(--ink-3);font-weight:500}
 
-/* facts strip */
-.facts{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:var(--line);
-  border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
-@media(max-width:760px){.facts{grid-template-columns:repeat(2,1fr)}}
-.fact{background:var(--bg);padding:26px 20px;text-align:center}
-.fact b{display:block;font-size:1.5rem;font-weight:700;letter-spacing:-.02em;margin-bottom:3px}
-.fact span{font-size:.76rem;color:var(--dim);text-transform:uppercase;letter-spacing:.09em}
+/* ---------- hero ---------- */
+.hero{padding:clamp(110px,17vw,210px) 0 clamp(90px,13vw,160px)}
+.hero h1{max-width:16ch;margin-bottom:clamp(28px,4vw,44px)}
+.hero .lead{max-width:46ch;margin-bottom:clamp(36px,5vw,52px)}
+.hero-links{display:flex;gap:28px;flex-wrap:wrap;align-items:center}
+.link-u{font-size:16px;font-weight:500;border-bottom:1px solid var(--ink);padding-bottom:2px;transition:opacity .25s}
+.link-u:hover{opacity:.55}
+.link-q{font-size:16px;color:var(--ink-2);transition:color .25s}
+.link-q:hover{color:var(--ink)}
 
-/* sections */
-section{padding:84px 0;border-bottom:1px solid var(--line)}
-.eyebrow{font-size:.74rem;letter-spacing:.15em;text-transform:uppercase;color:var(--accent);margin-bottom:12px}
-h2{font-size:clamp(1.6rem,3.4vw,2.05rem);letter-spacing:-.022em;margin-bottom:14px;font-weight:700}
-.sub{color:var(--muted);max-width:62ch;margin-bottom:44px}
+/* ---------- section frame ---------- */
+section{padding:clamp(84px,11vw,150px) 0}
+.tint{background:var(--paper-2)}
+.sec-head{margin-bottom:clamp(48px,7vw,88px)}
+.sec-head .label{margin-bottom:18px;display:block}
+.sec-head p{max-width:52ch;margin-top:20px}
 
-/* projects */
-.projects{display:grid;gap:18px}
-.card{background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:28px;
-  transition:border-color .25s,transform .25s}
-.card:hover{border-color:var(--line-bright);transform:translateY(-2px)}
-.card-top{display:flex;justify-content:space-between;align-items:flex-start;gap:18px;margin-bottom:12px;flex-wrap:wrap}
-.card h3{font-size:1.16rem;letter-spacing:-.015em;font-weight:650}
-.tag{font-size:.7rem;padding:3px 9px;border-radius:5px;white-space:nowrap;
-  background:rgba(94,234,212,.09);color:var(--accent);border:1px solid rgba(94,234,212,.2)}
-.tag.wip{background:rgba(139,152,169,.09);color:var(--muted);border-color:var(--line-bright)}
-.card p{color:var(--muted);font-size:.94rem;margin-bottom:16px}
-.card .note{font-size:.88rem;color:var(--dim);border-left:2px solid var(--line-bright);
-  padding-left:13px;margin-bottom:16px}
-.stack{display:flex;gap:7px;flex-wrap:wrap;margin-bottom:16px}
-.chip{font-size:.73rem;padding:3px 9px;border-radius:5px;background:var(--surface-2);
-  color:var(--muted);border:1px solid var(--line)}
-.links{display:flex;gap:18px;flex-wrap:wrap}
-.links a{font-size:.86rem;color:var(--accent);text-decoration:none;border-bottom:1px solid transparent;transition:border-color .2s}
-.links a:hover{border-color:var(--accent)}
-.links span{font-size:.86rem;color:var(--dim)}
+/* ---------- work ---------- */
+.entry{display:grid;grid-template-columns:64px 1fr;gap:clamp(20px,4vw,48px);
+  padding:clamp(40px,5.5vw,64px) 0;border-top:1px solid var(--rule)}
+.entry:last-child{border-bottom:1px solid var(--rule)}
+@media(max-width:640px){.entry{grid-template-columns:1fr;gap:14px}}
+.idx{font-size:13px;color:var(--ink-3);font-variant-numeric:tabular-nums;padding-top:9px}
+.entry > div:last-child{max-width:66ch}
+.entry h3{margin-bottom:16px}
+.entry .body{max-width:60ch;margin-bottom:20px}
+.insight{max-width:60ch;margin-bottom:26px;color:var(--ink-2);font-size:15.5px}
+.insight b{color:var(--ink);font-weight:500}
+.meta{display:flex;justify-content:space-between;align-items:flex-end;gap:24px;flex-wrap:wrap}
+.tech{font-size:13px;color:var(--ink-3);letter-spacing:.005em}
+.acts{display:flex;gap:24px;flex-wrap:wrap}
+.acts a{font-size:14.5px;font-weight:500;border-bottom:1px solid var(--rule);padding-bottom:2px;transition:border-color .25s}
+.acts a:hover{border-bottom-color:var(--ink)}
+.acts span{font-size:14.5px;color:var(--ink-3)}
 
-/* experience */
-.exp{display:grid;gap:0}
-.job{display:grid;grid-template-columns:186px 1fr;gap:28px;padding:26px 0;border-top:1px solid var(--line)}
-.job:first-child{border-top:none}
-@media(max-width:720px){.job{grid-template-columns:1fr;gap:8px}}
-.when{font-size:.83rem;color:var(--dim);padding-top:2px}
-.job h3{font-size:1.03rem;font-weight:650;margin-bottom:2px}
-.where{font-size:.88rem;color:var(--accent);margin-bottom:9px}
-.job p{color:var(--muted);font-size:.92rem}
+/* ---------- experience ---------- */
+.roles{border-top:1px solid var(--rule)}
+.role{display:grid;grid-template-columns:200px 1fr;gap:clamp(20px,4vw,48px);
+  padding:clamp(28px,3.6vw,42px) 0;border-bottom:1px solid var(--rule)}
+@media(max-width:700px){.role{grid-template-columns:1fr;gap:8px}}
+.role .when{font-size:14px;color:var(--ink-3);font-variant-numeric:tabular-nums;padding-top:4px}
+.role h4{font-size:19px;font-weight:600;letter-spacing:-.02em;margin-bottom:3px}
+.role .org{font-size:15px;color:var(--ink-2);margin-bottom:12px}
+.role p{font-size:15.5px;color:var(--ink-2);max-width:66ch}
 
-/* skills */
-.skills{display:grid;grid-template-columns:repeat(auto-fit,minmax(238px,1fr));gap:22px}
-.skill h4{font-size:.76rem;text-transform:uppercase;letter-spacing:.1em;color:var(--accent);margin-bottom:11px}
-.skill div{display:flex;gap:7px;flex-wrap:wrap}
+/* ---------- capabilities ---------- */
+.caps{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:clamp(28px,4vw,56px)}
+.cap h5{font-size:13px;letter-spacing:.06em;text-transform:uppercase;color:var(--ink-3);
+  font-weight:500;margin-bottom:14px;padding-bottom:12px;border-bottom:1px solid var(--rule)}
+.cap p{font-size:15.5px;color:var(--ink-2);line-height:1.75}
 
-/* about */
-.about{display:grid;grid-template-columns:1.5fr 1fr;gap:56px}
-@media(max-width:800px){.about{grid-template-columns:1fr;gap:32px}}
-.about p{color:var(--muted);margin-bottom:16px}
-.edu{background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:24px}
-.edu h4{font-size:.74rem;text-transform:uppercase;letter-spacing:.1em;color:var(--accent);margin-bottom:14px}
-.edu-item{padding:11px 0;border-top:1px solid var(--line)}
-.edu-item:first-of-type{border-top:none;padding-top:0}
-.edu-item b{display:block;font-size:.93rem;font-weight:600}
-.edu-item span{font-size:.82rem;color:var(--dim)}
+/* ---------- about ---------- */
+.about{display:grid;grid-template-columns:1fr 340px;gap:clamp(40px,7vw,96px);align-items:start}
+@media(max-width:860px){.about{grid-template-columns:1fr}}
+.about p{margin-bottom:22px;font-size:17px}
+.portrait{width:100%;aspect-ratio:4/5;object-fit:cover;background:var(--paper-2);filter:grayscale(1);border-radius:2px}
+.edu{margin-top:28px}
+.edu-row{display:flex;justify-content:space-between;gap:20px;padding:13px 0;border-top:1px solid var(--rule);font-size:14.5px}
+.edu-row:last-child{border-bottom:1px solid var(--rule)}
+.edu-row span:last-child{color:var(--ink-3);white-space:nowrap;font-variant-numeric:tabular-nums}
 
-/* contact */
-.contact{text-align:center;padding:96px 0}
-.contact h2{margin-bottom:14px}
-.contact p{color:var(--muted);max-width:52ch;margin:0 auto 32px}
-.contact-links{display:flex;gap:14px;justify-content:center;flex-wrap:wrap}
-footer{padding:30px 0;text-align:center;color:var(--dim);font-size:.82rem;border-top:1px solid var(--line)}
+/* ---------- contact ---------- */
+.contact{padding:clamp(100px,14vw,180px) 0}
+.contact h2{max-width:15ch;margin-bottom:28px}
+.contact .lead{max-width:48ch;margin-bottom:40px}
+.mailto{font-size:clamp(1.2rem,2.6vw,1.75rem);font-weight:500;letter-spacing:-.028em;
+  border-bottom:1px solid var(--ink);padding-bottom:3px;transition:opacity .25s;display:inline-block}
+.mailto:hover{opacity:.55}
+footer{padding:34px 0;border-top:1px solid var(--rule)}
+.foot{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap;font-size:13.5px;color:var(--ink-3)}
+.foot a{transition:color .25s}
+.foot a:hover{color:var(--ink)}
+.foot nav{position:static;background:none;backdrop-filter:none;border:none}
+.foot-links{display:flex;gap:24px}
 
-/* accessibility */
-a:focus-visible,button:focus-visible{outline:2px solid var(--accent);outline-offset:3px;border-radius:4px}
-.skip{position:absolute;left:-9999px;top:0;background:var(--accent);color:#06231f;padding:10px 16px;z-index:100;border-radius:0 0 6px 0;font-weight:600;text-decoration:none}
-.skip:focus{left:0}
-
-/* project thumbnails */
-.thumb{height:104px;border-radius:9px;margin-bottom:20px;display:flex;align-items:flex-end;padding:13px 16px;
-  font-family:"JetBrains Mono",monospace;font-size:.72rem;letter-spacing:.06em;color:rgba(255,255,255,.82);
-  border:1px solid var(--line);text-transform:uppercase}
-.t1{background:linear-gradient(120deg,#0f2f2a,#134e4a 55%,#0b3b36)}
-.t2{background:linear-gradient(120deg,#132038,#1e3a5f 55%,#122c4d)}
-.t3{background:linear-gradient(120deg,#2a1f14,#4a3520 55%,#33240f)}
-.t4{background:linear-gradient(120deg,#1d1730,#332a55 55%,#241c40)}
-.t5{background:linear-gradient(120deg,#2b1520,#4a2136 55%,#331624)}
-.t6{background:linear-gradient(120deg,#12261a,#1c4029 55%,#10301d)}
-
-.reveal{opacity:0;transform:translateY(14px);transition:opacity .6s ease,transform .6s ease}
-.reveal.in{opacity:1;transform:none}
-@media(prefers-reduced-motion:reduce){.reveal{opacity:1;transform:none;transition:none}.dot{animation:none}}
+/* ---------- a11y + motion ---------- */
+a:focus-visible{outline:2px solid var(--ink);outline-offset:4px;border-radius:2px}
+.skip{position:absolute;left:-9999px;background:var(--ink);color:#fff;padding:12px 18px;z-index:100;font-size:14px}
+.skip:focus{left:0;top:0}
+.up{opacity:0;transform:translateY(12px);transition:opacity .7s cubic-bezier(.2,.7,.3,1),transform .7s cubic-bezier(.2,.7,.3,1)}
+.up.in{opacity:1;transform:none}
+@media(prefers-reduced-motion:reduce){.up{opacity:1;transform:none;transition:none}}
 </style>
-<noscript><style>.reveal{opacity:1!important;transform:none!important}</style></noscript>
+<noscript><style>.up{opacity:1;transform:none}</style></noscript>
 </head>
 <body>
-
 <a class="skip" href="#work">Skip to content</a>
+
 <nav aria-label="Primary">
   <div class="nav-in">
-    <a href="#" class="logo">hassnain<span>.</span></a>
+    <a href="#" class="mark">Hassnain Khan</a>
     <ul class="nav-links">
       <li><a href="#work">Work</a></li>
       <li><a href="#experience">Experience</a></li>
-      <li><a href="#skills">Skills</a></li>
+      <li><a href="#capabilities">Capabilities</a></li>
       <li><a href="#about">About</a></li>
       <li><a href="#contact">Contact</a></li>
     </ul>
   </div>
 </nav>
 
-<header>
-  <div class="wrap hero">
-    <div>
-      <div class="status"><span class="dot"></span> Open to AI/ML and software engineering internships</div>
-      <h1>I build things that <em>actually run</em>.</h1>
-      <p class="lede">
-        Computer Engineering student at Bahria University Islamabad, working toward AI engineering.
-        An AutoML dashboard that's deployed and live, six search algorithms written from first principles,
-        a database schema that enforces its own integrity — each one shipped, documented and open source.
-      </p>
-      <div class="cta">
-        <a class="btn btn-p" href="#work">See the work</a>
-        <a class="btn btn-s" href="Hassnain-Khan-CV.pdf" target="_blank" rel="noopener">Download CV</a>
-        <a class="btn btn-s" href="https://github.com/Hassnainkhan1249" target="_blank" rel="noopener">GitHub</a>
-        <a class="btn btn-s" href="https://linkedin.com/in/hassnainkhandev" target="_blank" rel="noopener">LinkedIn</a>
-      </div>
+<header class="hero">
+  <div class="wrap">
+    <h1 class="up">Machine learning, built to be used.</h1>
+    <p class="lead up">Computer Engineering student at Bahria University Islamabad. I build models, the tooling around them, and the interfaces that make them useful to someone who isn't me.</p>
+    <div class="hero-links up">
+      <a class="link-u" href="#work">Selected work</a>
+      <a class="link-q" href="https://github.com/Hassnainkhan1249" target="_blank" rel="noopener">GitHub</a>
+      <a class="link-q" href="https://linkedin.com/in/hassnainkhandev" target="_blank" rel="noopener">LinkedIn</a>
+      <a class="link-q" href="Hassnain-Khan-CV.pdf" target="_blank" rel="noopener">CV</a>
     </div>
-    <img class="avatar" width="190" height="190" loading="eager" src="https://github.com/Hassnainkhan1249.png" alt="Hassnain Khan">
   </div>
 </header>
 
-<div class="facts">
-  <div class="fact"><b>Top&nbsp;15</b><span>Huawei ICT, national</span></div>
-  <div class="fact"><b>7</b><span>Shipped projects</span></div>
-  <div class="fact"><b>4</b><span>Technical internships</span></div>
-  <div class="fact"><b>2027</b><span>Expected graduation</span></div>
-</div>
-
 <main>
-<section id="work" aria-labelledby="work-h">
+<section id="work">
   <div class="wrap">
-    <div class="eyebrow reveal">Selected work</div>
-    <h2 class="reveal" id="work-h">Things I've built</h2>
-    <p class="sub reveal">Every project below is real code. Where a repository exists, it's linked — no screenshots standing in for something that isn't there.</p>
-
-    <div class="projects">
-
-      <article class="card reveal">
-        <div class="thumb t1" role="img" aria-label="Python · scikit-learn · Streamlit">Python · scikit-learn · Streamlit</div>
-        <div class="card-top">
-          <h3>Smart AutoML Pro — Automated ML Dashboard</h3>
-          <span class="tag">Live</span>
-        </div>
-        <p>Takes a raw tabular dataset through the entire machine learning workflow — preprocessing, model selection, training, evaluation and prediction — for both classification and clustering, without rewriting the pipeline for each new dataset.</p>
-        <div class="note">Built because I got tired of writing the same 200 lines every time. It compares models side by side and surfaces <em>where</em> a model is failing, rather than reporting a single accuracy number that hides an imbalanced dataset.</div>
-        <div class="stack"><span class="chip">Python</span><span class="chip">scikit-learn</span><span class="chip">pandas</span><span class="chip">Streamlit</span></div>
-        <div class="links">
-          <a href="https://smart-automl-dashboard.streamlit.app/" target="_blank" rel="noopener">Try it live →</a>
-          <a href="https://github.com/Hassnainkhan1249/smart-automl-pro-dashboard" target="_blank" rel="noopener">Source →</a>
-        </div>
-      </article>
-
-      <article class="card reveal">
-        <div class="thumb t2" role="img" aria-label="Search algorithms · Agents">Search algorithms · Agents</div>
-        <div class="card-top">
-          <h3>Smart Campus Delivery Robot — Classical AI Search</h3>
-          <span class="tag">Open source</span>
-        </div>
-        <p>Six search algorithms implemented from first principles — BFS, DFS, Uniform Cost, A* with configurable Manhattan and Euclidean heuristics, Greedy Best-First and Hill Climbing — plus reflex, goal-based and utility-based agents.</p>
-        <div class="note">No search library. The dashboard runs all six on the same scenario and reports success rate, path cost, nodes expanded and runtime, which makes the trade-offs concrete: A* expands far fewer nodes than UCS for the same optimal path, Greedy is fast but not cheapest, and Hill Climbing visibly gets stuck on local maxima.</div>
-        <div class="stack"><span class="chip">Python</span><span class="chip">Streamlit</span><span class="chip">matplotlib</span><span class="chip">pandas</span></div>
-        <div class="links"><a href="https://github.com/Hassnainkhan1249/smart-campus-delivery-robot" target="_blank" rel="noopener">Source →</a></div>
-      </article>
-
-      <article class="card reveal">
-        <div class="thumb t3" role="img" aria-label="SQL Server · Java · JDBC">SQL Server · Java · JDBC</div>
-        <div class="card-top">
-          <h3>HRMS — Human Resource Management System</h3>
-          <span class="tag">Open source</span>
-        </div>
-        <p>A database-backed HR system covering employees, departments, designations, salaries and attendance, with referential integrity enforced by the database rather than by application code.</p>
-        <div class="note">The interesting part is the schema. Departments references Employees for its manager, while Employees references Departments — a circular foreign key, resolved by creating both tables first and adding the constraint afterwards so the script runs cleanly from scratch. Validation lives in <span class="mono">CHECK</span> constraints, so invalid data can't be written even by a different client.</div>
-        <div class="stack"><span class="chip">Java 11</span><span class="chip">Maven</span><span class="chip">SQL Server</span><span class="chip">JDBC</span></div>
-        <div class="links"><a href="https://github.com/Hassnainkhan1249/hrms-employee-management" target="_blank" rel="noopener">Source →</a></div>
-      </article>
-
-      <article class="card reveal">
-        <div class="thumb t4" role="img" aria-label="Solidity · Hardhat · Next.js">Solidity · Hardhat · Next.js</div>
-        <div class="card-top">
-          <h3>MediChain — Blockchain Medical Records</h3>
-          <span class="tag wip">Repo coming</span>
-        </div>
-        <p>A decentralised medical record system where access control lives in the smart contract rather than the application layer. Role-based permissions for admin, doctor and patient.</p>
-        <div class="note">Putting permissions on-chain means a doctor requesting a record they haven't been granted doesn't get a 403 from a server they might bypass — the transaction reverts at the contract level. The patient grants and revokes access, not the hospital.</div>
-        <div class="stack"><span class="chip">Solidity</span><span class="chip">Hardhat</span><span class="chip">Ethers.js</span><span class="chip">Next.js</span><span class="chip">Tailwind</span></div>
-        <div class="links"><span>Repository being published</span></div>
-      </article>
-
-      <article class="card reveal">
-        <div class="thumb t5" role="img" aria-label="Manifest V3 · LLM APIs">Manifest V3 · LLM APIs</div>
-        <div class="card-top">
-          <h3>EngageWise — AI Writing Assistant</h3>
-          <span class="tag wip">Repo coming</span>
-        </div>
-        <p>A Chrome extension that helps users draft better professional posts and replies. Sends surrounding page context to an LLM API and returns suggested drafts the user reviews and edits before posting.</p>
-        <div class="stack"><span class="chip">JavaScript</span><span class="chip">Manifest V3</span><span class="chip">Node.js</span><span class="chip">Express</span><span class="chip">LLM APIs</span></div>
-        <div class="links"><span>Repository being published</span></div>
-      </article>
-
-      <article class="card reveal">
-        <div class="thumb t6" role="img" aria-label="TypeScript · Canvas API">TypeScript · Canvas API</div>
-        <div class="card-top">
-          <h3>Canvas Proximity Treasure Hunt</h3>
-          <span class="tag">Open source</span>
-        </div>
-        <p>An interactive browser treasure hunt on the HTML Canvas API, with proximity-driven visual feedback that communicates how close you are without ever revealing the target position.</p>
-        <div class="stack"><span class="chip">TypeScript</span><span class="chip">HTML Canvas</span></div>
-        <div class="links"><a href="https://github.com/Hassnainkhan1249/canvas-proximity-treasure-hunt" target="_blank" rel="noopener">Source →</a></div>
-      </article>
-
+    <div class="sec-head up">
+      <span class="label">Selected work</span>
+      <h2>Six projects.</h2>
+      <p class="body">Where a repository exists it is linked. Where it doesn't, I say so.</p>
     </div>
+
+    <div class="entry up">
+      <div class="idx">01</div>
+      <div>
+        <h3>Smart AutoML Pro</h3>
+        <p class="body">An automated machine learning dashboard that takes a raw tabular dataset through preprocessing, model selection, training, evaluation and prediction — for classification and clustering both — without rewriting the pipeline for each new dataset.</p>
+        <p class="insight">I built it because I was writing the same two hundred lines every time. It compares models side by side and shows <b>where</b> one is failing, rather than reporting a single accuracy figure that quietly hides an imbalanced dataset.</p>
+        <div class="meta">
+          <div class="tech">Python · scikit-learn · pandas · Streamlit</div>
+          <div class="acts">
+            <a href="https://smart-automl-dashboard.streamlit.app/" target="_blank" rel="noopener">Live</a>
+            <a href="https://github.com/Hassnainkhan1249/smart-automl-pro-dashboard" target="_blank" rel="noopener">Source</a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="entry up">
+      <div class="idx">02</div>
+      <div>
+        <h3>Smart Campus Delivery Robot</h3>
+        <p class="body">Six classical search algorithms written from first principles — breadth-first, depth-first, uniform cost, A* with configurable heuristics, greedy best-first and hill climbing — alongside reflex, goal-based and utility-based agents.</p>
+        <p class="insight">No search library. Running all six on one scenario makes the trade-offs concrete: <b>A* expands far fewer nodes than uniform cost for the same optimal path</b>, greedy is quick but not cheapest, and hill climbing visibly gets stuck on local maxima.</p>
+        <div class="meta">
+          <div class="tech">Python · Streamlit · matplotlib · pandas</div>
+          <div class="acts"><a href="https://github.com/Hassnainkhan1249/smart-campus-delivery-robot" target="_blank" rel="noopener">Source</a></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="entry up">
+      <div class="idx">03</div>
+      <div>
+        <h3>HRMS</h3>
+        <p class="body">A human resource system covering employees, departments, designations, salaries and attendance, with referential integrity enforced by the database rather than by application code.</p>
+        <p class="insight">The schema is the interesting part. Departments references Employees for its manager while Employees references Departments — <b>a circular foreign key</b>, resolved by creating both tables first and adding the constraint afterwards, so the script runs cleanly from nothing. Validation lives in check constraints, so bad data cannot be written even by a different client.</p>
+        <div class="meta">
+          <div class="tech">Java 11 · Maven · SQL Server · JDBC</div>
+          <div class="acts"><a href="https://github.com/Hassnainkhan1249/hrms-employee-management" target="_blank" rel="noopener">Source</a></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="entry up">
+      <div class="idx">04</div>
+      <div>
+        <h3>MediChain</h3>
+        <p class="body">A decentralised medical records system where access control lives in the smart contract rather than the application layer, with role-based permissions for administrator, doctor and patient.</p>
+        <p class="insight">Putting permissions on-chain means a doctor requesting a record they were never granted doesn't receive a rejection from a server someone could bypass — <b>the transaction reverts at the contract</b>. The patient grants and revokes access. Not the hospital.</p>
+        <div class="meta">
+          <div class="tech">Solidity · Hardhat · Ethers.js · Next.js</div>
+          <div class="acts"><span>Repository in preparation</span></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="entry up">
+      <div class="idx">05</div>
+      <div>
+        <h3>EngageWise</h3>
+        <p class="body">A browser extension that helps people draft better professional writing. It reads the surrounding page context, sends it to a language model, and returns suggestions the user edits before anything is published.</p>
+        <div class="meta">
+          <div class="tech">JavaScript · Manifest V3 · Node.js · Express</div>
+          <div class="acts"><span>Repository in preparation</span></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="entry up">
+      <div class="idx">06</div>
+      <div>
+        <h3>Canvas Proximity Treasure Hunt</h3>
+        <p class="body">An interactive browser game on the Canvas API, where proximity-driven visual feedback tells you how close you are without ever revealing where the target is.</p>
+        <div class="meta">
+          <div class="tech">TypeScript · Canvas API</div>
+          <div class="acts"><a href="https://github.com/Hassnainkhan1249/canvas-proximity-treasure-hunt" target="_blank" rel="noopener">Source</a></div>
+        </div>
+      </div>
+    </div>
+
   </div>
 </section>
 
-<section id="experience">
+<section id="experience" class="tint">
   <div class="wrap">
-    <div class="eyebrow reveal">Experience</div>
-    <h2 class="reveal">Where I've worked</h2>
-    <p class="sub reveal">Security, engineering, analytics and hiring — four different vantage points on how software actually gets built and staffed.</p>
-
-    <div class="exp">
-      <div class="job reveal">
+    <div class="sec-head up">
+      <span class="label">Experience</span>
+      <h2>Four vantage points.</h2>
+      <p class="body">Security, engineering, analytics and hiring — four different views of how software gets built and staffed.</p>
+    </div>
+    <div class="roles">
+      <div class="role up">
         <div class="when">Aug 2026 — Present</div>
         <div>
-          <h3>Marketing Intern</h3>
-          <div class="where">Mercantile Pakistan · Islamabad</div>
-          <p>Run technical website audits with Google Lighthouse and PageSpeed Insights, diagnosing load performance, responsiveness and Core Web Vitals issues, and translate the findings into prioritised fixes. Analyse advertising and campaign data into structured reports.</p>
+          <h4>Marketing Intern</h4>
+          <div class="org">Mercantile Pakistan, Islamabad</div>
+          <p>Technical website audits using Lighthouse and PageSpeed Insights — diagnosing load performance, responsiveness and Core Web Vitals, then turning findings into prioritised fixes. Campaign and advertising data analysed into structured reports.</p>
         </div>
       </div>
-
-      <div class="job reveal">
+      <div class="role up">
         <div class="when">May — Jun 2026</div>
         <div>
-          <h3>Cybersecurity Intern</h3>
-          <div class="where">Safe City Islamabad · Systems team</div>
-          <p>Penetration-testing exercises and vulnerability assessments in controlled environments using Burp Suite, TryHackMe and the PortSwigger Web Security Academy. Reviewed web applications for SQL injection, XSS, broken authentication and security misconfiguration, and presented findings to the team. It changed how I build — I now think about how something breaks before I think about how it ships.</p>
+          <h4>Cybersecurity Intern</h4>
+          <div class="org">Safe City Islamabad, systems team</div>
+          <p>Penetration testing and vulnerability assessment in controlled environments with Burp Suite, TryHackMe and the PortSwigger Web Security Academy. Reviewed applications for injection, cross-site scripting, broken authentication and misconfiguration. It changed how I build — I now think about how something breaks before I think about how it ships.</p>
         </div>
       </div>
-
-      <div class="job reveal">
+      <div class="role up">
         <div class="when">Jan 2026 — Present</div>
         <div>
-          <h3>IT Recruiter</h3>
-          <div class="where">Atlas IT Services · Germany, remote</div>
-          <p>Technical recruiting for a Germany-based startup — sourcing, screening and interview coordination across time zones. Evaluating engineering profiles against role requirements gave me an unusually direct view of how technical candidates actually get screened.</p>
+          <h4>IT Recruiter</h4>
+          <div class="org">Atlas IT Services, Germany — remote</div>
+          <p>Technical recruiting for a Germany-based startup: sourcing, screening and interview coordination across time zones. Assessing engineering profiles against real requirements gave me an unusually direct view of how candidates actually get read.</p>
         </div>
       </div>
-
-      <div class="job reveal">
+      <div class="role up">
         <div class="when">Mar 2024 — Present</div>
         <div>
-          <h3>IT Assistant</h3>
-          <div class="where">PMEye Management Consulting · Part-time</div>
-          <p>Maintain the company website and produce branding and communication materials for digital channels.</p>
+          <h4>IT Assistant</h4>
+          <div class="org">PMEye Management Consulting, part-time</div>
+          <p>Maintaining the company website and producing branding and communication material for digital channels.</p>
         </div>
       </div>
     </div>
   </div>
 </section>
 
-<section id="skills">
+<section id="capabilities">
   <div class="wrap">
-    <div class="eyebrow reveal">Toolkit</div>
-    <h2 class="reveal">What I work with</h2>
-    <p class="sub reveal">Listed only where I've shipped something with it.</p>
-    <div class="skills">
-      <div class="skill reveal"><h4>Languages</h4><div>
-        <span class="chip">Python</span><span class="chip">JavaScript</span><span class="chip">TypeScript</span><span class="chip">Java</span><span class="chip">C++</span><span class="chip">SQL</span><span class="chip">Solidity</span></div></div>
-      <div class="skill reveal"><h4>AI / Machine Learning</h4><div>
-        <span class="chip">scikit-learn</span><span class="chip">pandas</span><span class="chip">Classification</span><span class="chip">Clustering</span><span class="chip">AutoML</span><span class="chip">Search algorithms</span></div></div>
-      <div class="skill reveal"><h4>Web</h4><div>
-        <span class="chip">React</span><span class="chip">Next.js</span><span class="chip">Tailwind</span><span class="chip">Node.js</span><span class="chip">Express</span><span class="chip">Streamlit</span></div></div>
-      <div class="skill reveal"><h4>Security</h4><div>
-        <span class="chip">Burp Suite</span><span class="chip">Vulnerability assessment</span><span class="chip">Web app security</span><span class="chip">Linux</span></div></div>
-      <div class="skill reveal"><h4>Data</h4><div>
-        <span class="chip">SQL Server</span><span class="chip">MySQL</span><span class="chip">JDBC</span><span class="chip">ER modelling</span></div></div>
-      <div class="skill reveal"><h4>Tools</h4><div>
-        <span class="chip">Git</span><span class="chip">GitHub</span><span class="chip">Hardhat</span><span class="chip">MATLAB</span><span class="chip">Figma</span></div></div>
+    <div class="sec-head up">
+      <span class="label">Capabilities</span>
+      <h2>What I work with.</h2>
+      <p class="body">Listed only where I have shipped something with it.</p>
+    </div>
+    <div class="caps">
+      <div class="cap up"><h5>Languages</h5><p>Python, JavaScript, TypeScript, Java, C++, SQL, Solidity</p></div>
+      <div class="cap up"><h5>Machine learning</h5><p>scikit-learn, pandas, classification, clustering, automated model selection, search and planning</p></div>
+      <div class="cap up"><h5>Web</h5><p>React, Next.js, Tailwind, Node.js, Express, Streamlit</p></div>
+      <div class="cap up"><h5>Security</h5><p>Burp Suite, vulnerability assessment, web application security, Linux</p></div>
+      <div class="cap up"><h5>Data</h5><p>SQL Server, MySQL, JDBC, schema design, entity-relationship modelling</p></div>
+      <div class="cap up"><h5>Tooling</h5><p>Git, GitHub, Hardhat, MATLAB, Figma</p></div>
     </div>
   </div>
 </section>
 
-<section id="about">
+<section id="about" class="tint">
   <div class="wrap about">
-    <div class="reveal">
-      <div class="eyebrow">About</div>
-      <h2>A bit more</h2>
-      <p>I'm a Computer Engineering student in Islamabad, heading toward AI engineering. My core interest is machine learning — classification and clustering pipelines built end to end, and tooling that makes the workflow repeatable rather than one-off. I work full-stack around that, because a model nobody can use isn't finished.</p>
-      <p>In 2024 I placed in the top 15 nationally in the Huawei ICT Competition, out of thousands of entrants across Pakistan. In 2026 I spent an internship in cybersecurity at Safe City Islamabad, which permanently changed how I think about the code I write.</p>
-      <p>Outside of engineering I coordinate finances for humanitarian relief with Dast-e-Khuddam and iHayaat — Ramadan welfare drives, orphanage support, and flood response in Buner. It matters to me that technical skill isn't the only thing I'm building.</p>
+    <div class="up">
+      <span class="label" style="display:block;margin-bottom:18px">About</span>
+      <h2 style="margin-bottom:32px">A short version.</h2>
+      <p class="body">I am a Computer Engineering student in Islamabad, heading toward machine learning engineering. My interest is in pipelines built end to end and in tooling that makes the workflow repeatable rather than one-off. I work full-stack around that, because a model nobody can use is not finished.</p>
+      <p class="body">In 2024 I placed in the top fifteen nationally in the Huawei ICT Competition, from thousands of entrants across Pakistan. In 2026 I spent an internship in cybersecurity at Safe City Islamabad, which permanently changed how I read my own code. Outside engineering I coordinate finances for humanitarian relief with Dast-e-Khuddam and iHayaat — Ramadan welfare, orphanage support, and flood response in Buner.</p>
+      <div class="edu">
+        <div class="edu-row"><span>BS Computer Engineering — Bahria University Islamabad</span><span>2023–2027</span></div>
+        <div class="edu-row"><span>Huawei ICT Competition, Top-15 National Finalist</span><span>2024</span></div>
+        <div class="edu-row"><span>Intermediate FSc — Metropolitan International United College</span><span>2021–2023</span></div>
+        <div class="edu-row"><span>Matriculation — Dr. A.Q. Khan School System</span><span>2018–2021</span></div>
+      </div>
     </div>
-    <div class="edu reveal">
-      <h4>Education</h4>
-      <div class="edu-item"><b>BS Computer Engineering</b><span>Bahria University Islamabad · 2023–2027 · CGPA 3.28</span></div>
-      <div class="edu-item"><b>Intermediate, FSc Pre-Engineering</b><span>Metropolitan International United College · 2021–2023</span></div>
-      <div class="edu-item"><b>Matriculation (Science)</b><span>Dr. A.Q. Khan School System · 2018–2021 · 89%</span></div>
-      <div class="edu-item"><b>Huawei ICT Competition 2024–25</b><span>Top-15 National Finalist, Pakistan</span></div>
-      <div class="edu-item"><b>Google Project Management</b><span>Coursera · 2025</span></div>
-    </div>
+    <img class="portrait up" src="https://github.com/Hassnainkhan1249.png" alt="Hassnain Khan" width="340" height="425">
   </div>
 </section>
 
-<section class="contact" id="contact">
-  <div class="wrap">
-    <div class="eyebrow reveal">Contact</div>
-    <h2 class="reveal">Let's talk</h2>
-    <p class="reveal">I'm looking for software engineering, AI/ML or full-stack internships — remote, Islamabad-based or international. If you're hiring, or you just want to talk about ML tooling or web security, my inbox is open.</p>
-    <div class="contact-links reveal">
-      <a class="btn btn-p" href="mailto:hassnain32222000@gmail.com">Email me</a>
-      <a class="btn btn-s" href="https://linkedin.com/in/hassnainkhandev" target="_blank" rel="noopener">LinkedIn</a>
-      <a class="btn btn-s" href="https://github.com/Hassnainkhan1249" target="_blank" rel="noopener">GitHub</a>
-      <a class="btn btn-s" href="Hassnain-Khan-CV.pdf" target="_blank" rel="noopener">CV</a>
-    </div>
+<section class="contact">
+  <div class="wrap narrow">
+    <span class="label up" style="display:block;margin-bottom:18px">Contact</span>
+    <h2 class="up">Looking for an internship in machine learning or software engineering.</h2>
+    <p class="lead up">Remote, Islamabad, or international. If you are hiring, or you simply want to talk about model tooling or web security, write to me.</p>
+    <a class="mailto up" href="mailto:hassnain32222000@gmail.com">hassnain32222000@gmail.com</a>
   </div>
 </section>
-
 </main>
-<footer><div class="wrap">Built from scratch — no template. Hassnain Khan, Islamabad.</div></footer>
+
+<footer>
+  <div class="wrap foot">
+    <span>Hassnain Khan — Islamabad, Pakistan</span>
+    <div class="foot-links">
+      <a href="https://github.com/Hassnainkhan1249" target="_blank" rel="noopener">GitHub</a>
+      <a href="https://linkedin.com/in/hassnainkhandev" target="_blank" rel="noopener">LinkedIn</a>
+      <a href="Hassnain-Khan-CV.pdf" target="_blank" rel="noopener">CV</a>
+    </div>
+  </div>
+</footer>
 
 <script>
-const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}}),{threshold:.12,rootMargin:'0px 0px -40px 0px'});
-document.querySelectorAll('.reveal').forEach((el,i)=>{el.style.transitionDelay=(i%4*60)+'ms';io.observe(el)});
+const nav=document.querySelector('nav');
+addEventListener('scroll',()=>nav.classList.toggle('stuck',scrollY>8),{passive:true});
+const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}}),{threshold:.08,rootMargin:'0px 0px -50px 0px'});
+document.querySelectorAll('.up').forEach(el=>io.observe(el));
 </script>
 </body>
 </html>
