@@ -1,951 +1,395 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Hassnain Khan — AI/ML & Software Engineering</title>
+<meta name="description" content="Computer Engineering student at Bahria University Islamabad building AI/ML systems, full-stack web applications and secure software. Top-15 National Finalist, Huawei ICT Competition.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90' font-family='system-ui' font-weight='700' fill='%235eead4'>H</text></svg>">
+<style>
+:root{
+  --bg:#0a0e14; --surface:#111721; --surface-2:#161d29;
+  --line:#1f2836; --line-bright:#2b3648;
+  --text:#e6edf3; --muted:#8b98a9; --dim:#5f6b7d;
+  --accent:#5eead4; --accent-dim:#2dd4bf;
+  --max:1080px;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  background:var(--bg); color:var(--text);
+  font-family:"Inter",ui-sans-serif,-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+  line-height:1.65; -webkit-font-smoothing:antialiased; overflow-x:hidden;
+}
+.mono,.chip,.when,.eyebrow{font-family:"JetBrains Mono",ui-monospace,SFMono-Regular,Menlo,Consolas,monospace}
+.wrap{max-width:var(--max);margin:0 auto;padding:0 24px}
+a{color:inherit}
 
-  <title>Hassnain Khan | Computer Engineering Portfolio</title>
+/* nav */
+nav{position:sticky;top:0;z-index:50;backdrop-filter:blur(12px);background:rgba(10,14,20,.82);border-bottom:1px solid var(--line)}
+.nav-in{max-width:var(--max);margin:0 auto;padding:14px 24px;display:flex;justify-content:space-between;align-items:center}
+.logo{font-weight:700;letter-spacing:-.02em;font-size:1.05rem;text-decoration:none}
+.logo span{color:var(--accent)}
+.nav-links{display:flex;gap:28px;list-style:none}
+.nav-links a{color:var(--muted);text-decoration:none;font-size:.9rem;transition:color .2s}
+.nav-links a:hover{color:var(--accent)}
+@media(max-width:720px){.nav-links{display:none}}
 
-  <meta
-    name="description"
-    content="Professional portfolio of Hassnain Khan, Computer Engineering student, IT Recruiter, IT Assistant, Huawei ICT National Finalist, AI/ML project builder, browser extension developer, and web developer from Islamabad, Pakistan."
-  />
+/* hero */
+header{padding:96px 0 80px;border-bottom:1px solid var(--line);position:relative;overflow:hidden}
+header::before{content:"";position:absolute;top:-30%;right:-10%;width:560px;height:560px;
+  background:radial-gradient(circle,rgba(94,234,212,.07),transparent 68%);pointer-events:none}
+.hero{display:grid;grid-template-columns:1fr auto;gap:56px;align-items:center;position:relative}
+@media(max-width:800px){.hero{grid-template-columns:1fr;gap:36px}}
+.status{display:inline-flex;align-items:center;gap:8px;font-size:.8rem;color:var(--accent);
+  border:1px solid rgba(94,234,212,.28);background:rgba(94,234,212,.06);
+  padding:6px 13px;border-radius:100px;margin-bottom:26px}
+.dot{width:6px;height:6px;border-radius:50%;background:var(--accent);animation:pulse 2.2s infinite}
+@keyframes pulse{0%,100%{opacity:1}50%{opacity:.35}}
+h1{font-size:clamp(2.1rem,5.2vw,3.4rem);line-height:1.12;letter-spacing:-.028em;font-weight:700;margin-bottom:22px}
+h1 em{font-style:normal;color:var(--accent)}
+.lede{font-size:1.08rem;color:var(--muted);max-width:60ch;margin-bottom:32px}
+.cta{display:flex;gap:12px;flex-wrap:wrap}
+.btn{padding:11px 20px;border-radius:8px;text-decoration:none;font-size:.92rem;font-weight:500;
+  border:1px solid var(--line-bright);transition:all .2s;display:inline-block}
+.btn-p{background:var(--accent);color:#06231f;border-color:var(--accent);font-weight:600}
+.btn-p:hover{background:var(--accent-dim);transform:translateY(-1px)}
+.btn-s:hover{border-color:var(--accent);color:var(--accent)}
+.avatar{width:190px;height:190px;border-radius:16px;object-fit:cover;
+  border:1px solid var(--line-bright);filter:grayscale(.15)}
+@media(max-width:800px){.avatar{width:132px;height:132px}}
 
-  <link rel="stylesheet" href="style.css" />
+/* facts strip */
+.facts{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:var(--line);
+  border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+@media(max-width:760px){.facts{grid-template-columns:repeat(2,1fr)}}
+.fact{background:var(--bg);padding:26px 20px;text-align:center}
+.fact b{display:block;font-size:1.5rem;font-weight:700;letter-spacing:-.02em;margin-bottom:3px}
+.fact span{font-size:.76rem;color:var(--dim);text-transform:uppercase;letter-spacing:.09em}
 
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+/* sections */
+section{padding:84px 0;border-bottom:1px solid var(--line)}
+.eyebrow{font-size:.74rem;letter-spacing:.15em;text-transform:uppercase;color:var(--accent);margin-bottom:12px}
+h2{font-size:clamp(1.6rem,3.4vw,2.05rem);letter-spacing:-.022em;margin-bottom:14px;font-weight:700}
+.sub{color:var(--muted);max-width:62ch;margin-bottom:44px}
 
-  <link
-    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap"
-    rel="stylesheet"
-  />
+/* projects */
+.projects{display:grid;gap:18px}
+.card{background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:28px;
+  transition:border-color .25s,transform .25s}
+.card:hover{border-color:var(--line-bright);transform:translateY(-2px)}
+.card-top{display:flex;justify-content:space-between;align-items:flex-start;gap:18px;margin-bottom:12px;flex-wrap:wrap}
+.card h3{font-size:1.16rem;letter-spacing:-.015em;font-weight:650}
+.tag{font-size:.7rem;padding:3px 9px;border-radius:5px;white-space:nowrap;
+  background:rgba(94,234,212,.09);color:var(--accent);border:1px solid rgba(94,234,212,.2)}
+.tag.wip{background:rgba(139,152,169,.09);color:var(--muted);border-color:var(--line-bright)}
+.card p{color:var(--muted);font-size:.94rem;margin-bottom:16px}
+.card .note{font-size:.88rem;color:var(--dim);border-left:2px solid var(--line-bright);
+  padding-left:13px;margin-bottom:16px}
+.stack{display:flex;gap:7px;flex-wrap:wrap;margin-bottom:16px}
+.chip{font-size:.73rem;padding:3px 9px;border-radius:5px;background:var(--surface-2);
+  color:var(--muted);border:1px solid var(--line)}
+.links{display:flex;gap:18px;flex-wrap:wrap}
+.links a{font-size:.86rem;color:var(--accent);text-decoration:none;border-bottom:1px solid transparent;transition:border-color .2s}
+.links a:hover{border-color:var(--accent)}
+.links span{font-size:.86rem;color:var(--dim)}
+
+/* experience */
+.exp{display:grid;gap:0}
+.job{display:grid;grid-template-columns:186px 1fr;gap:28px;padding:26px 0;border-top:1px solid var(--line)}
+.job:first-child{border-top:none}
+@media(max-width:720px){.job{grid-template-columns:1fr;gap:8px}}
+.when{font-size:.83rem;color:var(--dim);padding-top:2px}
+.job h3{font-size:1.03rem;font-weight:650;margin-bottom:2px}
+.where{font-size:.88rem;color:var(--accent);margin-bottom:9px}
+.job p{color:var(--muted);font-size:.92rem}
+
+/* skills */
+.skills{display:grid;grid-template-columns:repeat(auto-fit,minmax(238px,1fr));gap:22px}
+.skill h4{font-size:.76rem;text-transform:uppercase;letter-spacing:.1em;color:var(--accent);margin-bottom:11px}
+.skill div{display:flex;gap:7px;flex-wrap:wrap}
+
+/* about */
+.about{display:grid;grid-template-columns:1.5fr 1fr;gap:56px}
+@media(max-width:800px){.about{grid-template-columns:1fr;gap:32px}}
+.about p{color:var(--muted);margin-bottom:16px}
+.edu{background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:24px}
+.edu h4{font-size:.74rem;text-transform:uppercase;letter-spacing:.1em;color:var(--accent);margin-bottom:14px}
+.edu-item{padding:11px 0;border-top:1px solid var(--line)}
+.edu-item:first-of-type{border-top:none;padding-top:0}
+.edu-item b{display:block;font-size:.93rem;font-weight:600}
+.edu-item span{font-size:.82rem;color:var(--dim)}
+
+/* contact */
+.contact{text-align:center;padding:96px 0}
+.contact h2{margin-bottom:14px}
+.contact p{color:var(--muted);max-width:52ch;margin:0 auto 32px}
+.contact-links{display:flex;gap:14px;justify-content:center;flex-wrap:wrap}
+footer{padding:30px 0;text-align:center;color:var(--dim);font-size:.82rem;border-top:1px solid var(--line)}
+
+/* accessibility */
+a:focus-visible,button:focus-visible{outline:2px solid var(--accent);outline-offset:3px;border-radius:4px}
+.skip{position:absolute;left:-9999px;top:0;background:var(--accent);color:#06231f;padding:10px 16px;z-index:100;border-radius:0 0 6px 0;font-weight:600;text-decoration:none}
+.skip:focus{left:0}
+
+/* project thumbnails */
+.thumb{height:104px;border-radius:9px;margin-bottom:20px;display:flex;align-items:flex-end;padding:13px 16px;
+  font-family:"JetBrains Mono",monospace;font-size:.72rem;letter-spacing:.06em;color:rgba(255,255,255,.82);
+  border:1px solid var(--line);text-transform:uppercase}
+.t1{background:linear-gradient(120deg,#0f2f2a,#134e4a 55%,#0b3b36)}
+.t2{background:linear-gradient(120deg,#132038,#1e3a5f 55%,#122c4d)}
+.t3{background:linear-gradient(120deg,#2a1f14,#4a3520 55%,#33240f)}
+.t4{background:linear-gradient(120deg,#1d1730,#332a55 55%,#241c40)}
+.t5{background:linear-gradient(120deg,#2b1520,#4a2136 55%,#331624)}
+.t6{background:linear-gradient(120deg,#12261a,#1c4029 55%,#10301d)}
+
+.reveal{opacity:0;transform:translateY(14px);transition:opacity .6s ease,transform .6s ease}
+.reveal.in{opacity:1;transform:none}
+@media(prefers-reduced-motion:reduce){.reveal{opacity:1;transform:none;transition:none}.dot{animation:none}}
+</style>
+<noscript><style>.reveal{opacity:1!important;transform:none!important}</style></noscript>
 </head>
-
 <body>
 
-  <!-- NAVBAR -->
-  <header class="navbar" id="navbar">
-    <div class="container nav-inner">
-      <a href="#home" class="logo">
-        <span>H</span>K
-      </a>
-
-      <nav class="nav-links" id="navLinks">
-        <a href="#home">Home</a>
-        <a href="#about">About</a>
-        <a href="#experience">Experience</a>
-        <a href="#projects">Projects</a>
-        <a href="#skills">Skills</a>
-        <a href="#certifications">Certificates</a>
-        <a href="#contact">Contact</a>
-      </nav>
-
-      <button class="menu-btn" id="menuBtn" aria-label="Open mobile menu">
-        <span></span>
-        <span></span>
-        <span></span>
-      </button>
-    </div>
-  </header>
-
-  <!-- HERO -->
-  <section class="hero" id="home">
-    <div class="hero-orb orb-one"></div>
-    <div class="hero-orb orb-two"></div>
-    <div class="hero-orb orb-three"></div>
-
-    <div class="hero-grid-bg"></div>
-
-    <div class="container hero-layout">
-      <div class="hero-content reveal">
-
-        <!-- GRID GLOBE BEHIND HERO TEXT -->
-        <div class="grid-globe">
-          <div class="globe-ring ring-one"></div>
-          <div class="globe-ring ring-two"></div>
-          <div class="globe-ring ring-three"></div>
-          <div class="globe-ring ring-four"></div>
-          <div class="globe-core"></div>
-        </div>
-
-        <div class="status-badge">
-          <span></span>
-          Open to internships, junior tech roles, projects & collaborations
-        </div>
-
-        <p class="eyebrow">
-          Computer Engineering • AI/ML • Browser Extensions • Web Development • IT Recruitment
-        </p>
-
-        <h1>
-          I’m <span>Hassnain Khan</span>, building practical digital products with a professional mindset.
-        </h1>
-
-        <p class="hero-description">
-          A Computer Engineering student from Islamabad with hands-on experience in AI/ML projects,
-          browser extensions, websites, IT recruitment, IT support, cloud computing, database systems,
-          microprocessors, and digital business.
-        </p>
-
-        <div class="hero-actions">
-          <a href="#projects" class="btn primary-btn">View Projects</a>
-
-          <a href="Hassnain-Khan-CV.pdf" download class="btn glow-btn">
-            Download CV
-          </a>
-
-          <a
-            href="https://www.linkedin.com/in/hassnain-khan-097609318/"
-            target="_blank"
-            class="btn secondary-btn"
-          >
-            LinkedIn
-          </a>
-
-          <a
-            href="https://github.com/Hassnainkhan1249"
-            target="_blank"
-            class="btn secondary-btn"
-          >
-            GitHub
-          </a>
-        </div>
-
-        <div class="hero-proof">
-          <div>
-            <strong>Huawei ICT</strong>
-            <span>National Finalist — Cloud Track</span>
-          </div>
-
-          <div>
-            <strong>PMEye.org.pk</strong>
-            <span>Website & Digital Support</span>
-          </div>
-
-          <div>
-            <strong>AI/ML</strong>
-            <span>Model Testing & Classification</span>
-          </div>
-        </div>
-      </div>
-
-      <div class="hero-panel reveal">
-        <div class="profile-card">
-          <div class="profile-image-wrap">
-            <img src="profile.jpg" alt="Hassnain Khan" class="profile-image" />
-          </div>
-
-          <h2>Hassnain Khan</h2>
-          <p class="profile-title">Computer Engineering Student</p>
-
-          <div class="profile-divider"></div>
-
-          <div class="profile-list">
-            <div>
-              <span>Current Focus</span>
-              <strong>AI Tools, Web Apps & Extensions</strong>
-            </div>
-
-            <div>
-              <span>Experience</span>
-              <strong>IT Recruiter & IT Assistant</strong>
-            </div>
-
-            <div>
-              <span>Achievement</span>
-              <strong>Huawei ICT National Finalist</strong>
-            </div>
-
-            <div>
-              <span>Location</span>
-              <strong>Islamabad, Pakistan</strong>
-            </div>
-          </div>
-
-          <div class="profile-tags">
-            <span>JavaScript</span>
-            <span>Python</span>
-            <span>C++</span>
-            <span>Cloud</span>
-            <span>AI/ML</span>
-            <span>Web</span>
-          </div>
-
-          <div class="profile-socials">
-            <a
-              href="https://www.linkedin.com/in/hassnain-khan-097609318/"
-              target="_blank"
-            >
-              LinkedIn
-            </a>
-
-            <a
-              href="https://github.com/Hassnainkhan1249"
-              target="_blank"
-            >
-              GitHub
-            </a>
-
-            <a href="mailto:hassnain32222000@gmail.com">
-              Email
-            </a>
-          </div>
-        </div>
-
-        <div class="floating-card card-one">
-          <strong>98%</strong>
-          <span>SVM Model Accuracy</span>
-        </div>
-
-        <div class="floating-card card-two">
-          <strong>5th</strong>
-          <span>Semester Completed</span>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ABOUT -->
-  <section class="section about" id="about">
-    <div class="container two-column">
-      <div class="section-heading reveal">
-        <p class="section-label">About Me</p>
-        <h2>A technical learner with product sense, communication exposure, and business curiosity.</h2>
-      </div>
-
-      <div class="content-block reveal">
-        <p>
-          I am <strong>Hassnain Khan</strong>, a Computer Engineering student from Islamabad, Pakistan,
-          currently having completed my 5th semester. I am building a profile that combines engineering,
-          programming, AI/ML, web development, cloud computing, hardware systems, and digital business.
-        </p>
-
-        <p>
-          My work is not limited to academic assignments. I have built browser extensions, AI/ML models,
-          student-focused tools, websites, database systems, and Arduino-based hardware projects. I also
-          contributed to the development and digital presence of <strong>PMEye.org.pk</strong>.
-        </p>
-
-        <p>
-          Professionally, I have experience as an <strong>IT Recruiter with AtlasIT Services</strong>,
-          a Germany-based startup, and as an <strong>Information Technology Assistant with PMEye</strong>.
-          This gives me exposure to international technology hiring and practical IT support work.
-        </p>
-
-        <div class="about-highlights">
-          <div>
-            <span>01</span>
-            <p>Hands-on technology builder with AI, web, extension, database, and hardware projects.</p>
-          </div>
-
-          <div>
-            <span>02</span>
-            <p>International exposure through Germany-based IT recruitment work.</p>
-          </div>
-
-          <div>
-            <span>03</span>
-            <p>Business mindset through e-commerce, branding, SEO, digital marketing, and product ideas.</p>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- EXPERIENCE -->
-  <section class="section experience" id="experience">
-    <div class="container">
-      <div class="center-heading reveal">
-        <p class="section-label">Experience</p>
-        <h2>Professional exposure across recruitment, IT support, and digital work</h2>
-      </div>
-
-      <div class="experience-grid">
-        <article class="experience-card reveal">
-          <div class="card-number">01</div>
-
-          <h3>Information Technology Recruiter</h3>
-          <p class="role-meta">AtlasIT Services • Germany-based Startup • 2026 – Present</p>
-
-          <p>
-            Supporting technology recruitment by sourcing candidates, reviewing profiles, communicating with
-            applicants, and understanding technical hiring requirements. This role strengthened my exposure
-            to international hiring standards, startup culture, and professional communication.
-          </p>
-
-          <div class="chip-row">
-            <span>Tech Hiring</span>
-            <span>Candidate Sourcing</span>
-            <span>Communication</span>
-            <span>Global Exposure</span>
-          </div>
-        </article>
-
-        <article class="experience-card reveal">
-          <div class="card-number">02</div>
-
-          <h3>Information Technology Assistant</h3>
-          <p class="role-meta">PMEye • Islamabad • Mar 2024 – Present</p>
-
-          <p>
-            Providing IT, digital, communication, and technical support for PMEye. This includes website-related
-            support, technical assistance, digital operations, and helping strengthen the organization’s online
-            presence through practical technology support.
-          </p>
-
-          <div class="chip-row">
-            <span>IT Support</span>
-            <span>Digital Support</span>
-            <span>Website Support</span>
-            <span>Technical Assistance</span>
-          </div>
-        </article>
-
-        <article class="experience-card reveal">
-          <div class="card-number">03</div>
-
-          <h3>Founder</h3>
-          <p class="role-meta">Wristiphy • E-commerce Bracelet Brand</p>
-
-          <p>
-            Created an early-stage bracelet e-commerce brand promoted through Instagram. This gave me practical
-            experience in branding, social media marketing, product presentation, customer thinking, and online
-            business development.
-          </p>
-
-          <div class="chip-row">
-            <span>E-commerce</span>
-            <span>Branding</span>
-            <span>Instagram Marketing</span>
-            <span>Online Selling</span>
-          </div>
-        </article>
-      </div>
-    </div>
-  </section>
-
-  <!-- ACHIEVEMENT -->
-  <section class="section achievement">
-    <div class="container achievement-card reveal">
-      <div class="achievement-icon">🏆</div>
-
-      <div class="achievement-content">
-        <p class="section-label">Major Achievement</p>
-        <h2>Huawei ICT Competition 2024–25 — National Finalist, Cloud Track</h2>
-
-        <p>
-          I reached the national finals of the Huawei ICT Competition 2024–25 in the Cloud Track. Although I did
-          not clear the final interview stage, reaching the finals gave me valuable national-level exposure in
-          cloud computing, technical evaluation, competition pressure, and interview-based assessment.
-        </p>
-
-        <div class="achievement-details">
-          <div>
-            <strong>Track</strong>
-            <span>Cloud Computing</span>
-          </div>
-
-          <div>
-            <strong>Level</strong>
-            <span>National Finalist</span>
-          </div>
-
-          <div>
-            <strong>Learning</strong>
-            <span>Cloud, competition, and interview exposure</span>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- PROJECTS -->
-  <section class="section projects" id="projects">
-    <div class="container">
-      <div class="center-heading reveal">
-        <p class="section-label">Selected Work</p>
-        <h2>Projects that show my software, AI, web, hardware, and business direction</h2>
-      </div>
-
-      <div class="project-filters reveal">
-        <button class="filter-btn active" data-filter="all">All</button>
-        <button class="filter-btn" data-filter="extension">Extensions</button>
-        <button class="filter-btn" data-filter="web">Websites</button>
-        <button class="filter-btn" data-filter="ai">AI / ML</button>
-        <button class="filter-btn" data-filter="software">Software</button>
-        <button class="filter-btn" data-filter="hardware">Hardware</button>
-        <button class="filter-btn" data-filter="business">Business</button>
-      </div>
-
-      <div class="projects-grid">
-
-        <article class="project-card reveal" data-category="extension">
-          <div class="project-top">
-            <span>Browser Extension</span>
-            <strong>AI Tool</strong>
-          </div>
-
-          <h3>AI LinkedIn Comment Writer Extension</h3>
-
-          <p>
-            Built a browser extension to help users generate professional LinkedIn comments directly near the
-            comment area. The focus was to reduce copy-paste friction and make AI assistance available inside
-            the normal LinkedIn workflow.
-          </p>
-
-          <div class="chip-row">
-            <span>JavaScript</span>
-            <span>Chrome Extension</span>
-            <span>AI Writing</span>
-            <span>UX Improvement</span>
-          </div>
-        </article>
-
-        <article class="project-card reveal" data-category="extension">
-          <div class="project-top">
-            <span>Browser Extension</span>
-            <strong>LinkedIn Tool</strong>
-          </div>
-
-          <h3>AI LinkedIn Post Generator</h3>
-
-          <p>
-            Developed a LinkedIn post generation tool concept that allows users to draft AI-assisted posts and
-            insert them closer to the post-writing area. The project focused on usability, interface placement,
-            and smoother user interaction.
-          </p>
-
-          <div class="chip-row">
-            <span>JavaScript</span>
-            <span>AI Content</span>
-            <span>Extension UI</span>
-            <span>Productivity</span>
-          </div>
-        </article>
-
-        <article class="project-card reveal" data-category="extension">
-          <div class="project-top">
-            <span>Student Tool</span>
-            <strong>LMS Extension</strong>
-          </div>
-
-          <h3>Bahria University LMS Deadline Tracker</h3>
-
-          <p>
-            Created a browser extension concept for Bahria University LMS to help students track assignments,
-            deadlines, and important academic tasks. The idea solves a real student problem by improving task
-            visibility and academic planning.
-          </p>
-
-          <div class="chip-row">
-            <span>LMS</span>
-            <span>Automation</span>
-            <span>Student Productivity</span>
-            <span>JavaScript</span>
-          </div>
-        </article>
-
-        <article class="project-card reveal featured-project" data-category="web">
-          <div class="project-top">
-            <span>Website</span>
-            <strong>Real Work</strong>
-          </div>
-
-          <h3>PMEye.org.pk Website</h3>
-
-          <p>
-            Built and supported the PMEye.org.pk website, contributing to the digital presence of a professional
-            consulting firm. This strengthened my experience in web structure, layout design, content placement,
-            brand presentation, and professional online communication.
-          </p>
-
-          <div class="chip-row">
-            <span>Website Development</span>
-            <span>Web Design</span>
-            <span>Brand Presence</span>
-            <span>PMEye</span>
-          </div>
-        </article>
-
-        <article class="project-card reveal" data-category="ai">
-          <div class="project-top">
-            <span>AI / ML</span>
-            <strong>Model Selection</strong>
-          </div>
-
-          <h3>AI/ML Model Selection Project</h3>
-
-          <p>
-            Built an AI/ML project to test datasets, compare machine learning models, and identify better model
-            performance for prediction tasks. This improved my understanding of applied ML workflows, evaluation,
-            and dataset handling.
-          </p>
-
-          <div class="chip-row">
-            <span>Python</span>
-            <span>Machine Learning</span>
-            <span>Model Evaluation</span>
-            <span>Data Analysis</span>
-          </div>
-        </article>
-
-        <article class="project-card reveal" data-category="ai">
-          <div class="project-top">
-            <span>Machine Learning</span>
-            <strong>98% Accuracy</strong>
-          </div>
-
-          <h3>SVM Breast Cancer Classification</h3>
-
-          <p>
-            Implemented Linear and RBF Support Vector Machine models on the Breast Cancer dataset, reaching
-            approximately 98% accuracy. The project developed my understanding of classification, kernels,
-            evaluation metrics, and Scikit-learn workflows.
-          </p>
-
-          <div class="chip-row">
-            <span>Python</span>
-            <span>SVM</span>
-            <span>Scikit-learn</span>
-            <span>Classification</span>
-          </div>
-        </article>
-
-        <article class="project-card reveal" data-category="ai">
-          <div class="project-top">
-            <span>Machine Learning</span>
-            <strong>Clustering</strong>
-          </div>
-
-          <h3>K-Means Clustering</h3>
-
-          <p>
-            Implemented K-Means clustering with and without Scikit-learn to understand centroids, cluster
-            assignment, iteration behavior, and unsupervised learning logic.
-          </p>
-
-          <div class="chip-row">
-            <span>Python</span>
-            <span>K-Means</span>
-            <span>Clustering</span>
-            <span>ML Logic</span>
-          </div>
-        </article>
-
-        <article class="project-card reveal" data-category="software">
-          <div class="project-top">
-            <span>Data Structures</span>
-            <strong>C++</strong>
-          </div>
-
-          <h3>Red-Black Tree Flood Event Manager</h3>
-
-          <p>
-            Built a complex C++ data structure project for managing flood event records using Red-Black Tree
-            logic. Developed without STL vectors or maps to strengthen low-level data structure implementation.
-          </p>
-
-          <div class="chip-row">
-            <span>C++</span>
-            <span>Red-Black Tree</span>
-            <span>DSA</span>
-            <span>No STL</span>
-          </div>
-        </article>
-
-        <article class="project-card reveal" data-category="software">
-          <div class="project-top">
-            <span>Database</span>
-            <strong>Academic Project</strong>
-          </div>
-
-          <h3>Manzaneque Limited Database System</h3>
-
-          <p>
-            Designed a relational database system based on a real-world business structure. The project focused
-            on entities, relationships, ERD, normalization, and practical database design.
-          </p>
-
-          <div class="chip-row">
-            <span>Database Design</span>
-            <span>ERD</span>
-            <span>SQL Concepts</span>
-            <span>Normalization</span>
-          </div>
-        </article>
-
-        <article class="project-card reveal" data-category="hardware">
-          <div class="project-top">
-            <span>Hardware</span>
-            <strong>Arduino</strong>
-          </div>
-
-          <h3>Automatic Handwriting Machine</h3>
-
-          <p>
-            Arduino Uno-based project combining hardware and software to automate handwriting-style movement.
-            Demonstrates embedded systems, motor control, automation logic, and hardware-software integration.
-          </p>
-
-          <div class="chip-row">
-            <span>Arduino Uno</span>
-            <span>Automation</span>
-            <span>Embedded Systems</span>
-            <span>Hardware</span>
-          </div>
-        </article>
-
-        <article class="project-card reveal" data-category="business">
-          <div class="project-top">
-            <span>E-commerce</span>
-            <strong>Founder</strong>
-          </div>
-
-          <h3>Wristiphy — Bracelet Brand</h3>
-
-          <p>
-            Created a bracelet-focused e-commerce brand promoted through Instagram. This project gave me early
-            exposure to product presentation, digital branding, online selling, and dropshipping-style thinking.
-          </p>
-
-          <div class="chip-row">
-            <span>E-commerce</span>
-            <span>Instagram</span>
-            <span>Branding</span>
-            <span>Digital Marketing</span>
-          </div>
-        </article>
-
-      </div>
-    </div>
-  </section>
-
-  <!-- SKILLS -->
-  <section class="section skills" id="skills">
-    <div class="container">
-      <div class="center-heading reveal">
-        <p class="section-label">Skills</p>
-        <h2>A practical skillset across software, AI, cloud, hardware, web, and business</h2>
-      </div>
-
-      <div class="skills-layout">
-
-        <div class="skill-card reveal">
-          <h3>Technical Stack</h3>
-
-          <div class="skill-list">
-            <span>JavaScript</span>
-            <span>HTML</span>
-            <span>CSS</span>
-            <span>Python</span>
-            <span>C++</span>
-            <span>Scikit-learn</span>
-            <span>PyCharm</span>
-            <span>Proteus</span>
-            <span>Arduino</span>
-            <span>ATmega16</span>
-            <span>Verilog</span>
-            <span>Microsoft Excel</span>
-          </div>
-        </div>
-
-        <div class="skill-card reveal">
-          <h3>Core Areas</h3>
-
-          <div class="skill-list">
-            <span>Browser Extensions</span>
-            <span>AI/ML Projects</span>
-            <span>Web Development</span>
-            <span>Cloud Computing</span>
-            <span>Database Design</span>
-            <span>Digital Logic Design</span>
-            <span>Microprocessors</span>
-            <span>Hardware Integration</span>
-            <span>LinkedIn Automation</span>
-            <span>Student Tools</span>
-          </div>
-        </div>
-
-        <div class="skill-card reveal">
-          <h3>Business & Professional</h3>
-
-          <div class="skill-list">
-            <span>IT Recruitment</span>
-            <span>Candidate Sourcing</span>
-            <span>Technical Communication</span>
-            <span>E-commerce</span>
-            <span>SEO Basics</span>
-            <span>Canva Design</span>
-            <span>Branding</span>
-            <span>Social Media Marketing</span>
-            <span>Leadership</span>
-            <span>Project Management</span>
-          </div>
-        </div>
-
-      </div>
-
-      <div class="skill-bars reveal">
-        <div class="bar-item">
-          <div class="bar-info">
-            <span>Web Development</span>
-            <strong>82%</strong>
-          </div>
-          <div class="bar"><div style="--width: 82%"></div></div>
-        </div>
-
-        <div class="bar-item">
-          <div class="bar-info">
-            <span>AI/ML Project Work</span>
-            <strong>78%</strong>
-          </div>
-          <div class="bar"><div style="--width: 78%"></div></div>
-        </div>
-
-        <div class="bar-item">
-          <div class="bar-info">
-            <span>Browser Extensions</span>
-            <strong>76%</strong>
-          </div>
-          <div class="bar"><div style="--width: 76%"></div></div>
-        </div>
-
-        <div class="bar-item">
-          <div class="bar-info">
-            <span>C++ / Data Structures</span>
-            <strong>74%</strong>
-          </div>
-          <div class="bar"><div style="--width: 74%"></div></div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- CERTIFICATIONS -->
-  <section class="section certifications" id="certifications">
-    <div class="container">
-      <div class="center-heading reveal">
-        <p class="section-label">Certifications</p>
-        <h2>Continuous learning through professional and digital credentials</h2>
-      </div>
-
-      <div class="cert-grid">
-        <article class="cert-card reveal">
-          <h3>Google Project Management Certificate</h3>
-          <p>
-            Covered project initiation, planning, execution, Agile, Scrum, stakeholder communication,
-            budgeting, scheduling, and risk management.
-          </p>
-        </article>
-
-        <article class="cert-card reveal">
-          <h3>Google Prompting Essentials</h3>
-          <p>
-            Focused on AI prompting, writing, summarization, creative thinking, data analysis, and prompt
-            structuring for professional productivity.
-          </p>
-        </article>
-
-        <article class="cert-card reveal">
-          <h3>SEO with Squarespace</h3>
-          <p>
-            Covered on-page SEO, metadata, keyword placement, URL structure, mobile responsiveness, and analytics
-            basics.
-          </p>
-        </article>
-
-        <article class="cert-card reveal">
-          <h3>Build a Full Website using WordPress</h3>
-          <p>
-            Developed skills in website building, responsive design, WordPress design, and digital publishing.
-          </p>
-        </article>
-
-        <article class="cert-card reveal">
-          <h3>Canva Digital Course Collateral</h3>
-          <p>
-            Covered visual hierarchy, course branding, banners, thumbnails, preview slides, and Canva-based
-            professional content design.
-          </p>
-        </article>
-      </div>
-    </div>
-  </section>
-
-  <!-- EDUCATION -->
-  <section class="section education">
-    <div class="container two-column">
-      <div class="section-heading reveal">
-        <p class="section-label">Education</p>
-        <h2>Academic foundation in engineering, computing, and problem solving.</h2>
-      </div>
-
-      <div class="education-list reveal">
-        <div class="education-item">
-          <h3>Computer Engineering</h3>
-          <p>Bahria University, Islamabad</p>
-          <span>2023 – Current</span>
-        </div>
-
-        <div class="education-item">
-          <h3>FSc Pre-Engineering</h3>
-          <p>Roots International Schools, Wellington Campus H-8</p>
-          <span>2021 – 2023</span>
-        </div>
-
-        <div class="education-item">
-          <h3>Matriculation</h3>
-          <p>Dr. Abdul Qadeer Khan School System</p>
-          <span>2018 – 2021</span>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- PROFESSIONAL EDGE -->
-  <section class="section edge">
-    <div class="container edge-card reveal">
-      <p class="section-label">Professional Edge</p>
-
-      <h2>My advantage is the combination, not one single skill.</h2>
-
-      <p>
-        I am building myself as a technical and business hybrid. I understand code, websites, AI/ML projects,
-        browser extensions, hardware concepts, recruitment communication, digital marketing, and product ideas.
-        This combination helps me think beyond assignments and focus on tools that can actually be used by people.
+<a class="skip" href="#work">Skip to content</a>
+<nav aria-label="Primary">
+  <div class="nav-in">
+    <a href="#" class="logo">hassnain<span>.</span></a>
+    <ul class="nav-links">
+      <li><a href="#work">Work</a></li>
+      <li><a href="#experience">Experience</a></li>
+      <li><a href="#skills">Skills</a></li>
+      <li><a href="#about">About</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+  </div>
+</nav>
+
+<header>
+  <div class="wrap hero">
+    <div>
+      <div class="status"><span class="dot"></span> Open to AI/ML and software engineering internships</div>
+      <h1>I build things that <em>actually run</em>.</h1>
+      <p class="lede">
+        Computer Engineering student at Bahria University Islamabad, working toward AI engineering.
+        An AutoML dashboard that's deployed and live, six search algorithms written from first principles,
+        a database schema that enforces its own integrity — each one shipped, documented and open source.
       </p>
+      <div class="cta">
+        <a class="btn btn-p" href="#work">See the work</a>
+        <a class="btn btn-s" href="Hassnain-Khan-CV.pdf" target="_blank" rel="noopener">Download CV</a>
+        <a class="btn btn-s" href="https://github.com/Hassnainkhan1249" target="_blank" rel="noopener">GitHub</a>
+        <a class="btn btn-s" href="https://linkedin.com/in/hassnainkhandev" target="_blank" rel="noopener">LinkedIn</a>
+      </div>
+    </div>
+    <img class="avatar" width="190" height="190" loading="eager" src="https://github.com/Hassnainkhan1249.png" alt="Hassnain Khan">
+  </div>
+</header>
 
-      <div class="edge-grid">
-        <div>
-          <strong>Technical Builder</strong>
-          <span>Software, AI/ML, web, extensions, hardware</span>
+<div class="facts">
+  <div class="fact"><b>Top&nbsp;15</b><span>Huawei ICT, national</span></div>
+  <div class="fact"><b>7</b><span>Shipped projects</span></div>
+  <div class="fact"><b>4</b><span>Technical internships</span></div>
+  <div class="fact"><b>2027</b><span>Expected graduation</span></div>
+</div>
+
+<main>
+<section id="work" aria-labelledby="work-h">
+  <div class="wrap">
+    <div class="eyebrow reveal">Selected work</div>
+    <h2 class="reveal" id="work-h">Things I've built</h2>
+    <p class="sub reveal">Every project below is real code. Where a repository exists, it's linked — no screenshots standing in for something that isn't there.</p>
+
+    <div class="projects">
+
+      <article class="card reveal">
+        <div class="thumb t1" role="img" aria-label="Python · scikit-learn · Streamlit">Python · scikit-learn · Streamlit</div>
+        <div class="card-top">
+          <h3>Smart AutoML Pro — Automated ML Dashboard</h3>
+          <span class="tag">Live</span>
         </div>
-
-        <div>
-          <strong>Business Mindset</strong>
-          <span>E-commerce, branding, recruitment, digital growth</span>
+        <p>Takes a raw tabular dataset through the entire machine learning workflow — preprocessing, model selection, training, evaluation and prediction — for both classification and clustering, without rewriting the pipeline for each new dataset.</p>
+        <div class="note">Built because I got tired of writing the same 200 lines every time. It compares models side by side and surfaces <em>where</em> a model is failing, rather than reporting a single accuracy number that hides an imbalanced dataset.</div>
+        <div class="stack"><span class="chip">Python</span><span class="chip">scikit-learn</span><span class="chip">pandas</span><span class="chip">Streamlit</span></div>
+        <div class="links">
+          <a href="https://smart-automl-dashboard.streamlit.app/" target="_blank" rel="noopener">Try it live →</a>
+          <a href="https://github.com/Hassnainkhan1249/smart-automl-pro-dashboard" target="_blank" rel="noopener">Source →</a>
         </div>
+      </article>
 
+      <article class="card reveal">
+        <div class="thumb t2" role="img" aria-label="Search algorithms · Agents">Search algorithms · Agents</div>
+        <div class="card-top">
+          <h3>Smart Campus Delivery Robot — Classical AI Search</h3>
+          <span class="tag">Open source</span>
+        </div>
+        <p>Six search algorithms implemented from first principles — BFS, DFS, Uniform Cost, A* with configurable Manhattan and Euclidean heuristics, Greedy Best-First and Hill Climbing — plus reflex, goal-based and utility-based agents.</p>
+        <div class="note">No search library. The dashboard runs all six on the same scenario and reports success rate, path cost, nodes expanded and runtime, which makes the trade-offs concrete: A* expands far fewer nodes than UCS for the same optimal path, Greedy is fast but not cheapest, and Hill Climbing visibly gets stuck on local maxima.</div>
+        <div class="stack"><span class="chip">Python</span><span class="chip">Streamlit</span><span class="chip">matplotlib</span><span class="chip">pandas</span></div>
+        <div class="links"><a href="https://github.com/Hassnainkhan1249/smart-campus-delivery-robot" target="_blank" rel="noopener">Source →</a></div>
+      </article>
+
+      <article class="card reveal">
+        <div class="thumb t3" role="img" aria-label="SQL Server · Java · JDBC">SQL Server · Java · JDBC</div>
+        <div class="card-top">
+          <h3>HRMS — Human Resource Management System</h3>
+          <span class="tag">Open source</span>
+        </div>
+        <p>A database-backed HR system covering employees, departments, designations, salaries and attendance, with referential integrity enforced by the database rather than by application code.</p>
+        <div class="note">The interesting part is the schema. Departments references Employees for its manager, while Employees references Departments — a circular foreign key, resolved by creating both tables first and adding the constraint afterwards so the script runs cleanly from scratch. Validation lives in <span class="mono">CHECK</span> constraints, so invalid data can't be written even by a different client.</div>
+        <div class="stack"><span class="chip">Java 11</span><span class="chip">Maven</span><span class="chip">SQL Server</span><span class="chip">JDBC</span></div>
+        <div class="links"><a href="https://github.com/Hassnainkhan1249/hrms-employee-management" target="_blank" rel="noopener">Source →</a></div>
+      </article>
+
+      <article class="card reveal">
+        <div class="thumb t4" role="img" aria-label="Solidity · Hardhat · Next.js">Solidity · Hardhat · Next.js</div>
+        <div class="card-top">
+          <h3>MediChain — Blockchain Medical Records</h3>
+          <span class="tag wip">Repo coming</span>
+        </div>
+        <p>A decentralised medical record system where access control lives in the smart contract rather than the application layer. Role-based permissions for admin, doctor and patient.</p>
+        <div class="note">Putting permissions on-chain means a doctor requesting a record they haven't been granted doesn't get a 403 from a server they might bypass — the transaction reverts at the contract level. The patient grants and revokes access, not the hospital.</div>
+        <div class="stack"><span class="chip">Solidity</span><span class="chip">Hardhat</span><span class="chip">Ethers.js</span><span class="chip">Next.js</span><span class="chip">Tailwind</span></div>
+        <div class="links"><span>Repository being published</span></div>
+      </article>
+
+      <article class="card reveal">
+        <div class="thumb t5" role="img" aria-label="Manifest V3 · LLM APIs">Manifest V3 · LLM APIs</div>
+        <div class="card-top">
+          <h3>EngageWise — AI Writing Assistant</h3>
+          <span class="tag wip">Repo coming</span>
+        </div>
+        <p>A Chrome extension that helps users draft better professional posts and replies. Sends surrounding page context to an LLM API and returns suggested drafts the user reviews and edits before posting.</p>
+        <div class="stack"><span class="chip">JavaScript</span><span class="chip">Manifest V3</span><span class="chip">Node.js</span><span class="chip">Express</span><span class="chip">LLM APIs</span></div>
+        <div class="links"><span>Repository being published</span></div>
+      </article>
+
+      <article class="card reveal">
+        <div class="thumb t6" role="img" aria-label="TypeScript · Canvas API">TypeScript · Canvas API</div>
+        <div class="card-top">
+          <h3>Canvas Proximity Treasure Hunt</h3>
+          <span class="tag">Open source</span>
+        </div>
+        <p>An interactive browser treasure hunt on the HTML Canvas API, with proximity-driven visual feedback that communicates how close you are without ever revealing the target position.</p>
+        <div class="stack"><span class="chip">TypeScript</span><span class="chip">HTML Canvas</span></div>
+        <div class="links"><a href="https://github.com/Hassnainkhan1249/canvas-proximity-treasure-hunt" target="_blank" rel="noopener">Source →</a></div>
+      </article>
+
+    </div>
+  </div>
+</section>
+
+<section id="experience">
+  <div class="wrap">
+    <div class="eyebrow reveal">Experience</div>
+    <h2 class="reveal">Where I've worked</h2>
+    <p class="sub reveal">Security, engineering, analytics and hiring — four different vantage points on how software actually gets built and staffed.</p>
+
+    <div class="exp">
+      <div class="job reveal">
+        <div class="when">Aug 2026 — Present</div>
         <div>
-          <strong>Career Target</strong>
-          <span>Top technology company and scalable product building</span>
+          <h3>Marketing Intern</h3>
+          <div class="where">Mercantile Pakistan · Islamabad</div>
+          <p>Run technical website audits with Google Lighthouse and PageSpeed Insights, diagnosing load performance, responsiveness and Core Web Vitals issues, and translate the findings into prioritised fixes. Analyse advertising and campaign data into structured reports.</p>
+        </div>
+      </div>
+
+      <div class="job reveal">
+        <div class="when">May — Jun 2026</div>
+        <div>
+          <h3>Cybersecurity Intern</h3>
+          <div class="where">Safe City Islamabad · Systems team</div>
+          <p>Penetration-testing exercises and vulnerability assessments in controlled environments using Burp Suite, TryHackMe and the PortSwigger Web Security Academy. Reviewed web applications for SQL injection, XSS, broken authentication and security misconfiguration, and presented findings to the team. It changed how I build — I now think about how something breaks before I think about how it ships.</p>
+        </div>
+      </div>
+
+      <div class="job reveal">
+        <div class="when">Jan 2026 — Present</div>
+        <div>
+          <h3>IT Recruiter</h3>
+          <div class="where">Atlas IT Services · Germany, remote</div>
+          <p>Technical recruiting for a Germany-based startup — sourcing, screening and interview coordination across time zones. Evaluating engineering profiles against role requirements gave me an unusually direct view of how technical candidates actually get screened.</p>
+        </div>
+      </div>
+
+      <div class="job reveal">
+        <div class="when">Mar 2024 — Present</div>
+        <div>
+          <h3>IT Assistant</h3>
+          <div class="where">PMEye Management Consulting · Part-time</div>
+          <p>Maintain the company website and produce branding and communication materials for digital channels.</p>
         </div>
       </div>
     </div>
-  </section>
+  </div>
+</section>
 
-  <!-- CONTACT -->
-  <section class="section contact" id="contact">
-    <div class="container contact-layout">
-      <div class="contact-text reveal">
-        <p class="section-label">Contact</p>
-        <h2>Let’s connect for internships, junior roles, projects, and collaborations.</h2>
-
-        <p>
-          I am open to internships, junior technology roles, IT recruitment support, web development projects,
-          AI/ML practice work, browser extension development, student-focused tools, and digital product ideas.
-        </p>
-      </div>
-
-      <div class="contact-card reveal">
-        <div class="contact-row">
-          <span>Name</span>
-          <strong>Hassnain Khan</strong>
-        </div>
-
-        <div class="contact-row">
-          <span>Email</span>
-          <strong>
-            <a href="mailto:hassnain32222000@gmail.com">hassnain32222000@gmail.com</a>
-          </strong>
-        </div>
-
-        <div class="contact-row">
-          <span>LinkedIn</span>
-          <strong>
-            <a
-              href="https://www.linkedin.com/in/hassnain-khan-097609318/"
-              target="_blank"
-            >
-              linkedin.com/in/hassnain-khan-097609318
-            </a>
-          </strong>
-        </div>
-
-        <div class="contact-row">
-          <span>GitHub</span>
-          <strong>
-            <a
-              href="https://github.com/Hassnainkhan1249"
-              target="_blank"
-            >
-              github.com/Hassnainkhan1249
-            </a>
-          </strong>
-        </div>
-
-        <div class="contact-row">
-          <span>Location</span>
-          <strong>Islamabad, Pakistan</strong>
-        </div>
-
-        <div class="contact-actions">
-          <a href="mailto:hassnain32222000@gmail.com" class="btn primary-btn full-btn">
-            Send Email
-          </a>
-
-          <a href="Hassnain-Khan-CV.pdf" download class="btn glow-btn full-btn">
-            Download CV
-          </a>
-
-          <a
-            href="https://www.linkedin.com/in/hassnain-khan-097609318/"
-            target="_blank"
-            class="btn secondary-btn full-btn"
-          >
-            Connect on LinkedIn
-          </a>
-
-          <a
-            href="https://github.com/Hassnainkhan1249"
-            target="_blank"
-            class="btn secondary-btn full-btn"
-          >
-            View GitHub
-          </a>
-        </div>
-      </div>
+<section id="skills">
+  <div class="wrap">
+    <div class="eyebrow reveal">Toolkit</div>
+    <h2 class="reveal">What I work with</h2>
+    <p class="sub reveal">Listed only where I've shipped something with it.</p>
+    <div class="skills">
+      <div class="skill reveal"><h4>Languages</h4><div>
+        <span class="chip">Python</span><span class="chip">JavaScript</span><span class="chip">TypeScript</span><span class="chip">Java</span><span class="chip">C++</span><span class="chip">SQL</span><span class="chip">Solidity</span></div></div>
+      <div class="skill reveal"><h4>AI / Machine Learning</h4><div>
+        <span class="chip">scikit-learn</span><span class="chip">pandas</span><span class="chip">Classification</span><span class="chip">Clustering</span><span class="chip">AutoML</span><span class="chip">Search algorithms</span></div></div>
+      <div class="skill reveal"><h4>Web</h4><div>
+        <span class="chip">React</span><span class="chip">Next.js</span><span class="chip">Tailwind</span><span class="chip">Node.js</span><span class="chip">Express</span><span class="chip">Streamlit</span></div></div>
+      <div class="skill reveal"><h4>Security</h4><div>
+        <span class="chip">Burp Suite</span><span class="chip">Vulnerability assessment</span><span class="chip">Web app security</span><span class="chip">Linux</span></div></div>
+      <div class="skill reveal"><h4>Data</h4><div>
+        <span class="chip">SQL Server</span><span class="chip">MySQL</span><span class="chip">JDBC</span><span class="chip">ER modelling</span></div></div>
+      <div class="skill reveal"><h4>Tools</h4><div>
+        <span class="chip">Git</span><span class="chip">GitHub</span><span class="chip">Hardhat</span><span class="chip">MATLAB</span><span class="chip">Figma</span></div></div>
     </div>
-  </section>
+  </div>
+</section>
 
-  <!-- FOOTER -->
-  <footer class="footer">
-    <div class="container footer-inner">
-      <p>© 2026 Hassnain Khan. All rights reserved.</p>
-
-      <div class="footer-links">
-        <a href="Hassnain-Khan-CV.pdf" download>Download CV</a>
-
-        <a
-          href="https://www.linkedin.com/in/hassnain-khan-097609318/"
-          target="_blank"
-        >
-          LinkedIn
-        </a>
-
-        <a
-          href="https://github.com/Hassnainkhan1249"
-          target="_blank"
-        >
-          GitHub
-        </a>
-
-        <a href="#home">Back to top ↑</a>
-      </div>
+<section id="about">
+  <div class="wrap about">
+    <div class="reveal">
+      <div class="eyebrow">About</div>
+      <h2>A bit more</h2>
+      <p>I'm a Computer Engineering student in Islamabad, heading toward AI engineering. My core interest is machine learning — classification and clustering pipelines built end to end, and tooling that makes the workflow repeatable rather than one-off. I work full-stack around that, because a model nobody can use isn't finished.</p>
+      <p>In 2024 I placed in the top 15 nationally in the Huawei ICT Competition, out of thousands of entrants across Pakistan. In 2026 I spent an internship in cybersecurity at Safe City Islamabad, which permanently changed how I think about the code I write.</p>
+      <p>Outside of engineering I coordinate finances for humanitarian relief with Dast-e-Khuddam and iHayaat — Ramadan welfare drives, orphanage support, and flood response in Buner. It matters to me that technical skill isn't the only thing I'm building.</p>
     </div>
-  </footer>
+    <div class="edu reveal">
+      <h4>Education</h4>
+      <div class="edu-item"><b>BS Computer Engineering</b><span>Bahria University Islamabad · 2023–2027 · CGPA 3.28</span></div>
+      <div class="edu-item"><b>Intermediate, FSc Pre-Engineering</b><span>Metropolitan International United College · 2021–2023</span></div>
+      <div class="edu-item"><b>Matriculation (Science)</b><span>Dr. A.Q. Khan School System · 2018–2021 · 89%</span></div>
+      <div class="edu-item"><b>Huawei ICT Competition 2024–25</b><span>Top-15 National Finalist, Pakistan</span></div>
+      <div class="edu-item"><b>Google Project Management</b><span>Coursera · 2025</span></div>
+    </div>
+  </div>
+</section>
 
-  <script src="script.js"></script>
+<section class="contact" id="contact">
+  <div class="wrap">
+    <div class="eyebrow reveal">Contact</div>
+    <h2 class="reveal">Let's talk</h2>
+    <p class="reveal">I'm looking for software engineering, AI/ML or full-stack internships — remote, Islamabad-based or international. If you're hiring, or you just want to talk about ML tooling or web security, my inbox is open.</p>
+    <div class="contact-links reveal">
+      <a class="btn btn-p" href="mailto:hassnain32222000@gmail.com">Email me</a>
+      <a class="btn btn-s" href="https://linkedin.com/in/hassnainkhandev" target="_blank" rel="noopener">LinkedIn</a>
+      <a class="btn btn-s" href="https://github.com/Hassnainkhan1249" target="_blank" rel="noopener">GitHub</a>
+      <a class="btn btn-s" href="Hassnain-Khan-CV.pdf" target="_blank" rel="noopener">CV</a>
+    </div>
+  </div>
+</section>
+
+</main>
+<footer><div class="wrap">Built from scratch — no template. Hassnain Khan, Islamabad.</div></footer>
+
+<script>
+const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}}),{threshold:.12,rootMargin:'0px 0px -40px 0px'});
+document.querySelectorAll('.reveal').forEach((el,i)=>{el.style.transitionDelay=(i%4*60)+'ms';io.observe(el)});
+</script>
 </body>
 </html>
