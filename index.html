@@ -1,368 +1,766 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Hassnain Khan — Machine Learning & Software Engineering</title>
-<meta name="description" content="Computer Engineering student at Bahria University Islamabad. Machine learning, full-stack engineering and application security.">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Hassnain Khan — AI & Software Engineer</title>
+<meta name="description" content="Computer Engineering student at Bahria University Islamabad building machine learning systems, full-stack web applications and security tooling.">
+<meta property="og:title" content="Hassnain Khan — AI & Software Engineer">
+<meta property="og:description" content="Machine learning, full-stack web, and web security. Top-15 National Finalist, Huawei ICT Competition 2024-25.">
+<meta name="theme-color" content="#0C0C0C">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:opsz,wght@8..60,400;8..60,500;8..60,600&family=Inter:wght@400;450;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
-<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='22' fill='%23cc785c'/><text x='50' y='72' font-size='58' font-family='Georgia' font-weight='600' fill='%23faf9f5' text-anchor='middle'>H</text></svg>">
+<link href="https://fonts.googleapis.com/css2?family=Kanit:wght@200;300;400;500;600;700;800;900&family=Inter:wght@300;400;500&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
 <style>
 :root{
-  --paper:#faf9f5; --paper-2:#f3f1e9; --paper-3:#e9e6da;
-  --ink:#141413; --ink-2:#3f3f3b; --ink-3:#6d6d67; --ink-4:#9b9b93;
-  --rule:#dedbd0; --clay:#c1653f; --clay-soft:rgba(193,101,63,.09);
+  --bg:#0C0C0C;
+  --bg-2:#111111;
+  --line:rgba(255,255,255,.10);
+  --line-2:rgba(255,255,255,.18);
+  --txt:#EDEFF2;
+  --txt-2:#9AA1AA;
+  --txt-3:#63696F;
+  --grad:linear-gradient(180deg,#646973 0%,#BBCCD7 100%);
+  --btn:linear-gradient(123deg,#18011F 7%,#B600A8 37%,#7621B0 72%,#BE4C00 100%);
   --e:cubic-bezier(.22,.68,.32,1);
 }
-*{margin:0;padding:0;box-sizing:border-box}
-html{-webkit-text-size-adjust:100%}
-body{background:var(--paper);color:var(--ink);
-  font-family:Inter,-apple-system,BlinkMacSystemFont,"Segoe UI",Helvetica,sans-serif;
-  font-size:16.5px;line-height:1.62;letter-spacing:-.008em;
-  -webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale;}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+body{
+  background:var(--bg);color:var(--txt);
+  font-family:"Inter",system-ui,-apple-system,sans-serif;
+  font-weight:300;
+  overflow-x:hidden;
+  -webkit-font-smoothing:antialiased;
+}
+::selection{background:#B600A8;color:#fff}
 a{color:inherit;text-decoration:none}
-.serif{font-family:"Source Serif 4",Georgia,serif}
-.mono{font-family:"JetBrains Mono",ui-monospace,monospace}
+.k{font-family:"Kanit","Archivo","Helvetica Neue",Arial,sans-serif}
+.mono{font-family:"JetBrains Mono",monospace;font-size:11px;letter-spacing:.16em;text-transform:uppercase}
+.wrap{width:min(1360px,92vw);margin:0 auto}
 
-/* warm cursor spotlight */
-#glow{position:fixed;inset:0;pointer-events:none;z-index:0;transition:opacity .5s var(--e);opacity:0;
-  background:radial-gradient(560px circle at var(--mx,50%) var(--my,50%),rgba(193,101,63,.055),transparent 72%)}
-body.pointer #glow{opacity:1}
+/* ---------- scroll progress ---------- */
+#prog{position:fixed;top:0;left:0;height:2px;width:0;background:var(--btn);z-index:200}
 
-/* ── shell ── */
-.shell{max-width:1240px;margin:0 auto;padding:0 clamp(24px,5vw,60px);
-  display:grid;grid-template-columns:minmax(0,44%) minmax(0,56%);gap:clamp(32px,5vw,72px);position:relative;z-index:1}
-@media(max-width:1080px){.shell{grid-template-columns:1fr;gap:0}}
+/* ---------- nav ---------- */
+nav{
+  position:fixed;top:0;left:0;right:0;z-index:150;
+  display:flex;align-items:center;justify-content:space-between;
+  padding:22px min(4vw,44px);
+  transition:background .5s var(--e),backdrop-filter .5s var(--e),padding .5s var(--e);
+}
+nav.solid{background:rgba(12,12,12,.72);backdrop-filter:blur(14px);padding:14px min(4vw,44px);border-bottom:1px solid var(--line)}
+nav .sig{font-family:"Kanit","Archivo","Helvetica Neue",Arial,sans-serif;font-weight:600;font-size:16px;letter-spacing:-.01em}
+nav .sig span{color:var(--txt-3)}
+.navlinks{display:flex;gap:30px;align-items:center}
+.navlinks a{color:var(--txt-2);transition:color .3s var(--e)}
+.navlinks a:hover{color:var(--txt)}
+@media(max-width:880px){.navlinks a:not(.btn){display:none}}
 
-/* ── sticky panel ── */
-.panel{position:sticky;top:0;height:100vh;display:flex;flex-direction:column;
-  justify-content:space-between;padding:clamp(60px,9vh,110px) 0 clamp(40px,6vh,64px)}
-@media(max-width:1080px){.panel{position:static;height:auto;padding:88px 0 40px}}
-.name{font-family:"Source Serif 4",Georgia,serif;font-size:clamp(2.6rem,5.2vw,3.9rem);
-  line-height:1.03;letter-spacing:-.033em;font-weight:500;margin-bottom:12px}
-.role{font-family:"Source Serif 4",Georgia,serif;font-size:clamp(1.15rem,1.9vw,1.42rem);
-  font-weight:400;color:var(--ink-2);margin-bottom:18px;letter-spacing:-.014em}
-.tag{font-size:16px;color:var(--ink-3);max-width:30ch;margin-bottom:8px}
-.avail{display:inline-flex;align-items:center;gap:8px;font-size:13.5px;color:var(--clay);margin-top:18px}
-.pip{width:6px;height:6px;border-radius:50%;background:var(--clay);position:relative}
-.pip::after{content:"";position:absolute;inset:0;border-radius:50%;background:var(--clay);
-  animation:ring 2.4s var(--e) infinite}
-@keyframes ring{0%{transform:scale(1);opacity:.7}70%,100%{transform:scale(3);opacity:0}}
+/* ---------- gradient button ---------- */
+.btn{
+  position:relative;display:inline-flex;align-items:center;gap:10px;
+  padding:13px 24px;border-radius:100px;overflow:hidden;
+  font-family:"Kanit","Archivo","Helvetica Neue",Arial,sans-serif;font-weight:500;font-size:14px;letter-spacing:.01em;
+  background:var(--btn);background-size:180% 180%;background-position:0% 50%;
+  color:#fff;
+  transition:background-position .9s var(--e),transform .4s var(--e);
+  will-change:background-position,transform;
+}
+.btn:hover{background-position:100% 50%;transform:translateY(-2px)}
+.btn svg{width:14px;height:14px;transition:transform .45s var(--e)}
+.btn:hover svg{transform:translate(3px,-3px)}
+.btn-ghost{
+  display:inline-flex;align-items:center;gap:10px;padding:12px 23px;border-radius:100px;
+  border:1px solid var(--line-2);color:var(--txt-2);
+  font-family:"Kanit","Archivo","Helvetica Neue",Arial,sans-serif;font-weight:400;font-size:14px;
+  transition:border-color .4s var(--e),color .4s var(--e),transform .4s var(--e);
+}
+.btn-ghost:hover{border-color:var(--txt);color:var(--txt);transform:translateY(-2px)}
 
-/* scrollspy nav */
-.spy{margin-top:clamp(32px,6vh,58px);list-style:none;display:flex;flex-direction:column;gap:14px}
-@media(max-width:1080px){.spy{display:none}}
-.spy a{display:flex;align-items:center;gap:14px;font-family:"JetBrains Mono",monospace;
-  font-size:11.5px;letter-spacing:.13em;text-transform:uppercase;color:var(--ink-4);
-  padding:5px 0;transition:color .35s var(--e)}
-.spy .dash{width:28px;height:1px;background:var(--ink-4);transition:width .4s var(--e),background .35s var(--e)}
-.spy a:hover,.spy a.active{color:var(--ink)}
-.spy a:hover .dash,.spy a.active .dash{width:60px;background:var(--clay)}
-.socials{display:flex;gap:18px;margin-top:26px}
-.socials a{color:var(--ink-4);transition:color .3s var(--e),transform .3s var(--e);display:block}
-.socials a:hover{color:var(--clay);transform:translateY(-2px)}
-.socials svg{width:20px;height:20px;display:block;fill:currentColor}
+/* ---------- hero ---------- */
+header{min-height:100svh;display:flex;flex-direction:column;justify-content:flex-end;padding-bottom:34px;position:relative;overflow:hidden}
+.hero-top{position:absolute;top:0;left:0;right:0;height:100%;pointer-events:none}
+.hero-meta{
+  position:absolute;top:22vh;left:min(4vw,44px);color:var(--txt-3);
+  display:flex;flex-direction:column;gap:6px;
+}
+.hero-meta .dot{display:inline-block;width:6px;height:6px;border-radius:50%;background:#5ED6A0;margin-right:8px;vertical-align:middle}
 
-/* ── content ── */
-.content{padding:clamp(60px,9vh,110px) 0 clamp(70px,10vh,120px)}
-@media(max-width:1080px){.content{padding-top:8px}}
-.blk{margin-bottom:clamp(64px,8vw,104px);scroll-margin-top:80px}
-.blk:last-child{margin-bottom:0}
-.hd{font-family:"JetBrains Mono",monospace;font-size:11.5px;letter-spacing:.13em;text-transform:uppercase;
-  color:var(--clay);margin-bottom:26px;display:none}
-@media(max-width:1080px){.hd{display:block}}
-.prose p{color:var(--ink-2);margin-bottom:17px}
-.prose p:last-child{margin-bottom:0}
-.prose b,.prose strong{color:var(--ink);font-weight:500}
+.magnet{
+  position:absolute;top:19vh;right:min(6vw,90px);
+  width:min(30vw,330px);aspect-ratio:3/3.7;
+  border-radius:6px;overflow:hidden;
+  filter:grayscale(1) contrast(1.06) brightness(.94);
+  will-change:transform;
+  transition:filter .8s var(--e);
+  -webkit-mask-image:linear-gradient(180deg,#000 62%,transparent 100%);
+  mask-image:linear-gradient(180deg,#000 62%,transparent 100%);
+}
+.magnet:hover{filter:grayscale(0) contrast(1) brightness(1)}
+.magnet img{width:100%;height:100%;object-fit:cover;object-position:center 18%;display:block;position:relative;z-index:1}
+.mag-fb{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:14px;background:linear-gradient(165deg,#1B1B1B 0%,#0D0D0D 100%);border:1px solid var(--line)}
+.mag-fb span{font-family:"Kanit","Archivo","Helvetica Neue",Arial,sans-serif;font-weight:600;font-size:clamp(40px,5vw,72px);letter-spacing:-.03em;background:var(--grad);-webkit-background-clip:text;background-clip:text;color:transparent}
+.mag-fb em{font-style:normal;font-family:"JetBrains Mono",monospace;font-size:10px;letter-spacing:.18em;color:var(--txt-3);text-transform:uppercase}
+@media(max-width:880px){.magnet{top:auto;bottom:34vh;right:-4vw;width:52vw;opacity:.32}}
 
-/* rows */
-.row{display:grid;grid-template-columns:112px 1fr;gap:20px;padding:20px;margin:0 -20px 6px;
-  border-radius:9px;transition:background .4s var(--e),box-shadow .4s var(--e)}
-.row:hover{background:var(--paper-2);box-shadow:inset 0 0 0 1px var(--rule)}
-@media(max-width:620px){.row{grid-template-columns:1fr;gap:8px}}
-.when{font-family:"JetBrains Mono",monospace;font-size:11.5px;letter-spacing:.05em;
-  color:var(--ink-4);padding-top:5px;text-transform:uppercase}
-.rt{font-family:"Source Serif 4",Georgia,serif;font-size:19.5px;font-weight:500;letter-spacing:-.018em;
-  line-height:1.28;margin-bottom:3px;display:flex;align-items:baseline;gap:6px;flex-wrap:wrap}
-.rt .arw{font-size:14px;color:var(--clay);display:inline-block;transition:transform .35s var(--e)}
-.row:hover .rt .arw{transform:translate(3px,-3px)}
-.rsub{font-size:14px;color:var(--ink-3);margin-bottom:11px}
-.row p{font-size:15px;color:var(--ink-2);margin-bottom:13px}
-.pills{display:flex;gap:7px;flex-wrap:wrap}
-.pill{font-family:"JetBrains Mono",monospace;font-size:11px;padding:4px 10px;border-radius:100px;
-  background:var(--clay-soft);color:var(--clay);letter-spacing:.02em}
-.pill.grey{background:var(--paper-3);color:var(--ink-3)}
-.rlinks{display:flex;gap:18px;flex-wrap:wrap;margin-bottom:13px}
-.rlinks a{font-size:13.5px;color:var(--clay);display:inline-flex;align-items:center;gap:5px}
-.rlinks a i{font-style:normal;transition:transform .35s var(--e)}
-.rlinks a:hover i{transform:translateX(3px)}
-.rlinks span{font-size:13.5px;color:var(--ink-4)}
+.hero-title{
+  font-family:"Kanit","Archivo","Helvetica Neue",Arial,sans-serif;font-weight:600;
+  font-size:clamp(52px,13.4vw,250px);line-height:.86;letter-spacing:-.035em;
+  background:var(--grad);-webkit-background-clip:text;background-clip:text;color:transparent;
+  padding-left:min(4vw,44px);padding-right:4vw;
+}
+.hero-title .l2{display:block}
+.hero-sub{
+  display:flex;align-items:flex-end;justify-content:space-between;gap:36px;flex-wrap:wrap;
+  padding:30px min(4vw,44px) 0;margin-top:26px;border-top:1px solid var(--line);
+}
+.hero-sub p{max-width:44ch;color:var(--txt-2);font-size:clamp(14px,1.15vw,17px);line-height:1.55}
+.hero-sub .cta{display:flex;gap:12px;flex-wrap:wrap}
 
-/* repos */
-.rlist{display:grid;gap:2px}
-.rl{display:flex;justify-content:space-between;align-items:baseline;gap:16px;padding:14px 20px;margin:0 -20px;
-  border-radius:8px;transition:background .35s var(--e)}
-.rl:hover{background:var(--paper-2)}
-.rl b{font-family:"JetBrains Mono",monospace;font-size:13px;font-weight:500}
-.rl b i{font-style:normal;color:var(--clay);display:inline-block;transition:transform .35s var(--e)}
-.rl:hover b i{transform:translate(3px,-3px)}
-.rl span{font-size:13px;color:var(--ink-4);text-align:right;flex-shrink:0}
+/* reveal */
+.rv{opacity:0;transform:translateY(26px);transition:opacity 1s var(--e),transform 1s var(--e)}
+.rv.in{opacity:1;transform:none}
+.rv.d1{transition-delay:.09s}.rv.d2{transition-delay:.18s}.rv.d3{transition-delay:.27s}.rv.d4{transition-delay:.36s}
 
-/* caps */
-.caps{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:26px 34px}
-.cap h5{font-family:"JetBrains Mono",monospace;font-size:11px;letter-spacing:.11em;text-transform:uppercase;
-  color:var(--ink-4);font-weight:500;margin-bottom:11px;padding-bottom:10px;border-bottom:1px solid var(--rule)}
-.cap p{font-size:14.5px;color:var(--ink-2);line-height:1.72}
+/* ---------- marquee ---------- */
+.marquee-sec{padding:26px 0;border-top:1px solid var(--line);border-bottom:1px solid var(--line);background:var(--bg-2)}
+.mq{display:flex;overflow:hidden;user-select:none;gap:0}
+.mq-inner{display:flex;flex-shrink:0;gap:0;min-width:100%;align-items:center;animation:scrollA 42s linear infinite}
+.mq.rev .mq-inner{animation:scrollB 42s linear infinite}
+.mq-inner span{
+  font-family:"Kanit","Archivo","Helvetica Neue",Arial,sans-serif;font-weight:500;
+  font-size:clamp(22px,3.1vw,46px);letter-spacing:-.01em;
+  padding:0 26px;white-space:nowrap;color:var(--txt-3);
+  transition:color .4s var(--e);
+}
+.mq-inner span b{color:#5A5F66;font-weight:300}
+.marquee-sec:hover .mq-inner span{color:var(--txt-2)}
+.mq2{margin-top:6px}
+@keyframes scrollA{to{transform:translateX(-100%)}}
+@keyframes scrollB{from{transform:translateX(-100%)}to{transform:translateX(0)}}
 
-/* edu */
-.edu-row{display:flex;justify-content:space-between;gap:16px;padding:12px 0;border-bottom:1px solid var(--rule);font-size:14.5px}
-.edu-row:first-child{border-top:1px solid var(--rule)}
-.edu-row span:last-child{font-family:"JetBrains Mono",monospace;font-size:12px;color:var(--ink-4);white-space:nowrap}
+/* ---------- section frame ---------- */
+section{position:relative}
+.sec-head{display:flex;align-items:baseline;gap:16px;color:var(--txt-3);margin-bottom:44px}
+.sec-head .rule{flex:1;height:1px;background:var(--line)}
 
-/* contact */
-.mailto{font-family:"Source Serif 4",Georgia,serif;font-size:clamp(1.25rem,2.6vw,1.8rem);font-weight:500;
-  letter-spacing:-.024em;color:var(--clay);position:relative;padding-bottom:4px;display:inline-block;margin-top:6px}
-.mailto::after{content:"";position:absolute;left:0;bottom:0;width:100%;height:1.5px;background:var(--clay);
-  transform-origin:right;transition:transform .5s var(--e)}
-.mailto:hover::after{transform:scaleX(0);transform-origin:left}
-.colophon{margin-top:56px;padding-top:24px;border-top:1px solid var(--rule);font-size:13px;color:var(--ink-4);max-width:52ch}
+/* ---------- about ---------- */
+#about{padding:min(17vh,150px) 0}
+.about-text{
+  font-family:"Kanit","Archivo","Helvetica Neue",Arial,sans-serif;font-weight:300;
+  font-size:clamp(24px,3.5vw,58px);line-height:1.24;letter-spacing:-.02em;
+  max-width:20ch;
+}
+.about-text .w{display:inline-block;white-space:pre}
+.about-text .c{opacity:.13;transition:opacity .28s linear}
+.about-grid{display:grid;grid-template-columns:1.35fr .85fr;gap:min(6vw,90px);align-items:end}
+@media(max-width:980px){.about-grid{grid-template-columns:1fr;gap:52px}.about-text{max-width:none}}
+.about-side p{color:var(--txt-2);font-size:15.5px;line-height:1.72;margin-bottom:18px}
+.about-side strong{color:var(--txt);font-weight:400}
+.facts{border-top:1px solid var(--line);margin-top:26px}
+.fact{display:flex;justify-content:space-between;gap:20px;padding:13px 0;border-bottom:1px solid var(--line);font-size:14px}
+.fact span:first-child{color:var(--txt-3)}
+.fact span:last-child{color:var(--txt);text-align:right}
 
-/* a11y + motion */
-a:focus-visible{outline:2px solid var(--clay);outline-offset:4px;border-radius:3px}
-.skip{position:absolute;left:-9999px;background:var(--ink);color:var(--paper);padding:12px 18px;z-index:120;font-size:14px}
-.skip:focus{left:0;top:0}
-.up{opacity:0;transform:translateY(18px);transition:opacity .8s var(--e),transform .8s var(--e)}
-.up.in{opacity:1;transform:none}
-.intro{opacity:0;transform:translateY(14px);transition:opacity .9s var(--e),transform .9s var(--e)}
-.on .intro{opacity:1;transform:none}
-.on .intro:nth-child(2){transition-delay:.08s}
-@media(prefers-reduced-motion:reduce){*,*::after{transition-duration:.01ms!important;animation:none!important}
-  .up,.intro{opacity:1!important;transform:none!important}}
+/* ---------- capabilities (light) ---------- */
+#work{background:#F4F4F2;color:#0C0C0C;padding:min(15vh,132px) 0;border-radius:26px 26px 0 0}
+#work .sec-head{color:#8B8B86}
+#work .sec-head .rule{background:rgba(0,0,0,.13)}
+.cap{
+  display:grid;grid-template-columns:66px 1fr 1.15fr;gap:min(4vw,50px);align-items:baseline;
+  padding:30px 0;border-top:1px solid rgba(0,0,0,.12);
+  position:relative;transition:padding-left .6s var(--e);
+}
+.cap:last-child{border-bottom:1px solid rgba(0,0,0,.12)}
+.cap:hover{padding-left:18px}
+.cap::before{
+  content:"";position:absolute;left:0;top:0;bottom:0;width:0;
+  background:var(--btn);transition:width .6s var(--e);opacity:.85;
+}
+.cap:hover::before{width:4px}
+.cap .num{font-family:"JetBrains Mono",monospace;font-size:12px;color:#9B9B96;letter-spacing:.1em}
+.cap h3{font-family:"Kanit","Archivo","Helvetica Neue",Arial,sans-serif;font-weight:500;font-size:clamp(22px,2.6vw,36px);letter-spacing:-.02em;line-height:1.1}
+.cap p{color:#5A5A56;font-size:15px;line-height:1.68}
+.cap .tags{margin-top:10px;font-family:"JetBrains Mono",monospace;font-size:11px;letter-spacing:.08em;color:#8B8B86;text-transform:uppercase}
+@media(max-width:880px){.cap{grid-template-columns:1fr;gap:12px;padding:26px 0}.cap .num{display:none}}
+
+/* ---------- projects (sticky stack) ---------- */
+#projects{padding:min(15vh,132px) 0 0}
+.stack{position:relative}
+.cardwrap{height:100svh;display:flex;align-items:center;justify-content:center;position:sticky;top:0}
+.card{
+  width:min(1180px,90vw);height:min(72svh,640px);
+  border:1px solid var(--line-2);border-radius:16px;
+  background:#101010;
+  display:grid;grid-template-columns:1.02fr .98fr;overflow:hidden;
+  transform-origin:top center;will-change:transform;
+  box-shadow:0 40px 90px -50px #000;
+}
+.card-l{padding:min(4.6vw,50px);display:flex;flex-direction:column;justify-content:space-between;min-width:0}
+.card-idx{font-family:"JetBrains Mono",monospace;font-size:11px;letter-spacing:.16em;color:var(--txt-3)}
+.card h3{font-family:"Kanit","Archivo","Helvetica Neue",Arial,sans-serif;font-weight:600;font-size:clamp(27px,3.5vw,50px);line-height:1.02;letter-spacing:-.028em;margin:20px 0 16px}
+.card .desc{color:var(--txt-2);font-size:15px;line-height:1.7;max-width:46ch}
+.card .stackrow{display:flex;flex-wrap:wrap;gap:7px;margin-top:22px}
+.card .stackrow i{
+  font-style:normal;font-family:"JetBrains Mono",monospace;font-size:10.5px;letter-spacing:.07em;
+  color:var(--txt-2);border:1px solid var(--line);border-radius:100px;padding:5px 11px;
+}
+.card .links{display:flex;gap:10px;flex-wrap:wrap;align-items:center;margin-top:26px}
+.card .note{font-family:"JetBrains Mono",monospace;font-size:10px;letter-spacing:.12em;text-transform:uppercase;color:var(--txt-3)}
+.card-r{border-left:1px solid var(--line);background:#0A0A0A;position:relative;overflow:hidden;display:flex;flex-direction:column}
+.card-r .bar{display:flex;gap:6px;padding:14px 16px;border-bottom:1px solid var(--line);align-items:center}
+.card-r .bar i{width:9px;height:9px;border-radius:50%;background:#2A2A2A;display:block}
+.card-r .bar em{font-style:normal;font-family:"JetBrains Mono",monospace;font-size:10.5px;color:var(--txt-3);margin-left:8px;letter-spacing:.06em}
+.card-r pre{
+  font-family:"JetBrains Mono",monospace;font-size:clamp(10px,.92vw,12.6px);line-height:1.85;
+  color:#7E858D;padding:22px min(2.2vw,26px);margin:0;overflow:hidden;flex:1;white-space:pre;
+}
+.card-r pre b{color:#BBCCD7;font-weight:500}
+.card-r pre u{color:#B06BC0;text-decoration:none}
+.card-r pre s{color:#3E4349;text-decoration:none}
+.card-r::after{content:"";position:absolute;left:0;right:0;bottom:0;height:90px;background:linear-gradient(180deg,transparent,#0A0A0A)}
+@media(max-width:980px){
+  .card{grid-template-columns:1fr;height:min(80svh,700px)}
+  .card-r{border-left:none;border-top:1px solid var(--line)}
+  .card-l{padding:28px 24px}
+  .card .desc{font-size:14px}
+}
+@media(max-width:700px){
+  .card-r{display:none}
+  .cardwrap{position:static;height:auto;padding:9px 0;display:block}
+  .card{height:auto;width:100%;transform:none!important;border-radius:14px}
+  .card-l{padding:26px 22px}
+  .stack{width:min(1360px,92vw);margin:0 auto}
+}
+
+/* ---------- experience ---------- */
+#exp{padding:min(15vh,132px) 0}
+.xp{display:grid;grid-template-columns:.62fr 1.38fr;gap:min(4vw,48px);padding:26px 0;border-top:1px solid var(--line);transition:background .5s var(--e)}
+.xp:last-child{border-bottom:1px solid var(--line)}
+.xp:hover{background:rgba(255,255,255,.017)}
+.xp .when{font-family:"JetBrains Mono",monospace;font-size:11.5px;letter-spacing:.09em;color:var(--txt-3);text-transform:uppercase;padding-top:5px}
+.xp h4{font-family:"Kanit","Archivo","Helvetica Neue",Arial,sans-serif;font-weight:500;font-size:clamp(18px,1.85vw,25px);letter-spacing:-.015em}
+.xp .org{color:var(--txt-3);font-size:14px;margin:3px 0 10px}
+.xp p{color:var(--txt-2);font-size:14.6px;line-height:1.7;max-width:66ch}
+@media(max-width:880px){.xp{grid-template-columns:1fr;gap:10px}}
+
+/* ---------- contact ---------- */
+#contact{padding:min(16vh,140px) 0 0}
+.big{
+  font-family:"Kanit","Archivo","Helvetica Neue",Arial,sans-serif;font-weight:600;
+  font-size:clamp(42px,10.4vw,190px);line-height:.9;letter-spacing:-.038em;
+  background:var(--grad);-webkit-background-clip:text;background-clip:text;color:transparent;
+}
+.contact-row{display:flex;align-items:flex-end;justify-content:space-between;gap:36px;flex-wrap:wrap;margin-top:44px;padding-top:34px;border-top:1px solid var(--line)}
+.contact-row .mail{font-family:"Kanit","Archivo","Helvetica Neue",Arial,sans-serif;font-weight:300;font-size:clamp(19px,2.5vw,32px);letter-spacing:-.02em;position:relative}
+.contact-row .mail::after{content:"";position:absolute;left:0;bottom:-4px;height:1px;width:100%;background:var(--txt-3);transform:scaleX(0);transform-origin:right;transition:transform .6s var(--e)}
+.contact-row .mail:hover::after{transform:scaleX(1);transform-origin:left}
+footer{margin-top:min(11vh,96px);border-top:1px solid var(--line);padding:26px 0 34px;display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap;color:var(--txt-3);font-size:13px}
+footer .soc{display:flex;gap:24px}
+footer .soc a{transition:color .35s var(--e)}
+footer .soc a:hover{color:var(--txt)}
+
+@media(prefers-reduced-motion:reduce){
+  *{animation:none!important;transition-duration:.01ms!important}
+  .rv{opacity:1;transform:none}
+  .about-text .c{opacity:1}
+  html{scroll-behavior:auto}
+}
 </style>
-<noscript><style>.up,.intro{opacity:1!important;transform:none!important}</style></noscript>
 </head>
 <body>
-<div id="glow"></div>
-<a class="skip" href="#work">Skip to content</a>
+<div id="prog"></div>
 
-<div class="shell">
+<nav id="nav">
+  <a href="#top" class="sig">Hassnain Khan<span>®</span></a>
+  <div class="navlinks mono">
+    <a href="#about">About</a>
+    <a href="#work">What I do</a>
+    <a href="#projects">Work</a>
+    <a href="#exp">Experience</a>
+    <a href="#contact" class="btn">Get in touch
+      <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M4 12L12 4M6 4h6v6"/></svg>
+    </a>
+  </div>
+</nav>
 
-  <header class="panel">
-    <div>
-      <h1 class="name intro">Hassnain Khan</h1>
-      <p class="role intro">Machine Learning &amp; Software Engineering</p>
-      <p class="tag intro">I build models, the tooling around them, and the interfaces that make them useful to someone who isn't me.</p>
-      <div class="avail intro"><span class="pip"></span> Open to internships</div>
-      <nav aria-label="Sections">
-        <ul class="spy">
-          <li><a href="#about"><span class="dash"></span> About</a></li>
-          <li><a href="#work"><span class="dash"></span> Work</a></li>
-          <li><a href="#experience"><span class="dash"></span> Experience</a></li>
-          <li><a href="#repos"><span class="dash"></span> Repositories</a></li>
-          <li><a href="#contact"><span class="dash"></span> Contact</a></li>
-        </ul>
-      </nav>
+<header id="top">
+  <div class="hero-top">
+    <div class="hero-meta mono rv d1">
+      <div><span class="dot"></span>Open to internships &amp; 2027 grad roles</div>
+      <div>Islamabad, PK — remote friendly</div>
     </div>
-    <div class="socials">
-      <a href="https://github.com/Hassnainkhan1249" target="_blank" rel="noopener" aria-label="GitHub"><svg viewBox="0 0 24 24"><path d="M12 .3a12 12 0 0 0-3.8 23.4c.6.1.8-.3.8-.6v-2.2c-3.3.7-4-1.6-4-1.6-.6-1.4-1.4-1.8-1.4-1.8-1-.7.1-.7.1-.7 1.2.1 1.8 1.2 1.8 1.2 1 1.8 2.8 1.3 3.5 1 0-.8.4-1.3.7-1.6-2.7-.3-5.5-1.3-5.5-5.9 0-1.3.5-2.4 1.2-3.2 0-.4-.5-1.6.2-3.2 0 0 1-.3 3.3 1.2a11.5 11.5 0 0 1 6 0c2.3-1.5 3.3-1.2 3.3-1.2.7 1.6.2 2.8.1 3.2.8.8 1.2 1.9 1.2 3.2 0 4.6-2.8 5.6-5.5 5.9.4.4.8 1.1.8 2.2v3.3c0 .3.2.7.8.6A12 12 0 0 0 12 .3"/></svg></a>
-      <a href="https://linkedin.com/in/hassnainkhandev" target="_blank" rel="noopener" aria-label="LinkedIn"><svg viewBox="0 0 24 24"><path d="M20.4 20.4h-3.6v-5.6c0-1.3 0-3-1.9-3s-2.1 1.4-2.1 2.9v5.7H9.3V9h3.4v1.6h.1c.5-.9 1.7-1.9 3.4-1.9 3.6 0 4.3 2.4 4.3 5.5v6.2zM5.3 7.4a2.1 2.1 0 1 1 0-4.2 2.1 2.1 0 0 1 0 4.2zm1.8 13H3.5V9h3.6v11.4zM22.2 0H1.8C.8 0 0 .8 0 1.7v20.6c0 .9.8 1.7 1.8 1.7h20.4c1 0 1.8-.8 1.8-1.7V1.7c0-.9-.8-1.7-1.8-1.7z"/></svg></a>
-      <a href="Hassnain-Khan-CV.pdf" target="_blank" rel="noopener" aria-label="Curriculum vitae"><svg viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8l-6-6zm0 2.5L17.5 8H14V4.5zM8 13h8v1.5H8V13zm0 3.5h8V18H8v-1.5zM8 9.5h3V11H8V9.5z"/></svg></a>
-      <a href="mailto:hassnain32222000@gmail.com" aria-label="Email"><svg viewBox="0 0 24 24"><path d="M20 4H4a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V6a2 2 0 0 0-2-2zm0 4.2-8 4.8-8-4.8V6l8 4.8L20 6v2.2z"/></svg></a>
+    <div class="magnet rv d2" id="magnet">
+      <div class="mag-fb"><span>HK</span><em>Islamabad · PK</em></div>
+      <img src="https://avatars.githubusercontent.com/Hassnainkhan1249" alt="Hassnain Khan" loading="eager" onerror="this.remove()">
     </div>
-  </header>
+  </div>
 
-  <main class="content">
+  <h1 class="hero-title rv">Hi, I'm<span class="l2">Hassnain</span></h1>
 
-    <section class="blk" id="about">
-      <div class="hd">About</div>
-      <div class="prose up">
-        <p>I'm a Computer Engineering student at <b>Bahria University Islamabad</b>, heading toward machine learning engineering. My interest is in pipelines built end to end, and in tooling that makes a workflow repeatable rather than one-off. I work full-stack around that, because a model nobody can use is not finished.</p>
-        <p>In 2024 I placed <b>top fifteen nationally</b> in the Huawei ICT Competition, from thousands of entrants across Pakistan. In 2026 I spent an internship in cybersecurity at <b>Safe City Islamabad</b> — penetration testing and vulnerability assessment — which permanently changed how I read my own code. I now think about how something breaks before I think about how it ships.</p>
-        <p>Alongside my degree I recruit engineers for a Germany-based startup, which has given me an unusually direct view of how technical candidates actually get screened. Outside all of it, I coordinate finances for humanitarian relief with Dast-e-Khuddam and iHayaat — Ramadan welfare, orphanage support, and flood response in Buner.</p>
-      </div>
-    </section>
-
-    <section class="blk" id="work">
-      <div class="hd">Selected work</div>
-
-      <a class="row up" href="https://smart-automl-dashboard.streamlit.app/" target="_blank" rel="noopener">
-        <div class="when">Live</div>
-        <div>
-          <div class="rt">Smart AutoML Pro <span class="arw">↗</span></div>
-          <div class="rsub">Automated machine learning dashboard</div>
-          <p>Takes a raw tabular dataset through preprocessing, model selection, training, evaluation and prediction — classification and clustering both — without rewriting the pipeline each time. I built it because I was writing the same two hundred lines every time. It compares models side by side and shows <b>where</b> one is failing, rather than a single accuracy figure that quietly hides an imbalanced dataset.</p>
-          <div class="pills"><span class="pill">Python</span><span class="pill">scikit-learn</span><span class="pill">pandas</span><span class="pill">Streamlit</span></div>
-        </div>
+  <div class="hero-sub">
+    <p class="rv d1">Computer Engineering student at Bahria University Islamabad. I build machine learning systems, full-stack web applications and security tooling — and I ship them.</p>
+    <div class="cta rv d2">
+      <a href="#projects" class="btn">See the work
+        <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M4 12L12 4M6 4h6v6"/></svg>
       </a>
+      <a href="https://github.com/Hassnainkhan1249" target="_blank" rel="noopener" class="btn-ghost">GitHub</a>
+      <a href="https://linkedin.com/in/hassnainkhandev" target="_blank" rel="noopener" class="btn-ghost">LinkedIn</a>
+    </div>
+  </div>
+</header>
 
-      <a class="row up" href="https://github.com/Hassnainkhan1249/smart-campus-delivery-robot" target="_blank" rel="noopener">
-        <div class="when">Open source</div>
-        <div>
-          <div class="rt">Smart Campus Delivery Robot <span class="arw">↗</span></div>
-          <div class="rsub">Classical AI search and intelligent agents</div>
-          <p>Six search algorithms written from first principles — breadth-first, depth-first, uniform cost, A* with configurable heuristics, greedy best-first and hill climbing — with reflex, goal-based and utility-based agents. No search library. Running all six on one scenario makes the trade-offs concrete: <b>A* expands far fewer nodes than uniform cost for the same optimal path</b>, greedy is quick but not cheapest, and hill climbing visibly gets stuck on local maxima.</p>
-          <div class="pills"><span class="pill">Python</span><span class="pill">Streamlit</span><span class="pill">matplotlib</span><span class="pill">pandas</span></div>
-        </div>
-      </a>
-
-      <a class="row up" href="https://github.com/Hassnainkhan1249/hrms-employee-management" target="_blank" rel="noopener">
-        <div class="when">Open source</div>
-        <div>
-          <div class="rt">HRMS <span class="arw">↗</span></div>
-          <div class="rsub">Employee management, SQL Server and JDBC</div>
-          <p>Employees, departments, designations, salaries and attendance, with referential integrity enforced by the database rather than application code. The schema is the interesting part: Departments references Employees for its manager while Employees references Departments — <b>a circular foreign key</b>, resolved by creating both tables first and adding the constraint afterwards, so the script runs cleanly from nothing. Validation lives in check constraints, so bad data cannot be written even by a different client.</p>
-          <div class="pills"><span class="pill">Java 11</span><span class="pill">Maven</span><span class="pill">SQL Server</span><span class="pill">JDBC</span></div>
-        </div>
-      </a>
-
-      <div class="row up">
-        <div class="when">In progress</div>
-        <div>
-          <div class="rt">MediChain</div>
-          <div class="rsub">Blockchain medical records</div>
-          <p>Access control lives in the smart contract rather than the application layer, with role-based permissions for administrator, doctor and patient. Putting permissions on-chain means a doctor requesting a record they were never granted doesn't receive a rejection from a server someone could bypass — <b>the transaction reverts at the contract</b>. The patient grants and revokes access. Not the hospital.</p>
-          <div class="rlinks"><span>Repository in preparation</span></div>
-          <div class="pills grey"><span class="pill grey">Solidity</span><span class="pill grey">Hardhat</span><span class="pill grey">Ethers.js</span><span class="pill grey">Next.js</span></div>
-        </div>
-      </div>
-
-      <div class="row up">
-        <div class="when">In progress</div>
-        <div>
-          <div class="rt">EngageWise</div>
-          <div class="rsub">Writing assistant, browser extension</div>
-          <p>Reads the surrounding page context, sends it to a language model, and returns drafts the user edits before anything is published.</p>
-          <div class="rlinks"><span>Repository in preparation</span></div>
-          <div class="pills"><span class="pill grey">JavaScript</span><span class="pill grey">Manifest V3</span><span class="pill grey">Node.js</span><span class="pill grey">Express</span></div>
-        </div>
-      </div>
-
-      <a class="row up" href="https://github.com/Hassnainkhan1249/canvas-proximity-treasure-hunt" target="_blank" rel="noopener">
-        <div class="when">Open source</div>
-        <div>
-          <div class="rt">Canvas Proximity Treasure Hunt <span class="arw">↗</span></div>
-          <div class="rsub">Interactive Canvas API game</div>
-          <p>Proximity-driven visual feedback tells you how close you are without ever revealing where the target is.</p>
-          <div class="pills"><span class="pill">TypeScript</span><span class="pill">Canvas API</span></div>
-        </div>
-      </a>
-    </section>
-
-    <section class="blk" id="experience">
-      <div class="hd">Experience</div>
-
-      <div class="row up">
-        <div class="when">Aug 2026 —<br>Present</div>
-        <div>
-          <div class="rt">Marketing Intern · Mercantile Pakistan</div>
-          <p>Technical website audits using Lighthouse and PageSpeed Insights — diagnosing load performance, responsiveness and Core Web Vitals, then turning findings into prioritised fixes. Campaign and advertising data analysed into structured reports.</p>
-          <div class="pills"><span class="pill">Web performance</span><span class="pill">Lighthouse</span><span class="pill">SEO</span><span class="pill">Data analysis</span></div>
-        </div>
-      </div>
-
-      <div class="row up">
-        <div class="when">May — Jun<br>2026</div>
-        <div>
-          <div class="rt">Cybersecurity Intern · Safe City Islamabad</div>
-          <p>Penetration testing and vulnerability assessment in controlled environments with Burp Suite, TryHackMe and the PortSwigger Web Security Academy. Reviewed applications for injection, cross-site scripting, broken authentication and misconfiguration, and presented findings to the systems team.</p>
-          <div class="pills"><span class="pill">Burp Suite</span><span class="pill">Penetration testing</span><span class="pill">Web app security</span><span class="pill">Linux</span></div>
-        </div>
-      </div>
-
-      <div class="row up">
-        <div class="when">Jan 2026 —<br>Present</div>
-        <div>
-          <div class="rt">IT Recruiter · Atlas IT Services</div>
-          <div class="rsub">Germany, remote</div>
-          <p>Technical recruiting for a Germany-based startup: sourcing, screening and interview coordination across time zones. Assessing engineering profiles against real requirements gave me an unusually direct view of how candidates actually get read.</p>
-          <div class="pills"><span class="pill">Technical recruiting</span><span class="pill">Async collaboration</span></div>
-        </div>
-      </div>
-
-      <div class="row up">
-        <div class="when">Mar 2024 —<br>Present</div>
-        <div>
-          <div class="rt">IT Assistant · PMEye Management Consulting</div>
-          <div class="rsub">Part-time</div>
-          <p>Maintaining the company website and producing branding and communication material for digital channels.</p>
-          <div class="pills"><span class="pill">Web maintenance</span><span class="pill">Digital content</span></div>
-        </div>
-      </div>
-
-      <div class="up" style="margin-top:34px">
-        <div class="edu-row"><span>BS Computer Engineering — Bahria University Islamabad</span><span>2023–2027</span></div>
-        <div class="edu-row"><span>Huawei ICT Competition — Top-15 National Finalist</span><span>2024</span></div>
-        <div class="edu-row"><span>Intermediate FSc — Metropolitan International United College</span><span>2021–2023</span></div>
-        <div class="edu-row"><span>Matriculation — Dr. A.Q. Khan School System</span><span>2018–2021</span></div>
-      </div>
-
-      <div class="caps up" style="margin-top:44px">
-        <div class="cap"><h5>Languages</h5><p>Python, JavaScript, TypeScript, Java, C++, SQL, Solidity</p></div>
-        <div class="cap"><h5>Machine learning</h5><p>scikit-learn, pandas, classification, clustering, automated model selection, search and planning</p></div>
-        <div class="cap"><h5>Web</h5><p>React, Next.js, Tailwind, Node.js, Express, Streamlit</p></div>
-        <div class="cap"><h5>Security</h5><p>Burp Suite, vulnerability assessment, web application security, Linux</p></div>
-        <div class="cap"><h5>Data</h5><p>SQL Server, MySQL, JDBC, schema design, ER modelling</p></div>
-        <div class="cap"><h5>Tooling</h5><p>Git, GitHub, Hardhat, MATLAB, Figma</p></div>
-      </div>
-    </section>
-
-    <section class="blk" id="repos">
-      <div class="hd">Repositories</div>
-      <div class="rlist">
-        <a class="rl up" href="https://github.com/Hassnainkhan1249/smart-automl-pro-dashboard" target="_blank" rel="noopener"><b>smart-automl-pro-dashboard <i>↗</i></b><span>Python · MIT</span></a>
-        <a class="rl up" href="https://github.com/Hassnainkhan1249/smart-campus-delivery-robot" target="_blank" rel="noopener"><b>smart-campus-delivery-robot <i>↗</i></b><span>Python</span></a>
-        <a class="rl up" href="https://github.com/Hassnainkhan1249/hrms-employee-management" target="_blank" rel="noopener"><b>hrms-employee-management <i>↗</i></b><span>Java · SQL</span></a>
-        <a class="rl up" href="https://github.com/Hassnainkhan1249/canvas-proximity-treasure-hunt" target="_blank" rel="noopener"><b>canvas-proximity-treasure-hunt <i>↗</i></b><span>TypeScript</span></a>
-        <a class="rl up" href="https://github.com/Hassnainkhan1249/hassnain-portfolio" target="_blank" rel="noopener"><b>hassnain-portfolio <i>↗</i></b><span>HTML</span></a>
-        <a class="rl up" href="https://github.com/Hassnainkhan1249" target="_blank" rel="noopener"><b>All repositories <i>↗</i></b><span>GitHub</span></a>
-      </div>
-    </section>
-
-    <section class="blk" id="contact">
-      <div class="hd">Contact</div>
-      <div class="prose up">
-        <p>I'm looking for an internship in machine learning or software engineering — remote, Islamabad, or international. If you're hiring, or you simply want to talk about model tooling or web security, write to me.</p>
-        <a class="mailto" href="mailto:hassnain32222000@gmail.com">hassnain32222000@gmail.com</a>
-        <div class="colophon">Built by hand in one HTML file — no framework, no build step, no template. Type is Source Serif 4 and Inter. Deployed on GitHub Pages.</div>
-      </div>
-    </section>
-
-  </main>
+<div class="marquee-sec">
+  <div class="mq" data-mq><div class="mq-inner"><span>Python <b>/</b> scikit-learn <b>/</b> pandas <b>/</b> Streamlit <b>/</b> AutoML <b>/</b> React <b>/</b> Next.js <b>/</b> Tailwind <b>/</b> </span></div></div>
+  <div class="mq rev mq2" data-mq><div class="mq-inner"><span>Solidity <b>/</b> Hardhat <b>/</b> Ethers.js <b>/</b> Java <b>/</b> SQL Server <b>/</b> JDBC <b>/</b> Burp Suite <b>/</b> C++ <b>/</b> MATLAB <b>/</b> </span></div></div>
 </div>
 
-<script>
-requestAnimationFrame(()=>document.body.classList.add('on'));
-// cursor spotlight (pointer devices only)
-if(matchMedia('(pointer:fine)').matches){
-  document.body.classList.add('pointer');
-  addEventListener('pointermove',e=>{
-    document.documentElement.style.setProperty('--mx',e.clientX+'px');
-    document.documentElement.style.setProperty('--my',e.clientY+'px');
-  },{passive:true});
+<section id="about"><div class="wrap">
+  <div class="sec-head mono rv"><span>01 — About</span><span class="rule"></span></div>
+  <div class="about-grid">
+    <h2 class="about-text" data-chars>I work where machine learning, web engineering and security overlap — and I care about the part that actually ships.</h2>
+    <div class="about-side">
+      <p class="rv">Most of what I know came from building things end to end: <strong>an AutoML dashboard</strong> that takes a raw CSV through the whole modelling workflow, <strong>a medical records system</strong> where permissions live in the smart contract rather than the backend, <strong>an HR system</strong> whose schema had to survive a circular foreign key.</p>
+      <p class="rv d1">A cybersecurity internship at Safe City Islamabad changed how I write everything else. I think about how a thing breaks before I think about how it ships.</p>
+      <div class="facts rv d2">
+        <div class="fact"><span>University</span><span>Bahria University Islamabad</span></div>
+        <div class="fact"><span>Degree</span><span>BS Computer Engineering, 2023–2027</span></div>
+        <div class="fact"><span>CGPA</span><span>3.28</span></div>
+        <div class="fact"><span>Recognition</span><span>Top-15 National Finalist<br>Huawei ICT Competition 2024-25</span></div>
+      </div>
+    </div>
+  </div>
+</div></section>
+
+<section id="work"><div class="wrap">
+  <div class="sec-head mono rv"><span>02 — What I do</span><span class="rule"></span></div>
+  <div class="caps">
+    <div class="cap rv"><div class="num">01</div><h3>Machine Learning</h3><div><p>Classification and clustering pipelines built to be reused, not rewritten — preprocessing, model selection, evaluation and the interpretability layer that tells you where a model is actually failing.</p><div class="tags">Python · scikit-learn · pandas · Streamlit</div></div></div>
+    <div class="cap rv"><div class="num">02</div><h3>Web Engineering</h3><div><p>Full-stack applications from schema to interface. React and Next.js on the front, Node and Express behind it, with the performance and accessibility work done rather than promised.</p><div class="tags">React · Next.js · Node · Tailwind</div></div></div>
+    <div class="cap rv"><div class="num">03</div><h3>Security</h3><div><p>Web application security and vulnerability assessment — injection, XSS, broken authentication, misconfiguration. Learned in a controlled environment at Safe City Islamabad, applied to everything I build since.</p><div class="tags">Burp Suite · OWASP · Linux · Networking</div></div></div>
+    <div class="cap rv"><div class="num">04</div><h3>Data Systems</h3><div><p>Relational design that holds up: normalised schemas, constraints enforced in the database instead of the application, soft deletes that preserve history, and a DAO layer that keeps SQL out of business logic.</p><div class="tags">SQL Server · MySQL · JDBC · ER Modelling</div></div></div>
+    <div class="cap rv"><div class="num">05</div><h3>Blockchain</h3><div><p>Smart contracts where the contract is the access-control layer. Solidity with Hardhat for local testing, Ethers.js and MetaMask wired to a real frontend rather than a console demo.</p><div class="tags">Solidity · Hardhat · Ethers.js · Web3</div></div></div>
+  </div>
+</div></section>
+
+<section id="projects"><div class="wrap">
+  <div class="sec-head mono rv"><span>03 — Selected work</span><span class="rule"></span></div>
+</div>
+<div class="stack" id="stack">
+
+  <div class="cardwrap" data-i="0"><div class="card">
+    <div class="card-l">
+      <div>
+        <div class="card-idx">01 / 06 &nbsp;·&nbsp; Machine Learning</div>
+        <h3>Smart AutoML Pro</h3>
+        <p class="desc">A dashboard that takes a raw tabular dataset through the entire ML workflow — preprocessing, model selection, training, evaluation, prediction — without rewriting the pipeline for every new file. Compares models side by side so the decision is made on evidence rather than on whichever one you built first.</p>
+        <div class="stackrow"><i>Python</i><i>scikit-learn</i><i>pandas</i><i>Streamlit</i></div>
+      </div>
+      <div class="links">
+        <a class="btn" href="https://smart-automl-dashboard.streamlit.app/" target="_blank" rel="noopener">Live demo
+          <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M4 12L12 4M6 4h6v6"/></svg></a>
+        <a class="btn-ghost" href="https://github.com/Hassnainkhan1249/smart-automl-pro-dashboard" target="_blank" rel="noopener">Source</a>
+      </div>
+    </div>
+    <div class="card-r">
+      <div class="bar"><i></i><i></i><i></i><em>pipeline.py</em></div>
+      <pre><s># raw csv in, ranked models out</s>
+<u>def</u> <b>run</b>(df, target, task=<b>"classification"</b>):
+    X, y = split_features(df, target)
+    X = <b>Preprocessor</b>(
+        impute=<b>"median"</b>,
+        encode=<b>"onehot"</b>,
+        scale=<b>True</b>,
+    ).fit_transform(X)
+
+    results = []
+    <u>for</u> name, model <u>in</u> REGISTRY[task]:
+        cv = cross_validate(model, X, y, cv=<b>5</b>)
+        results.append({
+            <b>"model"</b>:  name,
+            <b>"score"</b>:  cv[<b>"test_score"</b>].mean(),
+            <b>"std"</b>:    cv[<b>"test_score"</b>].std(),
+            <b>"fit_s"</b>:  cv[<b>"fit_time"</b>].mean(),
+        })
+
+    <s># accuracy alone lies on imbalanced data</s>
+    <u>return</u> rank(results, by=<b>"f1_macro"</b>)</pre>
+    </div>
+  </div></div>
+
+  <div class="cardwrap" data-i="1"><div class="card">
+    <div class="card-l">
+      <div>
+        <div class="card-idx">02 / 06 &nbsp;·&nbsp; Artificial Intelligence</div>
+        <h3>Smart Campus<br>Delivery Robot</h3>
+        <p class="desc">Six search algorithms implemented from first principles — BFS, DFS, Uniform Cost, A* with configurable Manhattan and Euclidean heuristics, Greedy Best-First and Hill Climbing — plus reflex, goal-based and utility-based agents. Runs all six on the same scenario and compares success rate, path cost, nodes expanded and runtime across ten test cases.</p>
+        <div class="stackrow"><i>Python</i><i>Streamlit</i><i>matplotlib</i><i>pandas</i></div>
+      </div>
+      <div class="links"><a class="btn-ghost" href="mailto:hassnain32222000@gmail.com?subject=Walkthrough%20request">Request a walkthrough</a><span class="note">Repository publishing soon</span></div>
+    </div>
+    <div class="card-r">
+      <div class="bar"><i></i><i></i><i></i><em>benchmark — 10 scenarios</em></div>
+      <pre><s>algorithm        success   cost   nodes   ms</s>
+<b>A* (manhattan)</b>     100%     <b>24</b>    <b>118</b>   <b>3.1</b>
+<b>A* (euclidean)</b>     100%     <b>24</b>    <b>141</b>   <b>3.8</b>
+<b>Uniform Cost</b>       100%     <b>24</b>    <b>402</b>  <b>11.4</b>
+<b>BFS</b>                100%     <b>26</b>    <b>377</b>   <b>9.7</b>
+<b>Greedy Best-First</b>   90%     <b>31</b>     <b>96</b>   <b>2.4</b>
+<b>DFS</b>                100%     <b>68</b>    <b>210</b>   <b>5.2</b>
+<b>Hill Climbing</b>       60%     <b>29</b>     <b>44</b>   <b>1.1</b>
+
+<s># the finding:</s>
+<u>optimal + informed</u>  → A* dominates on cost/node
+<u>greedy</u>             → fast, gets stuck on concave walls
+<u>hill climbing</u>      → 4/10 local maxima, no backtrack</pre>
+    </div>
+  </div></div>
+
+  <div class="cardwrap" data-i="2"><div class="card">
+    <div class="card-l">
+      <div>
+        <div class="card-idx">03 / 06 &nbsp;·&nbsp; Blockchain</div>
+        <h3>MediChain</h3>
+        <p class="desc">Decentralised medical records where access control is enforced at the smart contract level rather than in the application layer. A doctor requesting a record they were never granted doesn't get a 403 from a server — the transaction reverts. There is no application layer to go around, because the rule doesn't live there. Patients grant and revoke access themselves.</p>
+        <div class="stackrow"><i>Solidity</i><i>Hardhat</i><i>Ethers.js</i><i>Next.js</i><i>Tailwind</i></div>
+      </div>
+      <div class="links"><a class="btn-ghost" href="mailto:hassnain32222000@gmail.com?subject=Walkthrough%20request">Request a walkthrough</a><span class="note">Repository publishing soon</span></div>
+    </div>
+    <div class="card-r">
+      <div class="bar"><i></i><i></i><i></i><em>MedicalRecords.sol</em></div>
+      <pre><u>mapping</u>(<b>address</b> =&gt; <u>mapping</u>(<b>address</b> =&gt; <b>bool</b>)) granted;
+
+<u>modifier</u> <b>onlyPermitted</b>(<b>address</b> patient) {
+    <u>require</u>(
+        msg.sender == patient ||
+        granted[patient][msg.sender],
+        <b>"NOT_AUTHORISED"</b>
+    );
+    _;
 }
-// reveal
-const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}}),
- {threshold:.05,rootMargin:'0px 0px -50px 0px'});
-document.querySelectorAll('.up').forEach(el=>io.observe(el));
-document.querySelectorAll('.blk').forEach(b=>{
-  [...b.querySelectorAll(':scope > .row, :scope > .rlist > .rl')].forEach((c,i)=>c.style.transitionDelay=(i*55)+'ms');
-});
-// scrollspy
-const links=[...document.querySelectorAll('.spy a')];
-const spy=new IntersectionObserver(es=>{
-  es.forEach(e=>{
-    if(e.isIntersecting){
-      links.forEach(l=>l.classList.toggle('active',l.getAttribute('href')==='#'+e.target.id));
-    }
+
+<s>// the patient owns the switch, not the hospital</s>
+<u>function</u> <b>grant</b>(<b>address</b> doctor) <u>external</u> {
+    granted[msg.sender][doctor] = <b>true</b>;
+    <u>emit</u> AccessGranted(msg.sender, doctor);
+}
+
+<u>function</u> <b>revoke</b>(<b>address</b> doctor) <u>external</u> {
+    granted[msg.sender][doctor] = <b>false</b>;
+}</pre>
+    </div>
+  </div></div>
+
+  <div class="cardwrap" data-i="3"><div class="card">
+    <div class="card-l">
+      <div>
+        <div class="card-idx">04 / 06 &nbsp;·&nbsp; Data Systems</div>
+        <h3>HR Management<br>System</h3>
+        <p class="desc">Database-backed HR platform covering employees, departments, designations, salaries and attendance. The interesting problem was a circular foreign key between Departments and Employees — resolved by deferring the constraint. The schema is idempotent so it re-runs clean, deletes are soft so history survives, and validation lives in CHECK constraints rather than application code.</p>
+        <div class="stackrow"><i>Java 11</i><i>Maven</i><i>SQL Server</i><i>JDBC</i></div>
+      </div>
+      <div class="links"><a class="btn-ghost" href="https://github.com/Hassnainkhan1249/hrms-employee-management" target="_blank" rel="noopener">Source</a></div>
+    </div>
+    <div class="card-r">
+      <div class="bar"><i></i><i></i><i></i><em>schema.sql</em></div>
+      <pre><s>-- circular FK: dept.manager → emp, emp.dept → dept</s>
+<u>CREATE TABLE</u> <b>Departments</b> (
+  dept_id      <b>INT</b> <u>IDENTITY</u> <u>PRIMARY KEY</u>,
+  name         <b>NVARCHAR</b>(<b>80</b>) <u>NOT NULL</u> <u>UNIQUE</u>,
+  manager_id   <b>INT</b> <u>NULL</u>,          <s>-- filled later</s>
+  is_active    <b>BIT</b> <u>NOT NULL</u> <u>DEFAULT</u> <b>1</b>
+);
+
+<u>ALTER TABLE</u> <b>Departments</b> <u>ADD CONSTRAINT</u> FK_Dept_Mgr
+  <u>FOREIGN KEY</u> (manager_id) <u>REFERENCES</u> <b>Employees</b>(emp_id);
+
+<s>-- push the rule into the DB, not the DAO</s>
+<u>ALTER TABLE</u> <b>Salaries</b> <u>ADD CONSTRAINT</u> CK_Sal_Positive
+  <u>CHECK</u> (base_pay &gt; <b>0</b> <u>AND</u> bonus &gt;= <b>0</b>);</pre>
+    </div>
+  </div></div>
+
+  <div class="cardwrap" data-i="4"><div class="card">
+    <div class="card-l">
+      <div>
+        <div class="card-idx">05 / 06 &nbsp;·&nbsp; Browser Extension</div>
+        <h3>EngageWise</h3>
+        <p class="desc">A Chrome extension that helps people write better professional posts and replies. It reads the surrounding context on the page, sends it to an LLM API, and returns drafts the user reviews and edits before anything is published. Manifest V3, with a small Express service holding the API key so it never reaches the client.</p>
+        <div class="stackrow"><i>JavaScript</i><i>Manifest V3</i><i>Node.js</i><i>Express</i><i>LLM APIs</i></div>
+      </div>
+      <div class="links"><a class="btn-ghost" href="mailto:hassnain32222000@gmail.com?subject=Walkthrough%20request">Request a walkthrough</a><span class="note">Repository publishing soon</span></div>
+    </div>
+    <div class="card-r">
+      <div class="bar"><i></i><i></i><i></i><em>content.js</em></div>
+      <pre><s>// never ship the key to the client</s>
+<u>const</u> draft = <u>async</u> (context, tone) =&gt; {
+  <u>const</u> res = <u>await</u> fetch(<b>`${API}/suggest`</b>, {
+    method: <b>"POST"</b>,
+    headers: { <b>"Content-Type"</b>: <b>"application/json"</b> },
+    body: JSON.stringify({ context, tone }),
   });
-},{rootMargin:'-25% 0px -60% 0px',threshold:0});
-document.querySelectorAll('.blk').forEach(s=>spy.observe(s));
-links.forEach(l=>l.addEventListener('click',ev=>{
-  ev.preventDefault();
-  document.querySelector(l.getAttribute('href')).scrollIntoView({behavior:'smooth',block:'start'});
-}));
+  <u>if</u> (!res.ok) <u>throw new</u> <b>Error</b>(<b>"suggest_failed"</b>);
+  <u>return</u> (<u>await</u> res.json()).options;
+};
+
+<s>// suggestions are proposed, never auto-posted</s>
+panel.on(<b>"select"</b>, (text) =&gt; {
+  editor.focus();
+  insertAsEditable(text);   <s>// user reviews + edits</s>
+});</pre>
+    </div>
+  </div></div>
+
+  <div class="cardwrap" data-i="5"><div class="card">
+    <div class="card-l">
+      <div>
+        <div class="card-idx">06 / 06 &nbsp;·&nbsp; Signal Processing</div>
+        <h3>Speech<br>Enhancement</h3>
+        <p class="desc">A noise-reduction pipeline for recorded speech built on core DSP filtering principles, with signal-quality evaluated against the original recording rather than judged by ear. Spectral subtraction with a noise floor estimated from the silent frames, then measured on SNR and segmental SNR.</p>
+        <div class="stackrow"><i>MATLAB</i><i>DSP</i><i>Spectral Subtraction</i></div>
+      </div>
+      <div class="links"><a class="btn-ghost" href="mailto:hassnain32222000@gmail.com?subject=Walkthrough%20request">Request a walkthrough</a><span class="note">Repository publishing soon</span></div>
+    </div>
+    <div class="card-r">
+      <div class="bar"><i></i><i></i><i></i><em>enhance.m</em></div>
+      <pre>[x, fs] = <b>audioread</b>(<b>'noisy.wav'</b>);
+frame = <b>round</b>(<b>0.032</b>*fs);  hop = frame/<b>2</b>;
+
+<s>% estimate the floor from leading silence</s>
+N = <b>mean</b>(<b>abs</b>(<b>stft</b>(x(<b>1</b>:<b>10</b>*hop), frame, hop)).^<b>2</b>, <b>2</b>);
+
+X  = <b>stft</b>(x, frame, hop);
+P  = <b>max</b>(<b>abs</b>(X).^<b>2</b> - alpha*N, beta*N);   <s>% subtract</s>
+Y  = <b>sqrt</b>(P) .* <b>exp</b>(<b>1i</b>*<b>angle</b>(X));          <s>% keep phase</s>
+y  = <b>istft</b>(Y, frame, hop);
+
+<b>fprintf</b>(<b>'SNR  %.2f -> %.2f dB\n'</b>, snr(x), snr(y));
+<b>fprintf</b>(<b>'segSNR %.2f -> %.2f dB\n'</b>, ssnr(x), ssnr(y));</pre>
+    </div>
+  </div></div>
+
+</div></section>
+
+<section id="exp"><div class="wrap">
+  <div class="sec-head mono rv"><span>04 — Experience</span><span class="rule"></span></div>
+
+  <div class="xp rv">
+    <div class="when">Aug 2026 — Present</div>
+    <div>
+      <h4>Marketing Intern</h4>
+      <div class="org">Mercantile Pakistan · Islamabad</div>
+      <p>Run technical website audits with Lighthouse and PageSpeed Insights — load performance, responsiveness, Core Web Vitals — and turn campaign performance data into structured recommendations for the team.</p>
+    </div>
+  </div>
+
+  <div class="xp rv">
+    <div class="when">May — Jun 2026</div>
+    <div>
+      <h4>Cybersecurity Intern</h4>
+      <div class="org">Safe City Islamabad · Supervisor: Faraz Memon, Director Systems</div>
+      <p>Penetration-testing exercises and vulnerability assessments in controlled environments using Burp Suite, TryHackMe and the PortSwigger Web Security Academy. Reviewed applications for SQL injection, XSS, broken authentication and security misconfiguration, and presented findings on phishing and web application security.</p>
+    </div>
+  </div>
+
+  <div class="xp rv">
+    <div class="when">Jan 2026 — Present</div>
+    <div>
+      <h4>IT Recruiter</h4>
+      <div class="org">Atlas IT Services · Germany · Remote</div>
+      <p>Source and screen IT candidates for a Germany-based startup, owning communication from first outreach through interview scheduling, and evaluating technical profiles against role requirements with an engineering read on stack fit.</p>
+    </div>
+  </div>
+
+  <div class="xp rv">
+    <div class="when">Mar 2024 — Present</div>
+    <div>
+      <h4>IT Assistant</h4>
+      <div class="org">PMEye Management Consulting Intl. · Part-time</div>
+      <p>Maintain the company website and produce branding, announcement and portfolio material for digital channels.</p>
+    </div>
+  </div>
+</div></section>
+
+<section id="contact"><div class="wrap">
+  <div class="sec-head mono rv"><span>05 — Contact</span><span class="rule"></span></div>
+  <h2 class="big rv">Let's build<br>something.</h2>
+  <div class="contact-row">
+    <a class="mail rv d1" href="mailto:hassnain32222000@gmail.com">hassnain32222000@gmail.com</a>
+    <div class="rv d2" style="display:flex;gap:12px;flex-wrap:wrap">
+      <a class="btn" href="mailto:hassnain32222000@gmail.com">Email me
+        <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M4 12L12 4M6 4h6v6"/></svg></a>
+      <a class="btn-ghost" href="https://linkedin.com/in/hassnainkhandev" target="_blank" rel="noopener">LinkedIn</a>
+    </div>
+  </div>
+  <footer>
+    <div>© <span id="yr">2026</span> Hassnain Khan · Islamabad, Pakistan</div>
+    <div class="soc">
+      <a href="https://github.com/Hassnainkhan1249" target="_blank" rel="noopener">GitHub</a>
+      <a href="https://linkedin.com/in/hassnainkhandev" target="_blank" rel="noopener">LinkedIn</a>
+      <a href="https://smart-automl-dashboard.streamlit.app/" target="_blank" rel="noopener">Live demo</a>
+    </div>
+  </footer>
+</div></section>
+
+<noscript><style>.rv{opacity:1!important;transform:none!important}.about-text .c{opacity:1!important}.cardwrap{position:static;height:auto;padding:26px 0}.card{height:auto}</style></noscript>
+
+<script>
+(function(){
+  "use strict";
+  var reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  var yrEl = document.getElementById("yr");
+  if (yrEl) yrEl.textContent = new Date().getFullYear();
+
+  /* ---------- reveal on enter ---------- */
+  var io = new IntersectionObserver(function(entries){
+    entries.forEach(function(e){
+      if (e.isIntersecting){ e.target.classList.add("in"); io.unobserve(e.target); }
+    });
+  }, { rootMargin: "0px 0px -12% 0px", threshold: 0.08 });
+  document.querySelectorAll(".rv").forEach(function(el){ io.observe(el); });
+  requestAnimationFrame(function(){
+    document.querySelectorAll("header .rv").forEach(function(el){ el.classList.add("in"); });
+  });
+
+  /* ---------- marquee: fill + seamless clone ---------- */
+  document.querySelectorAll("[data-mq]").forEach(function(mq){
+    var inner = mq.querySelector(".mq-inner");
+    var span  = inner.querySelector("span");
+    var html  = span.innerHTML;
+    var guard = 0;
+    while (inner.scrollWidth < mq.clientWidth * 1.15 && guard++ < 12){
+      span.innerHTML += html;
+    }
+    mq.appendChild(inner.cloneNode(true));
+  });
+
+  /* ---------- magnetic portrait ---------- */
+  var mag = document.getElementById("magnet");
+  if (mag && !reduce && window.matchMedia("(pointer:fine)").matches){
+    var mx = 0, my = 0, cx = 0, cy = 0, magRaf = 0;
+    window.addEventListener("pointermove", function(e){
+      var r = mag.getBoundingClientRect();
+      var dx = e.clientX - (r.left + r.width/2);
+      var dy = e.clientY - (r.top + r.height/2);
+      var dist = Math.hypot(dx, dy);
+      var reach = Math.max(r.width, r.height) * 1.5;
+      if (dist < reach){ mx = dx * 0.16; my = dy * 0.16; }
+      else { mx = 0; my = 0; }
+      if (!magRaf) magRaf = requestAnimationFrame(magTick);
+    }, { passive: true });
+    function magTick(){
+      cx += (mx - cx) * 0.09;
+      cy += (my - cy) * 0.09;
+      mag.style.transform = "translate3d(" + cx.toFixed(2) + "px," + cy.toFixed(2) + "px,0)";
+      if (Math.abs(mx-cx) > 0.05 || Math.abs(my-cy) > 0.05){ magRaf = requestAnimationFrame(magTick); }
+      else { magRaf = 0; }
+    }
+  }
+
+  /* ---------- character-by-character scroll reveal ---------- */
+  var chars = [];
+  var aboutEl = document.querySelector("[data-chars]");
+  if (aboutEl){
+    var words = aboutEl.textContent.split(" ");
+    aboutEl.textContent = "";
+    words.forEach(function(w, wi){
+      var span = document.createElement("span");
+      span.className = "w";
+      (w + (wi < words.length-1 ? " " : "")).split("").forEach(function(ch){
+        var c = document.createElement("span");
+        c.className = "c";
+        c.textContent = ch;
+        span.appendChild(c);
+        chars.push(c);
+      });
+      aboutEl.appendChild(span);
+    });
+  }
+
+  /* ---------- sticky stacking cards ---------- */
+  var wraps = Array.prototype.slice.call(document.querySelectorAll(".cardwrap"));
+  var stack = document.getElementById("stack");
+  var total = wraps.length;
+  function applyTops(){
+    var stackMode = window.innerWidth > 700;
+    wraps.forEach(function(w, i){
+      w.style.top = stackMode ? (i * 24) + "px" : "";
+      if (!stackMode){ var c = w.querySelector(".card"); if (c) c.style.transform = ""; }
+    });
+  }
+  applyTops();
+
+  var geo = [];
+  function measure(){
+    if (!stack) return;
+    var sTop = stack.getBoundingClientRect().top + window.scrollY;
+    var end  = sTop + stack.offsetHeight - window.innerHeight;
+    geo = wraps.map(function(w, i){
+      var wTop = w.getBoundingClientRect().top + window.scrollY - (i * 24);
+      return {
+        el: w.querySelector(".card"),
+        start: wTop,
+        end: end,
+        target: 1 - (total - 1 - i) * 0.03
+      };
+    });
+  }
+
+  var progEl = document.getElementById("prog");
+  var navEl  = document.getElementById("nav");
+  var ticking = false;
+
+  function onScroll(){
+    var y  = window.scrollY;
+    var vh = window.innerHeight;
+
+    if (progEl){
+      var max = document.documentElement.scrollHeight - vh;
+      progEl.style.width = (max > 0 ? (y / max) * 100 : 0) + "%";
+    }
+    if (navEl) navEl.classList.toggle("solid", y > vh * 0.7);
+
+    if (!reduce && window.innerWidth > 700){
+      for (var i = 0; i < geo.length; i++){
+        var g = geo[i];
+        if (!g.el) continue;
+        var span = g.end - g.start;
+        var p = span > 0 ? (y - g.start) / span : 0;
+        p = p < 0 ? 0 : (p > 1 ? 1 : p);
+        var s = 1 - p * (1 - g.target);
+        g.el.style.transform = "scale(" + s.toFixed(4) + ")";
+      }
+    }
+
+    if (chars.length){
+      var r = aboutEl.getBoundingClientRect();
+      var startY = vh * 0.86, endY = vh * 0.30;
+      var prog = (startY - r.top) / (startY - endY);
+      prog = prog < 0 ? 0 : (prog > 1 ? 1 : prog);
+      var lead = prog * (chars.length + 22);
+      for (var j = 0; j < chars.length; j++){
+        var o = (lead - j) / 22;
+        o = o < 0 ? 0 : (o > 1 ? 1 : o);
+        chars[j].style.opacity = (0.13 + 0.87 * o).toFixed(3);
+      }
+    }
+    ticking = false;
+  }
+
+  window.addEventListener("scroll", function(){
+    if (!ticking){ ticking = true; requestAnimationFrame(onScroll); }
+  }, { passive: true });
+
+  var rt;
+  window.addEventListener("resize", function(){
+    clearTimeout(rt);
+    rt = setTimeout(function(){ applyTops(); measure(); onScroll(); }, 140);
+  });
+
+  window.addEventListener("load", function(){ measure(); onScroll(); });
+  measure(); onScroll();
+})();
 </script>
 </body>
 </html>
